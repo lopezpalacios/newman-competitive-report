@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Competitive Intelligence · C&I Energy Mexico 2026 | Newman Energy</title>
+<meta name="description" content="Competitive analysis of Mexico's C&I distributed energy sector 2026: Energía Real, Enlight, Niko and Quartux. Capacity, brand, SEO, pricing, capital and regulatory exposure. By Newman Energy.">
+<meta property="og:title" content="Competitive Intelligence · C&I Energy Mexico 2026">
+<meta property="og:description" content="Verified capacity, pricing, brand, SEO and the electricity reform. The 4 players in Mexico's C&I sector, analyzed.">
+<meta property="og:type" content="article">
+<link rel="alternate" hreflang="es-mx" href="https://lopezpalacios.github.io/newman-competitive-report/">
+<link rel="alternate" hreflang="en" href="https://lopezpalacios.github.io/newman-competitive-report/en.html">
+<link rel="alternate" hreflang="x-default" href="https://lopezpalacios.github.io/newman-competitive-report/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="newman.css">
+<style>
+  /* ---- report-specific data-viz layer · v3 palette (solid accent, no gradient) ---- */
+  .eyebrow-meta{display:flex;gap:var(--s-16);flex-wrap:wrap;font-family:var(--display);font-size:var(--text-label);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:var(--s-36)}
+  .eyebrow-meta span{display:inline-flex;align-items:center;gap:var(--s-8)}
+  .eyebrow-meta span::before{content:"";width:5px;height:5px;background:var(--magenta)}
+
+  /* card with thin accent top edge (replaces old gradient card) */
+  .card-top{position:relative;overflow:hidden}
+  .card-top::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:var(--accent)}
+
+  /* horizontal bar chart */
+  .chart{margin-top:var(--s-36)}
+  .bar-row{display:grid;grid-template-columns:140px 1fr auto;align-items:center;gap:var(--s-16);margin-bottom:var(--s-16)}
+  .bar-row .lbl{font-family:var(--display);font-size:var(--text-body-sm);font-weight:var(--w-med);color:var(--text)}
+  .bar-track{position:relative;height:14px;background:#e1d8ef;border-radius:var(--r-pill);overflow:hidden}
+  .bar-fill{position:absolute;inset:0 auto 0 0;width:0;border-radius:var(--r-pill);transition:width .9s cubic-bezier(.22,1,.36,1)}
+  .bar-row .val{font-family:var(--display);font-size:var(--text-body-sm);font-weight:var(--w-light);color:var(--muted);min-width:64px;text-align:right}
+  .bar-track.dual .bar-fill.claim{background:repeating-linear-gradient(45deg,#c9bedd,#c9bedd 6px,#d8cfe6 6px,#d8cfe6 12px);z-index:1}
+  .bar-track.dual .bar-fill.real{background:var(--accent);z-index:2}
+  .c-er{background:#621558}.c-en{background:#981060}.c-ni{background:#B80E65}.c-qx{background:#191B4D}.c-nm{background:#621558}.c-grey{background:#8E86A0}
+
+  /* exposure heatmap matrix */
+  .matrix{width:100%;border-collapse:separate;border-spacing:6px;margin-top:var(--s-24)}
+  .matrix th{font-family:var(--display);font-weight:var(--w-reg);font-size:var(--text-label);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:left;padding:8px}
+  .matrix td{padding:14px 16px;border-radius:var(--r-sm);font-size:var(--text-body-sm);vertical-align:top;color:var(--muted)}
+  .matrix td.co{font-family:var(--display);font-weight:var(--w-med);color:#fff;min-width:120px}
+  .risk{font-family:var(--display);font-weight:var(--w-med);font-size:var(--text-label);letter-spacing:.06em;text-transform:uppercase;color:#fff;padding:6px 12px;border-radius:var(--r-pill);display:inline-block;white-space:nowrap}
+  .risk.low{background:#1f7a57}.risk.med{background:#9a6510}.risk.high{background:#b3382c}.risk.adv{background:#0d6347}
+
+  /* persuasion score dots */
+  .score{display:inline-flex;gap:4px;vertical-align:middle}
+  .score i{width:11px;height:11px;border-radius:50%;background:#ded5ea;display:inline-block}
+  .score i.on{background:var(--accent)}
+
+  /* data table */
+  .dtable{width:100%;border-collapse:collapse;margin-top:var(--s-24);font-size:var(--text-body-sm)}
+  .dtable th{font-family:var(--display);font-weight:var(--w-reg);font-size:var(--text-label);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:left;padding:12px 14px;border-bottom:2px solid var(--line)}
+  .dtable td{padding:14px 14px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--muted)}
+  .dtable tr:hover td{background:var(--accent-tint)}
+  .dtable td strong{color:var(--text);font-weight:var(--w-semi)}
+  .chip{display:inline-block;font-family:var(--display);font-size:11px;letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:var(--r-pill);font-weight:500}
+  .chip.buy{background:var(--accent-tint);color:var(--accent)}.chip.earn{background:#e2f1ea;color:#0d6347}
+  .chip.up{background:#e2f1ea;color:#0d6347}.chip.flat{background:#f6ece0;color:#8a5a06}
+
+  /* callout */
+  .callout{border-left:3px solid var(--accent);background:var(--surface);border:1px solid var(--line);border-left-width:3px;border-radius:0 var(--r-sm) var(--r-sm) 0;padding:var(--s-24) var(--s-24) var(--s-24) var(--s-36);margin-top:var(--s-24)}
+  .callout .k{font-family:var(--display);font-size:var(--text-label);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:var(--s-8)}
+  .callout p{color:var(--text)}
+
+  /* network graph */
+  .netwrap{margin-top:var(--s-36);overflow-x:auto}
+  .netgraph{min-width:680px;width:100%;height:auto}
+  .netgraph .edge{stroke:#cabfdd;stroke-width:1.5}
+  .netgraph .edge.dim{stroke-dasharray:4 4;stroke:#d8cfe6}
+  .netgraph .node-co{fill:#191B4D}
+  .netgraph .node-inv{fill:#fff;stroke:#cabfdd;stroke-width:1.5}
+  .netgraph .node-hw{fill:#F1E9F4;stroke:#621558;stroke-width:1.5}
+  .netgraph text{font-family:var(--display);font-size:12px;fill:#221A33}
+  .netgraph text.co{fill:#fff;font-weight:600}
+  .netgraph text.sm{font-size:10px;fill:#5F5870}
+
+  .legend{display:flex;gap:var(--s-24);flex-wrap:wrap;margin-top:var(--s-16);font-size:var(--text-label);color:var(--muted);font-family:var(--display);letter-spacing:.04em;text-transform:uppercase}
+  .legend i{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:6px;vertical-align:middle}
+  .conf{font-size:11px;color:var(--muted);font-style:italic}
+  .src{font-size:12px;color:var(--muted);margin-top:var(--s-16)}
+  .src a{color:var(--accent)}
+  .tl-rule{height:1px;background:var(--line);margin:var(--s-48) 0;border:0}
+  /* TAM/SAM/SOM funnel */
+  .funnel{margin-top:var(--s-36);display:flex;flex-direction:column;gap:10px;align-items:center}
+  .frow{position:relative;color:#fff;border-radius:var(--r-input);padding:22px 28px;text-align:center;transition:width .9s cubic-bezier(.22,1,.36,1)}
+  .frow .v{font-family:var(--display);font-weight:var(--w-light);font-size:clamp(28px,4vw,44px);line-height:1}
+  .frow .l{font-family:var(--display);font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin-top:6px;opacity:.92}
+  .frow.tam{width:100%;background:#191B4D}
+  .frow.sam{width:64%;background:#3A1852}
+  .frow.som{width:34%;background:#621558}
+  .assume{display:grid;grid-template-columns:auto 1fr;gap:var(--s-12) var(--s-16);margin-top:var(--s-36);font-size:var(--text-body-sm)}
+  .assume .t{font-family:var(--display);font-weight:var(--w-med);color:var(--navy);white-space:nowrap}
+  .assume .d{color:var(--muted)}
+  @media (max-width:860px){.bar-row{grid-template-columns:104px 1fr auto}.frow.sam,.frow.som{width:100%}.assume{grid-template-columns:1fr}.assume .t{margin-top:var(--s-8)}}
+  /* references appendix */
+  .refgroup{margin-bottom:var(--s-36)}
+  .refgroup h4{font-family:var(--display);font-weight:var(--w-med);font-size:var(--text-label);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:var(--s-12);display:flex;align-items:center;gap:var(--s-8)}
+  .refgroup h4::before{content:"";width:6px;height:6px;background:var(--magenta);flex:none}
+  .ref{display:grid;grid-template-columns:30px 1fr;gap:var(--s-12);padding:10px 0;border-bottom:1px solid var(--line);font-size:var(--text-body-sm)}
+  .ref .n{font-family:var(--display);color:var(--accent);font-weight:var(--w-semi)}
+  .ref a{color:var(--accent);word-break:break-word}
+  .ref .what{display:block;color:var(--muted);margin-top:3px;font-size:12.5px}
+  /* porter five forces — plus layout */
+  .forces{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-16);margin-top:var(--s-36)}
+  .forces .f-top{grid-column:2;grid-row:1}
+  .forces .f-left{grid-column:1;grid-row:2}
+  .forces .f-mid{grid-column:2;grid-row:2}
+  .forces .f-right{grid-column:3;grid-row:2}
+  .forces .f-bot{grid-column:2;grid-row:3}
+  .force{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);padding:var(--s-24)}
+  .force.mid{background:var(--navy);border-color:var(--navy)}
+  .force h4{font-family:var(--display);font-size:16px;font-weight:var(--w-med);color:var(--navy);display:flex;justify-content:space-between;align-items:center;gap:var(--s-8)}
+  .force.mid h4{color:#fff}
+  .force p{font-size:13px;color:var(--muted);margin-top:10px;max-width:none}
+  .force.mid p{color:var(--on-dark)}
+  @media (max-width:860px){.forces{grid-template-columns:1fr}.forces>*{grid-column:1!important;grid-row:auto!important}}
+  /* investment memo card */
+  .memo{border:1px solid var(--line);border-radius:var(--r-card);overflow:hidden;background:var(--surface);margin-top:var(--s-36)}
+  .memo .head{background:var(--navy);color:#fff;padding:18px 28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--s-8)}
+  .memo .head .t{font-family:var(--display);font-weight:var(--w-med);letter-spacing:.03em;font-size:18px;color:#fff}
+  .memo .head .tag{font-family:var(--display);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-muted)}
+  .memo .row{display:grid;grid-template-columns:180px 1fr;gap:var(--s-24);padding:16px 28px;border-top:1px solid var(--line)}
+  .memo .row .k{font-family:var(--display);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);display:flex;align-items:flex-start;gap:var(--s-8)}
+  .memo .row .k::before{content:"";width:6px;height:6px;background:var(--magenta);flex:none;margin-top:5px}
+  .memo .row .v{color:var(--text);font-size:15px;line-height:1.5}
+  @media (max-width:860px){.memo .row{grid-template-columns:1fr;gap:6px}}
+  /* print / PDF — clean export for the deal room */
+  @media print{
+    .nav,.toasts,.skip,.cta,.hero .eyebrow-meta{display:none!important}
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    body{background:#fff}
+    .section{padding-block:22px!important}
+    .hero,.panel{background:#fff!important}
+    .hero .wrap{padding-block:24px!important}
+    h1{font-size:34px!important}
+    .h-lg{font-size:26px!important}
+    .card,.callout,.dtable,.memo,.forces,.funnel,.netgraph,.stats,.principle,.assume{break-inside:avoid}
+    h2,h3,h4,.kicker{break-after:avoid}
+    .footer{background:#fff!important}
+    .footer a,.footer .muted,.footer .caps,.footer .end{color:#333!important}
+    a{text-decoration:none}
+    #fuentes{break-before:page}
+  }
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Skip to content</a>
+
+<!-- ===================== NAV ===================== -->
+<nav class="nav" aria-label="Primary">
+  <div class="row">
+    <a href="#top" class="brand" aria-label="Newman Energy — home">
+      <svg viewBox="0 0 1865.2 185.03" height="20" role="img" aria-label="Newman">
+        <defs><linearGradient id="nm" x1="65.13" y1="98.26" x2="220.81" y2="-6.74" gradientUnits="userSpaceOnUse">
+          <stop offset=".15" stop-color="#191b4d"/><stop offset="1" stop-color="#b80e65"/></linearGradient></defs>
+        <g class="word" fill="#fff">
+          <path d="M329.74,6.8h41.71l111.77,119.15V6.8h38.95v165.93h-42.87l-110.39-119.15v119.15h-39.18V6.8Z"/>
+          <path d="M607.21,37.45v36.41h113.62v28.12h-113.62v40.1h119.38v30.65h-161.32V6.8h161.32v30.65h-119.38Z"/>
+          <path d="M1057.29,6.8l-64.3,165.93h-49.09l-38.03-111.77-2.77-8.99-2.54,8.99-38.03,111.77h-49.09L749.16,6.8h43.56l45.63,133.44,44.25-129.06h41.25l41.25,120.07,3,8.99,3.22-9.22,42.41-124.22h43.56Z"/>
+          <path d="M1086.78,6.8h52.08l57.85,99.1,4.15,6.68,61.76-105.78h51.86v165.93h-37.57V47.13l-5.07,8.76-54.62,90.8h-32.96l-59.69-99.56v125.6h-37.79V6.8Z"/>
+          <path d="M1489.85,136.78h-91.49l-16.36,35.95h-42.87L1419.79,6.8h48.17l80.89,165.93h-42.63l-16.36-35.95ZM1476.72,107.97l-32.5-71.44-32.73,71.44h65.22Z"/>
+          <path d="M1573.27,6.8h41.71l111.77,119.15V6.8h38.95v165.93h-42.87l-110.39-119.15v119.15h-39.18V6.8Z"/>
+        </g>
+        <g fill="url(#nm)">
+          <polygon points="2.47 3.06 0 0 85.76 0 86.47 1.3 168.41 152.36 147.28 185.03 2.47 3.06"/>
+          <polygon points="95.54 3.04 93.17 0 151.49 0 152.2 1.33 204.39 96.74 188.98 120.56 95.54 3.04"/>
+          <polygon points="161.87 3.07 159.39 0 197.72 0 198.42 1.33 229.39 58.08 218.74 74.54 161.87 3.07"/>
+          <polygon points="205.52 0 228.73 0 246.42 31.75 239.32 42.72 205.52 0"/>
+          <polygon points="236.11 0 266.95 0 253.06 21.48 236.11 0"/>
+        </g>
+      </svg>
+    </a>
+    <div class="links">
+      <a href="#memo-inversion">Memo</a>
+      <a href="#mercado">Market</a>
+      <a href="#posicionamiento">Position</a>
+      <a href="#seo">SEO</a>
+      <a href="#reforma">Reform</a>
+      <a href="#newman">Newman</a>
+      <a href="index.html" aria-label="Versión en español">ES</a>
+      <a href="seo.html" class="btn">SEO Plan →</a>
+    </div>
+    <button class="burger" aria-label="Menu" aria-expanded="false">☰</button>
+  </div>
+</nav>
+
+<main id="main">
+<span id="top"></span>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <div class="wrap">
+    <p class="kicker">Competitive Intelligence · C&I Sector</p>
+    <h1>The board of <b>distributed</b><br>energy in Mexico.</h1>
+    <p class="lead">Four players are contesting the commercial and industrial market: Energía Real, Enlight, Niko and Quartux. We dismantle their capacity claims, their brand, their SEO, their pricing, their capital and their exposure to the 2025 electricity reform — and where the empty space lies.</p>
+    <div class="cta">
+      <a href="#resumen" class="btn">Read the analysis</a>
+      <a href="#newman" class="btn-outline">The takeaway for Newman</a>
+    </div>
+    <div class="eyebrow-meta">
+      <span>June 2026</span>
+      <span>5 research fronts</span>
+      <span>Public data + regulatory verification</span>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== MEMO DE INVERSIÓN (30 SEG) ===================== -->
+<section class="section" id="memo-inversion">
+  <div class="wrap">
+    <p class="kicker">Investment memo · 30-second read</p>
+    <h2 class="h-lg">The whole case, on one screen.</h2>
+    <div class="section-rule"></div>
+    <div class="memo" data-reveal>
+      <div class="head"><span class="t">Newman Energy — Intelligence layer for C&I energy</span><span class="tag">Confidential · Jun 2026</span></div>
+      <div class="row"><div class="k">Opportunity</div><div class="v">Become the <strong>tariff intelligence</strong> layer of commercial and industrial distributed energy in Mexico — the quadrant no incumbent occupies.</div></div>
+      <div class="row"><div class="k">Market</div><div class="v"><strong>~$28.5 billion USD/year</strong> of C&I electricity spend; distributed generation growing <strong>+35%/year</strong>; tailwind from the 2025 reform + nearshoring.</div></div>
+      <div class="row"><div class="k">Thesis</div><div class="v">Four rivals compete on <strong>capital</strong> or on <strong>product</strong>; none on intelligence. Newman reads the CFE tariff better than anyone and <strong>proves the savings before signing</strong>. Capital-light, defensible by data.</div></div>
+      <div class="row"><div class="k">Why now</div><div class="v">The reform rewards storage + DG ≤0.7 MW (the lowest-risk anchor); CFE keeps getting pricier; and the sector's inflated numbers (40% advertised vs. <strong>13% real</strong>) open a credibility gap.</div></div>
+      <div class="row"><div class="k">Competition</div><div class="v">Energía Real (capital, US$700M) · Quartux (storage/AI, US$50M) · Niko (VC/VPP, US$23M) · Enlight (brand, cap table frozen since 2017).</div></div>
+      <div class="row"><div class="k">Model</div><div class="v">PPA / BESS with no capex + intelligence SaaS. <strong>Honest 18–30%</strong> savings, recurring revenue with software-like margin; the ungated calculator lowers acquisition cost.</div></div>
+      <div class="row"><div class="k">Key risk</div><div class="v">Regulatory reversal (net metering in MV) + incumbent capital — mitigated with a behind-the-meter posture + storage + niche. <a href="#riesgos" style="color:var(--accent)">Full register →</a></div></div>
+    </div>
+    <div style="margin-top:var(--s-24);display:flex;gap:var(--s-16);align-items:center;flex-wrap:wrap">
+      <button class="btn" onclick="window.print()">⬇ Download as PDF</button>
+      <span class="muted">Optimized for print / data room</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TESIS DE INVERSIÓN (BLUF) ===================== -->
+<section class="section" id="tesis-inversion">
+  <div class="wrap">
+    <p class="kicker">Investment thesis · Conclusion first</p>
+    <h2 class="h-lg">Four incumbents compete on balance sheet or on product.<br>None compete on <b style="color:var(--accent);font-weight:var(--w-semi)">intelligence</b>.</h2>
+    <div class="section-rule"></div>
+    <div class="split">
+      <div>
+        <p class="lead">Mexico's commercial and industrial distributed energy market is growing on two simultaneous forces —the 2025 electricity reform and nearshoring— and is split among four players that win with <strong>capital</strong> (Energía Real) or with <strong>product</strong> (panels, batteries). There is an empty quadrant: nobody competes on <strong>tariff intelligence</strong>. Newman occupies it — reading CFE's bill and tariff better than anyone and <strong>proving the savings before the customer signs</strong>. It is a capital-light layer, defensible by data and with the regulatory wind at its back.</p>
+        <p class="muted" style="margin-top:var(--s-24)">A C&I electricity spend pool of <strong style="color:var(--text)">~$28.5 billion/year</strong> with double-digit growth. <a href="#mercado" style="color:var(--accent)">See the TAM/SAM/SOM sizing →</a></p>
+      </div>
+      <div>
+        <div class="principles" style="margin-top:0;border-top:0">
+          <div class="principle" style="padding-top:0"><div class="idx">01</div><div><h3>The headlines don't survive scrutiny</h3><p>Energía Real announces 250 MW; its own press release says ~80 MW installed. Whoever arrives with auditable numbers wins the credibility the sector lost.</p></div></div>
+          <div class="principle"><div class="idx">02</div><div><h3>Honesty is the gap</h3><p>"Up to 40%" advertised vs. 13% real (the leader's own Chedraui case). Tariff intelligence turns that gap into Newman's differentiator.</p></div></div>
+          <div class="principle"><div class="idx">03</div><div><h3>Regulatory timing favors the anchor</h3><p>The reform rewards storage + DG ≤0.7 MW: exactly the lowest-exposure model. The clock works for an entrant with this posture.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== STAT BAND ===================== -->
+<section class="section panel">
+  <div class="wrap">
+    <div class="stats" data-reveal>
+      <div class="stat"><div class="num" data-to="4">0</div><small>Direct competitors analyzed in depth</small></div>
+      <div class="stat"><div class="num" data-to="$823M">0</div><small>USD in announced capital across the four (plans + rounds)</small></div>
+      <div class="stat"><div class="num" data-to="0.7 MW">0</div><small>New permit-free distributed generation threshold (LSE 2025)</small></div>
+    </div>
+    <div class="stats" data-reveal style="margin-top:var(--s-48)">
+      <div class="stat"><div class="num" data-to="$1.80">0</div><small>MXN/kWh: only published PPA price (Energía Real)</small></div>
+      <div class="stat"><div class="num" data-to="54%">0</div><small>Energy to the grid reserved by law for CFE</small></div>
+      <div class="stat"><div class="num" data-to="13%">0</div><small>Documented real savings of a PPA that advertises "up to 40%"</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TAMAÑO DE MERCADO ===================== -->
+<section class="section" id="mercado">
+  <div class="wrap">
+    <p class="kicker">Market size · TAM / SAM / SOM</p>
+    <h2 class="h-lg">$28.5 billion a year flows through the industrial power bill.</h2>
+    <div class="section-rule"></div>
+    <p class="lead" style="max-width:62ch">Commerce and industry consume <strong>72%</strong> of Mexico's electricity (~360 TWh in 2024). At CFE medium-voltage pricing, that is an electricity spend pool of <strong>~$28.5 billion USD a year</strong> — the money on the table that Newman helps optimize. Distributed generation is growing on top of it at double digits (<strong>+35% in 2024</strong>).</p>
+
+    <div class="funnel" data-reveal>
+      <div class="frow tam"><div class="v">$28.5 B</div><div class="l">TAM · Annual C&I electricity spend in Mexico</div></div>
+      <div class="frow sam"><div class="v">~$3.5 B</div><div class="l">SAM · Distributed-energy services addressable to C&I</div></div>
+      <div class="frow som"><div class="v">~$50 M</div><div class="l">SOM · Newman 3-year target (beachhead)</div></div>
+    </div>
+
+    <div class="assume">
+      <div class="t">TAM — $28.5 B/year</div>
+      <div class="d">359,807 GWh of gross consumption in 2024 × 72% C&I share × ~$0.11 USD/kWh (average GDMTH medium-voltage tariff). <span class="conf">Anchored in public data.</span></div>
+      <div class="t">SAM — ~$3.5 B/year</div>
+      <div class="d">~12% of the TAM convertible to distributed-energy services (solar + BESS + software) at C&I sites with viable tariff and rooftop/demand. Cross-check: ~1 GW/year of new DG ≈ $1B+ of capex/year + PPA value + O&M. <span class="conf">Explicit, directional assumption.</span></div>
+      <div class="t">SOM — ~$50 M/year</div>
+      <div class="d">~1.4% of the SAM: realistic 3-year capture in a focus segment (Bajío/nearshoring corridor + prioritized verticals), entering through the intelligence layer (savings analytics + PPA/BESS origination). <span class="conf">Target, pending primary validation.</span></div>
+    </div>
+
+    <hr class="tl-rule">
+    <div class="grid grid-3" data-reveal>
+      <div class="card"><h3 style="font-size:var(--text-subheading)">Driver 1 · 2025 Reform</h3><p>Binding mandate of 8,647 MW of BESS + DG threshold to 0.7 MW. Regulation pushes precisely Newman's lowest-risk product.</p></div>
+      <div class="card"><h3 style="font-size:var(--text-subheading)">Driver 2 · Nearshoring</h3><p>New industrial plants with growing demand and ESG targets, in corridors (Bajío, north) where CFE's cost and reliability are tightening.</p></div>
+      <div class="card"><h3 style="font-size:var(--text-subheading)">Driver 3 · Adoption curve</h3><p>5,437 MW of cumulative DG (end of 2025), 99% solar, +630 thousand interconnection requests. The market has already validated demand; intelligence is missing.</p></div>
+    </div>
+    <p class="src">Sources: CNE / pv-magazine-latam (DG 4,447.92 MW in 2024 across 518,019 contracts; +35.3%; 5,437 MW at year-end 2025); 2024 gross consumption ~359,807 GWh and 72% C&I (Wikipedia/Trade.gov electricity sector); GDMTH tariff ~$0.119 USD/kWh (tetakawi/evoluo). TAM anchored in public figures; SAM and SOM are explicit, flagged assumptions — <em>not false precision</em>; to be replaced with primary data in v1.1.</p>
+  </div>
+</section>
+
+<!-- ===================== RESUMEN EJECUTIVO ===================== -->
+<section class="section panel" id="resumen">
+  <div class="wrap">
+    <p class="kicker">Executive summary</p>
+    <h2 class="h-lg">Four models, one and the same promise.</h2>
+    <div class="section-rule"></div>
+    <p class="lead" style="max-width:60ch">All four sell the same pitch —"lower your CFE bill, no investment"—. The real difference lies in the model, the capital and the honesty of their numbers. At a glance:</p>
+
+    <div class="grid grid-2" style="margin-top:var(--s-48)">
+      <article class="card card-top" data-reveal>
+        <h3>Energía Real</h3>
+        <p><strong>The heavyweight.</strong> Solar PPA + BESS + private grids + MEM for industry and real estate. Backed by Riverstone, a US$700M plan. The only one that publishes a price (~$1.80 MXN/kWh). ~80 MW actually installed vs. 250 MW headline.</p>
+        <div style="margin-top:var(--s-16)"><span class="badge">Scale &amp; capital</span></div>
+      </article>
+      <article class="card card-top" data-reveal>
+        <h3>Enlight</h3>
+        <p><strong>The incumbent.</strong> C&I solar + storage, "One Stop Energy Shop". A portfolio of blue-chip logos (FEMSA, Bayer, Liverpool) and ENGIE behind it. But the cap table has been frozen since 2017 and one co-founder has already left.</p>
+        <div style="margin-top:var(--s-16)"><span class="badge">Brand &amp; clients</span></div>
+      </article>
+      <article class="card card-top" data-reveal>
+        <h3>Niko</h3>
+        <p><strong>The disruptor.</strong> Residential + C&I solar + virtual power plant (VPP), fintech tone. ~US$23M from QED and others in under 12 months. The best brand voice of the group… but its blog is down and the VPP story doesn't appear on its site.</p>
+        <div style="margin-top:var(--s-16)"><span class="badge">Speed &amp; capital</span></div>
+      </article>
+      <article class="card card-top" data-reveal>
+        <h3>Quartux</h3>
+        <p><strong>The specialist.</strong> C&I storage (BESS) + AI dispatch software. US$50M from AINDA, ~10× headcount growth. It doesn't compete with the solar players: it captures the 30–50% of the bill that the sun can't touch. The most resilient to the reform.</p>
+        <div style="margin-top:var(--s-16)"><span class="badge">Storage</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== POSICIONAMIENTO 2x2 ===================== -->
+<section class="section" id="posicionamiento">
+  <div class="wrap">
+    <p class="kicker">Strategic map · The empty quadrant</p>
+    <h2 class="h-lg">Capital vs. intelligence: where each one plays.</h2>
+    <div class="section-rule"></div>
+    <p class="lead" style="max-width:62ch">Two axes decide this market: <strong>capital depth</strong> (balance-sheet power to finance PPAs) and the <strong>intelligence moat</strong> (proprietary software, tariff data, dispatch). The four incumbents cluster at the bottom and to the right. The top-left quadrant —winning with intelligence, not balance sheet— is <strong>empty</strong>. That's where Newman enters.</p>
+
+    <div class="netwrap" data-reveal>
+      <svg class="netgraph" viewBox="0 0 640 470" role="img" aria-label="Positioning map: capital depth vs intelligence moat">
+        <!-- whitespace quadrant tint (top-left) -->
+        <rect x="80" y="40" width="260" height="153" fill="#F1E9F4"/>
+        <!-- quadrant divider crosshair -->
+        <line x1="340" y1="40" x2="340" y2="380" stroke="#E4DEF1" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <line x1="80" y1="193" x2="600" y2="193" stroke="#E4DEF1" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <!-- axes -->
+        <line x1="80" y1="380" x2="600" y2="380" stroke="#221A33" stroke-width="1.5"/>
+        <line x1="80" y1="380" x2="80" y2="40" stroke="#221A33" stroke-width="1.5"/>
+        <polygon points="600,380 590,375 590,385" fill="#221A33"/>
+        <polygon points="80,40 75,50 85,50" fill="#221A33"/>
+        <!-- axis labels -->
+        <text x="340" y="410" text-anchor="middle" fill="#221A33" font-weight="600">Capital depth →</text>
+        <text x="40" y="210" text-anchor="middle" fill="#221A33" font-weight="600" transform="rotate(-90 40 210)">Intelligence moat →</text>
+        <!-- quadrant labels -->
+        <text class="sm" x="210" y="62" text-anchor="middle" fill="#8A0A4B" font-weight="600">INTELLIGENCE WITHOUT BALANCE SHEET</text>
+        <text class="sm" x="470" y="62" text-anchor="middle">Dominant platform</text>
+        <text class="sm" x="210" y="372" text-anchor="middle">Commodity installer</text>
+        <text class="sm" x="470" y="372" text-anchor="middle">Scale through capital</text>
+        <!-- players: cx,cy from (capital, intelligence) on 0-100 grid -->
+        <!-- Quartux 55,78 -->
+        <g><circle cx="366" cy="115" r="8" fill="#191B4D"/><text x="378" y="119" fill="#221A33">Quartux</text></g>
+        <!-- Niko 40,65 -->
+        <g><circle cx="288" cy="159" r="8" fill="#191B4D"/><text x="300" y="163" fill="#221A33">Niko</text></g>
+        <!-- Energía Real 95,45 -->
+        <g><circle cx="574" cy="227" r="8" fill="#191B4D"/><text x="528" y="246" fill="#221A33">Energía Real</text></g>
+        <!-- Enlight 45,30 -->
+        <g><circle cx="314" cy="278" r="8" fill="#191B4D"/><text x="326" y="282" fill="#221A33">Enlight</text></g>
+        <!-- Newman 15,88 — highlighted -->
+        <g><circle cx="158" cy="81" r="12" fill="#621558"/><text x="176" y="85" fill="#621558" font-weight="600">Newman</text></g>
+      </svg>
+    </div>
+    <div class="legend">
+      <span><i style="background:#191B4D"></i>Incumbent</span>
+      <span><i style="background:#621558"></i>Newman</span>
+      <span><i style="background:#F1E9F4"></i>Unoccupied quadrant</span>
+    </div>
+    <p class="src">Qualitative axes based on the evidence from the six fronts (announced capital, software/data depth, proprietary dispatch). Quartux leads on intelligence among the incumbents (AI dispatch); Energía Real dominates on capital. The "intelligence without balance sheet" quadrant has no occupant — Newman's capital-light + tariff-data posture.</p>
+  </div>
+</section>
+
+<!-- ===================== CAPACIDAD ===================== -->
+<section class="section panel" id="capacidad">
+  <div class="wrap">
+    <p class="kicker">Front 01 · Declared vs. verifiable capacity</p>
+    <h2 class="h-lg">Headline megawatts are almost never the installed ones.</h2>
+    <div class="section-rule"></div>
+    <p class="lead" style="max-width:62ch">Structural finding: <strong>in Mexico there is no public registry of capacity by company</strong>. Distributed generation under 0.7 MW per site requires no permit from the CNE (formerly CRE) and is reported only in aggregate and anonymously. Therefore <strong>no fleet figure is auditable at the company level</strong>: all are self-reported. Only three named projects have third-party corroboration.</p>
+
+    <div class="chart" data-reveal>
+      <p class="muted" style="margin-bottom:var(--s-16)">Energía Real — declared vs. actually installed (per their own press release, March 2025)</p>
+      <div class="bar-row">
+        <span class="lbl">Headline</span>
+        <div class="bar-track dual"><div class="bar-fill claim" data-w="100%"></div></div>
+        <span class="val">250 MW</span>
+      </div>
+      <div class="bar-row">
+        <span class="lbl">Installed today</span>
+        <div class="bar-track dual"><div class="bar-fill real" data-w="32%"></div></div>
+        <span class="val">~80 MW</span>
+      </div>
+      <p class="conf">The difference = contracted/pipeline + 50 MW of "MEM" which is traded energy, not owned capacity. The 250 MW figure mixes different units.</p>
+    </div>
+
+    <hr class="tl-rule">
+
+    <div class="grid grid-3" data-reveal>
+      <div class="card">
+        <h3 style="font-size:var(--text-subheading)">Verifiable ✓</h3>
+        <p>Only named projects with a third-party source: <strong>Liverpool 14.5 MWp</strong> (Enlight), <strong>Frialsa 10.85 MWp</strong> (Enlight), <strong>Cancún 25 MWh BESS</strong> (Quartux + Sungrow).</p>
+      </div>
+      <div class="card">
+        <h3 style="font-size:var(--text-subheading)">Mixing of units</h3>
+        <p>The recurring trick: presenting MWp (solar), MWh (storage), GWh (cumulative generation) and MW of MEM as if they were the same. Enlight's 460 GWh = lifetime generation, not capacity.</p>
+      </div>
+      <div class="card">
+        <h3 style="font-size:var(--text-subheading)">Unfalsifiable</h3>
+        <p>"85% of the C&I storage segment" (Quartux), "+8,000 clients" (Enlight), "50 GWh dispatched" — no public dataset can confirm or refute them.</p>
+      </div>
+    </div>
+    <p class="src">Sources: Energía Real press release (pv-magazine-mexico); energy-storage.news (Cancún 25 MWh); CRE/CNE distributed generation; enlight.mx/retail. Every fleet figure: <em>self-reported, not audited</em>.</p>
+  </div>
+</section>
+
+<!-- ===================== MARCA / PERSUASIÓN ===================== -->
+<section class="section" id="marca">
+  <div class="wrap">
+    <p class="kicker">Front 02 · Brand and persuasion</p>
+    <h2 class="h-lg">They all lead with the "%", which is exactly what doesn't differentiate.</h2>
+    <div class="section-rule"></div>
+    <p class="lead" style="max-width:62ch">Rory Sutherland lens: people don't buy the thing, they buy its meaning. When all four make the same rational promise ("up to 40%"), that promise is worth zero. Each one buries its true psychological asset. Hero copy score (out of 10):</p>
+
+    <div class="chart" data-reveal style="max-width:760px">
+      <div class="bar-row"><span class="lbl">Energía Real</span><div class="bar-track"><div class="bar-fill c-er" data-w="70%"></div></div><span class="val">7 / 10</span></div>
+      <div class="bar-row"><span class="lbl">Quartux</span><div class="bar-track"><div class="bar-fill c-qx" data-w="70%"></div></div><span class="val">7 / 10</span></div>
+      <div class="bar-row"><span class="lbl">Enlight</span><div class="bar-track"><div class="bar-fill c-en" data-w="60%"></div></div><span class="val">6 / 10</span></div>
+      <div class="bar-row"><span class="lbl">Niko</span><div class="bar-track"><div class="bar-fill c-ni" data-w="50%"></div></div><span class="val">5 / 10</span></div>
+    </div>
+
+    <div class="grid grid-2" style="margin-top:var(--s-48)">
+      <div class="callout" data-reveal>
+        <span class="k">The best line in the sector (wasted)</span>
+        <p>Niko, on its "About us" page: <em>"buying a solar system was like buying a car from a used-car salesman"</em>. Clear villain, reframe toward trust and simplicity. Pure Sutherland — and it doesn't appear on its home page, which opens with a generic "energy efficiency for your company".</p>
+      </div>
+      <div class="callout" data-reveal>
+        <span class="k">The best risk reversal</span>
+        <p>Quartux: <em>"if there are no savings, there are no payments."</em> It removes the risk from the decision. A costly signal of confidence. But it hides its best proof points (Cancún, 85% market, US$50M) in press releases, not on the site.</p>
+      </div>
+    </div>
+    <p class="src">Source: direct audit of homepages and subpages (Jun 2026). Framework: Sutherland (psychological value), Schwartz (awareness stages), Dunford (positioning), Cialdini (triggers).</p>
+  </div>
+</section>
+
+<!-- ===================== SEO ===================== -->
+<section class="section panel" id="seo">
+  <div class="wrap">
+    <p class="kicker">Front 03 · SEO battlefield</p>
+    <h2 class="h-lg">Two buy traffic; two earn it. The leader excluded itself from AI.</h2>
+    <div class="section-rule"></div>
+
+    <table class="dtable" data-reveal>
+      <thead><tr><th>Domain</th><th>On-page SEO /100</th><th>Authority (est.)</th><th>Organic traffic (est.)</th><th>Acquisition model</th><th>LinkedIn</th></tr></thead>
+      <tbody>
+        <tr><td><strong>energiareal.mx</strong></td><td>78</td><td>DR ~20–35</td><td>~10K/mo</td><td><span class="chip buy">Buys (Display #1)</span></td><td>~15K</td></tr>
+        <tr><td><strong>quartux.com</strong></td><td>74</td><td>DR ~15–30</td><td>~7K/mo (+55% MoM)</td><td><span class="chip earn">Earns (95% organic)</span></td><td>~8K</td></tr>
+        <tr><td><strong>enlight.mx</strong></td><td>62</td><td>DR ~25–40</td><td>~30–110K/mo</td><td><span class="chip earn">Earns (PR + organic)</span></td><td>~30K</td></tr>
+        <tr><td><strong>niko.mx</strong></td><td>48</td><td>DR ~25–40</td><td>~25K/mo</td><td><span class="chip buy">Buys (Paid Search #3)</span></td><td>~3K</td></tr>
+      </tbody>
+    </table>
+    <p class="conf" style="margin-top:var(--s-16)">DR/DA and ad verdicts are inferences (SimilarWeb + signals); they require verification in Ahrefs/Meta Ad Library/Google Ads Transparency while logged in before publishing as hard figures.</p>
+
+    <div class="grid grid-3" style="margin-top:var(--s-48)">
+      <div class="card card-top" data-reveal>
+        <h3 style="font-size:var(--text-subheading)">Easiest to overtake</h3>
+        <p><strong>Quartux</strong> — lower authority, ~7K visits, partly mis-ranked informational pages. <em>But</em> the AINDA round is injecting press links fast.</p>
+      </div>
+      <div class="card card-top" data-reveal>
+        <h3 style="font-size:var(--text-subheading)">Hardest</h3>
+        <p><strong>Enlight</strong> — 10 years of domain, Tier-1 press (Forbes, Expansión), ENGIE, industry clusters. Only beatable on long tail + sustained PR.</p>
+      </div>
+      <div class="card card-top" data-reveal>
+        <h3 style="font-size:var(--text-subheading)">The structural gap</h3>
+        <p><strong>Energía Real blocks AI bots</strong> (ClaudeBot, GPTBot, Google-Extended) by User-Agent. The leader is invisible in ChatGPT/Claude/Perplexity answers. An open door.</p>
+      </div>
+    </div>
+    <p class="src">Sources: SimilarWeb (per-domain panels), LinkedIn/IG profiles, specialized press. energiareal.mx robots.txt verified via the mac mini (browser User-Agent = 200, ClaudeBot = 403).</p>
+    <div style="margin-top:var(--s-36)"><a href="seo.html" class="btn">See the full SEO battle plan →</a></div>
+  </div>
+</section>
+
+<!-- ===================== PRECIOS ===================== -->
+<section class="section" id="precios">
+  <div class="wrap">
+    <p class="kicker">Front 04 · Pricing and terms</p>
+    <h2 class="h-lg">The price war is invisible <b style="color:var(--accent);font-weight:var(--w-semi)">by design</b>.</h2>
+    <div class="section-rule"></div>
+    <p class="lead" style="max-width:62ch">Only Energía Real publishes a number (~$1.80 MXN/kWh + 5%/year escalator). The other three hide everything behind "request a quote". The competitive weapon isn't the price: it's the <strong>savings percentage</strong> — and there, physics rules.</p>
+
+    <div class="chart" data-reveal style="max-width:820px;margin-top:var(--s-48)">
+      <p class="muted" style="margin-bottom:var(--s-16)">Honest savings ceiling on a GDMTH bill (CFE reference ≈ 2.5–3.5 MXN/kWh)</p>
+      <div class="bar-row"><span class="lbl">Solar only</span><div class="bar-track"><div class="bar-fill c-en" data-w="38%"></div></div><span class="val">30–40%</span></div>
+      <div class="bar-row"><span class="lbl">Solar + BESS</span><div class="bar-track"><div class="bar-fill c-nm" data-w="80%"></div></div><span class="val">65–90%</span></div>
+      <div class="bar-row"><span class="lbl">Demand charge</span><div class="bar-track"><div class="bar-fill c-grey" data-w="45%"></div></div><span class="val">30–50% untouchable by solar</span></div>
+    </div>
+
+    <div class="callout" data-reveal style="margin-top:var(--s-48)">
+      <span class="k">The best-documented marketing vs. reality gap</span>
+      <p>Energía Real advertises <strong>"up to 40%"</strong>. Its own Chedraui case, published by them, shows a real savings of <strong>13%/year</strong>. The physics number for solar-only (30–40%) matches Enlight's honesty, which breaks it down: PPA "up to 30%", storage "up to 15%", direct purchase "up to 60%".</p>
+    </div>
+    <p class="src">Sources: energiareal.mx (PPA, Chedraui case); enlight.mx/calculadora; quartux.com/financing; CFE GDMTH (Jan-2025 tariffs). The demand charge is 30–50% of the bill and the sun is off at the evening peak → storage is mandatory for the high numbers.</p>
+  </div>
+</section>
+
+<!-- ===================== ECONOMÍA UNITARIA ===================== -->
+<section class="section" id="economia">
+  <div class="wrap">
+    <p class="kicker">Unit economics · A real deal in pesos</p>
+    <h2 class="h-lg">The honest savings: <b style="color:var(--accent);font-weight:var(--w-semi)">18–30%</b>, not the brochure's 60%.</h2>
+    <div class="section-rule"></div>
+    <p class="lead" style="max-width:62ch">Representative customer: a mid-size industrial on a GDMTH tariff, <strong>200 MWh/month</strong>, ~500 kW of demand, all-in CFE bill ≈ <strong>$7.2 M MXN/year</strong> (~US$400 k). We model their economics with Newman — without dressing up the number. The real bill doesn't lie, and that honesty <em>is</em> the product.</p>
+
+    <div class="stats" data-reveal style="margin-top:var(--s-48)">
+      <div class="stat"><div class="num" data-to="30%">0</div><small>Year-1 savings with solar + BESS (honest scheme, not inflated)</small></div>
+      <div class="stat"><div class="num" data-to="$0">0</div><small>Customer's upfront investment — PPA / BESS-as-a-service model</small></div>
+      <div class="stat"><div class="num" data-to="$26M">0</div><small>MXN of cumulative savings over 10 years (solar + BESS)</small></div>
+    </div>
+
+    <div class="tablewrap" style="overflow-x:auto">
+    <table class="dtable" data-reveal style="min-width:620px">
+      <thead><tr><th>Metric</th><th>CFE (today)</th><th>Solar PPA</th><th>Solar + BESS</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Energy price</strong></td><td>~3.00 MXN/kWh (blended)</td><td>1.80 MXN/kWh (solar)</td><td>1.80 + demand shaving</td></tr>
+        <tr><td><strong>Annual bill</strong></td><td>$7.2 M MXN</td><td>~$5.9 M MXN</td><td>~$5.0 M MXN</td></tr>
+        <tr><td><strong>Year-1 savings</strong></td><td>—</td><td>~18%</td><td>~30%</td></tr>
+        <tr><td><strong>Upfront investment</strong></td><td>—</td><td>$0</td><td>$0</td></tr>
+        <tr><td><strong>Annual escalator</strong></td><td>~5.8% (CFE)</td><td>5.0% (PPA)</td><td>5.0%</td></tr>
+        <tr><td><strong>Cumulative 10-year savings</strong></td><td>—</td><td>~$15 M MXN</td><td>~$26 M MXN</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="grid grid-2" style="margin-top:var(--s-48)">
+      <div class="callout" data-reveal>
+        <span class="k">The escalator gap works on its own</span>
+        <p>CFE rises ~5.8%/year; the PPA is fixed at 5%. Every year the gap widens → <strong>the savings % grows over time with no effort</strong>. The contract's lifetime value isn't in year 1, it's in year 10.</p>
+      </div>
+      <div class="callout" data-reveal>
+        <span class="k">Newman's economics (not just the customer's)</span>
+        <p>Each contract of this size leaves recurring revenue from <strong>origination + intelligence layer</strong> (tariff-analytics SaaS) with software-like margin. The ungated calculator pre-qualifies the lead → acquisition cost drops vs. the installers' door-to-door sales. <span class="conf">Margin figures illustrative, pending validation.</span></p>
+      </div>
+    </div>
+    <p class="src">Assumptions: all-in CFE GDMTH tariff ~3.00 MXN/kWh (energy + demand + capacity); solar PPA 1.80 MXN/kWh (Energía Real's published price); solar covers ~45% of consumption, BESS shaves demand/peak; CFE escalator ~5.8% vs PPA 5% (CENACE/Energía Real). Exchange rate ~18 MXN/USD. <strong>Savings modeled at 18–30%</strong> — consistent with the documented real result (Chedraui 13%), not with marketing's "up to 40–60%". Illustrative example; each case depends on the customer's real load profile.</p>
+  </div>
+</section>
+
+<!-- ===================== CAPITAL / ECOSISTEMA ===================== -->
+<section class="section panel" id="capital">
+  <div class="wrap">
+    <p class="kicker">Front 05 · Capital and alliances</p>
+    <h2 class="h-lg">Four disjoint cap tables. No investor crosses two companies.</h2>
+    <div class="section-rule"></div>
+    <p class="lead" style="max-width:62ch">The ecosystem is fragmented: Riverstone→Energía Real, ALLVP/ENGIE→Enlight, QED/Picus/468→Niko, AINDA→Quartux. The <strong>only shared hardware node is Sungrow</strong> (supply to Quartux, service to Enlight). The supposed Tesla→Quartux link was <strong>not verified</strong> — every confirmed deployment is Sungrow.</p>
+
+    <div class="netwrap" data-reveal>
+      <svg class="netgraph" viewBox="0 0 700 360" role="img" aria-label="Map of investors and partners by company">
+        <line class="edge" x1="120" y1="70" x2="120" y2="150"/>
+        <line class="edge" x1="290" y1="70" x2="290" y2="150"/>
+        <line class="edge" x1="380" y1="70" x2="290" y2="150"/>
+        <line class="edge" x1="470" y1="70" x2="500" y2="150"/>
+        <line class="edge" x1="540" y1="70" x2="500" y2="150"/>
+        <line class="edge" x1="650" y1="70" x2="650" y2="150"/>
+        <line class="edge dim" x1="360" y1="300" x2="290" y2="200"/>
+        <line class="edge dim" x1="360" y1="300" x2="650" y2="200"/>
+
+        <g><circle class="node-inv" cx="120" cy="55" r="22"/><text class="sm" x="120" y="30" text-anchor="middle">Riverstone</text></g>
+        <g><circle class="node-inv" cx="290" cy="55" r="22"/><text class="sm" x="285" y="30" text-anchor="middle">ALLVP</text></g>
+        <g><circle class="node-inv" cx="380" cy="55" r="22"/><text class="sm" x="392" y="30" text-anchor="middle">ENGIE</text></g>
+        <g><circle class="node-inv" cx="470" cy="55" r="22"/><text class="sm" x="458" y="30" text-anchor="middle">QED</text></g>
+        <g><circle class="node-inv" cx="540" cy="55" r="22"/><text class="sm" x="548" y="30" text-anchor="middle">Picus/468</text></g>
+        <g><circle class="node-inv" cx="650" cy="55" r="22"/><text class="sm" x="650" y="30" text-anchor="middle">AINDA</text></g>
+
+        <g><rect class="node-co" x="60" y="150" width="120" height="50" rx="12"/><text class="co" x="120" y="180" text-anchor="middle">Energía Real</text></g>
+        <g><rect class="node-co" x="235" y="150" width="110" height="50" rx="12"/><text class="co" x="290" y="180" text-anchor="middle">Enlight</text></g>
+        <g><rect class="node-co" x="445" y="150" width="110" height="50" rx="12"/><text class="co" x="500" y="180" text-anchor="middle">Niko</text></g>
+        <g><rect class="node-co" x="595" y="150" width="110" height="50" rx="12"/><text class="co" x="650" y="180" text-anchor="middle">Quartux</text></g>
+
+        <g><circle class="node-hw" cx="360" cy="315" r="26"/><text x="360" y="319" text-anchor="middle">Sungrow</text><text class="sm" x="360" y="352" text-anchor="middle">only crossed node (hardware)</text></g>
+      </svg>
+    </div>
+    <div class="legend">
+      <span><i style="background:#191B4D"></i>Company</span>
+      <span><i style="background:#fff;border:1.5px solid #cabfdd"></i>Investor</span>
+      <span><i style="background:#F1E9F4;border:1.5px solid #621558"></i>Shared hardware</span>
+      <span>— — dashed line = hardware link</span>
+    </div>
+    <p class="src">Announced capital: Energía Real US$700M plan (Riverstone) + Bancomext/Multiva green credit MX$2.13B; Enlight ALLVP+ENGIE (last round 2017); Niko ~US$23M (QED lead, Jan-2025); Quartux US$50M (AINDA, Dec-2025). Corrections: Tesla→Quartux <em>not verified</em>; Huemul→Niko <em>not verifiable</em>.</p>
+  </div>
+</section>
+
+<!-- ===================== MOMENTUM ===================== -->
+<section class="section" id="momentum">
+  <div class="wrap">
+    <p class="kicker">Front 05b · Momentum (headcount)</p>
+    <h2 class="h-lg">Quartux and Niko are accelerating; Enlight operates on a frozen cap table.</h2>
+    <div class="section-rule"></div>
+
+    <div class="chart" data-reveal style="max-width:780px">
+      <div class="bar-row"><span class="lbl">Enlight</span><div class="bar-track"><div class="bar-fill c-en" data-w="100%"></div></div><span class="val">~176 <span class="chip flat">flat</span></span></div>
+      <div class="bar-row"><span class="lbl">Quartux</span><div class="bar-track"><div class="bar-fill c-qx" data-w="77%"></div></div><span class="val">~136 <span class="chip up">↑ ~10×</span></span></div>
+      <div class="bar-row"><span class="lbl">Energía Real</span><div class="bar-track"><div class="bar-fill c-er" data-w="59%"></div></div><span class="val">~104 <span class="chip up">↑</span></span></div>
+      <div class="bar-row"><span class="lbl">Niko</span><div class="bar-track"><div class="bar-fill c-ni" data-w="40%"></div></div><span class="val">~71 <span class="chip up">↑ fast</span></span></div>
+    </div>
+
+    <div class="callout" data-reveal style="margin-top:var(--s-36)">
+      <span class="k">Hiring signal = strategy</span>
+      <p>Niko's openings are 100% finance/operations (Treasury, Cost Controller) — zero BESS engineering or "VPP", despite selling itself as "Mexico's first virtual power plant". <strong>The storage story is communicated before it's hired.</strong> Enlight: largest headcount but the co-founder/COO has left (now at Metrobús CDMX) and reviews cite "constant structural changes".</p>
+    </div>
+    <p class="src">Source: "associated members" counts on LinkedIn (Jun 2026) + PitchBook; medium-confidence trends (no clean monthly series). Exact opening counts require being logged in to LinkedIn.</p>
+  </div>
+</section>
+
+<!-- ===================== REFORMA ===================== -->
+<section class="section panel" id="reforma">
+  <div class="wrap">
+    <p class="kicker">Front 06 · Exposure to the 2024–2026 reform</p>
+    <h2 class="h-lg">Sheinbaum's reform recenters the State — and rewards storage.</h2>
+    <div class="section-rule"></div>
+    <p class="lead" style="max-width:64ch">The new <strong>Ley del Sector Eléctrico</strong> (DOF 18 Mar 2025) repealed the 2014 LIE, reserved <strong>≥54% of energy for CFE</strong>, merged the CRE into the new CNE and raised the permit-free distributed generation threshold from <strong>0.5 → 0.7 MW</strong>. "Abasto aislado" died; it is replaced by "autoconsumo" (≥0.7 MW, simplified permit). Storage is formally recognized and <strong>favored</strong> (binding target of 8,647 MW of BESS).</p>
+
+    <table class="matrix" data-reveal>
+      <thead><tr><th>Company / model</th><th>Exposure</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="co" style="background:#621558">Energía Real<br><span style="font-weight:300;font-size:11px;opacity:.85">Large PPA + private grids</span></td>
+          <td><span class="risk high">Medium–High</span></td>
+          <td>Depends on autoconsumo and private-grid structures now regulated (0.7–20 MW permit); private-cable economics exposed to <em>porteo</em> (wheeling) charges. Mitigant: deep capital (Riverstone) and early entry.</td>
+        </tr>
+        <tr>
+          <td class="co" style="background:#981060">Enlight<br><span style="font-weight:300;font-size:11px;opacity:.85">C&I solar + microgrid</span></td>
+          <td><span class="risk med">Medium</span></td>
+          <td>Exposed to the 0.7–20 MW autoconsumo permit regime it now openly promotes; the off-grid microgrid survives. The ENGIE parent diversifies the risk.</td>
+        </tr>
+        <tr>
+          <td class="co" style="background:#B80E65">Niko<br><span style="font-weight:300;font-size:11px;opacity:.85">Residential/SME + VPP</span></td>
+          <td><span class="risk low">Low</span></td>
+          <td>Operates in the permit-free ≤0.7 MW shelter + storage. To watch: a draft contemplating eliminating <em>net metering</em> in medium voltage — the only real threat to the model.</td>
+        </tr>
+        <tr>
+          <td class="co" style="background:#191B4D">Quartux<br><span style="font-weight:300;font-size:11px;opacity:.85">Pure C&I BESS</span></td>
+          <td><span class="risk adv">Low · Favored</span></td>
+          <td>The least tied to any "figure". <strong>Direct beneficiary</strong> of the 8,647 MW BESS target, the storage mandates (30% / 25% in tenders) and the accelerated permit. Storage is the moat.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout" data-reveal>
+      <span class="k">Note: Innowwat's model is now legally obsolete</span>
+      <p>Innowwat (BCS) sells itself as "isolated self-supply, a figure authorized by the Government". That figure <strong>no longer exists</strong> under the LSE: real off-grid survives, but the "abasto aislado" pitch is from 2014. Its site is legally out of date.</p>
+    </div>
+    <p class="src">Sources: DOF (constitutional reform 31 Oct 2024; LSE 18 Mar 2025; Regulation 3 Oct 2025); diputados.gob.mx; ventanilla.energia.gob.mx (Mixed Development Schemes); SENER Plan 2025–2039. Analysis: Norton Rose Fulbright, Garrigues, Holland &amp; Knight. High confidence in DOF dates, the 0.7 MW threshold and the BESS target; "net metering in medium voltage" is a draft, not law.</p>
+  </div>
+</section>
+
+<!-- ===================== CINCO FUERZAS ===================== -->
+<section class="section" id="fuerzas">
+  <div class="wrap">
+    <p class="kicker">Market structure · Porter's five forces</p>
+    <h2 class="h-lg">The structure favors a capital-light entrant.</h2>
+    <div class="section-rule"></div>
+    <p class="lead" style="max-width:62ch">Rivalry is fought over commoditized solar; hardware suppliers have no power; the only real power node is CFE (regulatory); and buyers reward transparency. No force punishes whoever enters through <strong>intelligence</strong> instead of the balance sheet.</p>
+
+    <div class="forces" data-reveal>
+      <div class="force f-top">
+        <h4>New entrants <span class="risk med">Medium-High</span></h4>
+        <p>Low barrier for the software/intelligence layer; high for the balance-sheet PPA. The 2025 reform raises regulatory complexity as a new filter.</p>
+      </div>
+      <div class="force f-left">
+        <h4>Suppliers <span class="risk med">Medium</span></h4>
+        <p>Commoditized panel/inverter/battery, many OEMs (Jinko, Sungrow, Huawei, CATL/BYD) → low power. The exception: CFE as grid and offtaker = high power.</p>
+      </div>
+      <div class="force f-mid mid">
+        <h4>Internal rivalry <span class="risk high">Medium-High</span></h4>
+        <p>4 funded incumbents + dozens of installers. Commoditized on solar, differentiated on capital and storage. <strong style="color:#fff">The intelligence quadrant is empty.</strong></p>
+      </div>
+      <div class="force f-right">
+        <h4>Buyers <span class="risk med">Medium</span></h4>
+        <p>Large industrials multi-bid. But the 15–25 year PPA creates lock-in. Transparency shifts power to the buyer — exactly Newman's wedge.</p>
+      </div>
+      <div class="force f-bot">
+        <h4>Substitutes <span class="risk low">Medium ↓</span></h4>
+        <p>Staying with CFE, diesel, or efficiency-only. The reform makes CFE more expensive and demands storage → substitutes weaken over time.</p>
+      </div>
+    </div>
+    <p class="src">Intensity assessment based on the six research fronts. Power concentrated in CFE (interconnection, tariff, offtake) is the dominant structural factor; it favors behind-the-meter models that dodge it.</p>
+  </div>
+</section>
+
+<!-- ===================== RIESGOS ===================== -->
+<section class="section panel" id="riesgos">
+  <div class="wrap">
+    <p class="kicker">Diligence · Risk register</p>
+    <h2 class="h-lg">What could go wrong — and how it's mitigated.</h2>
+    <div class="section-rule"></div>
+    <p class="lead" style="max-width:62ch">A credible thesis names its own downside. These are the eight material risks for an entrant with Newman's posture, with probability, impact and mitigation.</p>
+
+    <div class="tablewrap" style="overflow-x:auto">
+    <table class="dtable" data-reveal style="min-width:720px">
+      <thead><tr><th>Risk</th><th>Prob.</th><th>Impact</th><th>Mitigation</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Net-metering reversal in medium voltage</strong> (draft, not law)</td><td><span class="risk med">Medium</span></td><td><span class="risk high">High</span></td><td>Anchor in autoconsumo + storage (less dependent on net metering); DOF monitoring.</td></tr>
+        <tr><td><strong>CFE interconnection saturation</strong> (queue &gt;15 GW, 18–30 months)</td><td><span class="risk high">High</span></td><td><span class="risk med">Medium</span></td><td>DG ≤0.7 MW behind the meter dodges the queue; prioritize sites with capacity.</td></tr>
+        <tr><td><strong>Incumbent capital</strong> (Energía Real US$700M) crushes on price</td><td><span class="risk med">Medium</span></td><td><span class="risk high">High</span></td><td>Don't compete on balance sheet; win on intelligence, honest numbers and niche.</td></tr>
+        <tr><td><strong>Hardware price/supply</strong> (China tariffs, FX)</td><td><span class="risk med">Medium</span></td><td><span class="risk med">Medium</span></td><td>Hardware-agnostic; multi-OEM sourcing; hedged contracts.</td></tr>
+        <tr><td><strong>Customer acquisition cost</strong> too high</td><td><span class="risk med">Medium</span></td><td><span class="risk med">Medium</span></td><td>Ungated calculator pre-qualifies the lead; content/SEO moat lowers CAC.</td></tr>
+        <tr><td><strong>Tariff-analytics error</strong> (wrong savings number)</td><td><span class="risk low">Low</span></td><td><span class="risk high">High</span></td><td>Frontier-model verification before reaching the customer; conservative modeling.</td></tr>
+        <tr><td><strong>Talent scarcity</strong> (storage engineering / trading)</td><td><span class="risk med">Medium</span></td><td><span class="risk med">Medium</span></td><td>Software-led model; partnerships with EPCs instead of building everything in-house.</td></tr>
+        <tr><td><strong>Regulatory discretion</strong> (CNE under SENER, less autonomous)</td><td><span class="risk med">Medium</span></td><td><span class="risk med">Medium</span></td><td>Conservative permit posture; legal counsel; diversify by regulatory figure.</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="src">Probability/impact are judgments on the evidence from the six fronts. Regulatory risk (net metering, CNE discretion) and incumbent-capital risk are the highest impact; both are mitigated with the capital-light + behind-the-meter + storage posture.</p>
+  </div>
+</section>
+
+<!-- ===================== NEWMAN: WHITESPACE ===================== -->
+<section class="section" id="newman">
+  <div class="wrap">
+    <p class="kicker">Conclusion · The empty space</p>
+    <h2 class="h-lg">Newman isn't another installer. It's the <b style="color:var(--accent);font-weight:var(--w-semi)">intelligence layer</b>.</h2>
+    <div class="section-rule"></div>
+    <p class="lead" style="max-width:62ch">All four position themselves as "the installer who lowers your bill". Newman's unfair asset is reading CFE's tariff and bill better than anyone, and proving the savings <strong>before</strong> the customer signs. That takes it out of the price war and into a category of its own: certainty and intelligence.</p>
+
+    <div class="grid grid-3" style="margin-top:var(--s-48)">
+      <article class="card card-top" data-reveal>
+        <div class="ico" aria-hidden="true"></div>
+        <h3>1 · Ungated calculator</h3>
+        <p>Upload your bill → number instantly, no email. Niko wrote the frame ("used-car salesman") but didn't build it. Newman ships it as the home page, not as a promise.</p>
+      </article>
+      <article class="card card-top" data-reveal>
+        <div class="ico" aria-hidden="true"></div>
+        <h3>2 · Be the AI's answer</h3>
+        <p>Energía Real excluded itself from AI bots. Newman allows them all, structures the content for extraction and becomes the cited source in ChatGPT/Claude. A channel abandoned by the leader.</p>
+      </article>
+      <article class="card card-top" data-reveal>
+        <div class="ico" aria-hidden="true"></div>
+        <h3>3 · Storage is the moat</h3>
+        <p>The reform rewards BESS and physics requires it: the sun doesn't touch 30–50% of the bill. Newman anchors in DG ≤0.7 MW + BESS — minimal exposure, favored category.</p>
+      </article>
+      <article class="card card-top" data-reveal>
+        <div class="ico" aria-hidden="true"></div>
+        <h3>4 · Live tariff content</h3>
+        <p>Per-CFE-tariff pages updated monthly from the source — something no competitor has. The SEO moat only Newman can dig.</p>
+      </article>
+      <article class="card card-top" data-reveal>
+        <div class="ico" aria-hidden="true"></div>
+        <h3>5 · Bilingual for nearshoring</h3>
+        <p>Everyone is Spanish-only or with broken hreflang. The plants arriving via nearshoring buy in English. EN/ES done well = uncontested B2B traffic.</p>
+      </article>
+      <article class="card" data-reveal style="background:var(--navy);border-color:var(--navy)">
+        <h3 style="color:#fff">The reframe</h3>
+        <p style="color:var(--on-dark)">"We know how much you're overpaying CFE. We'll prove it to you in 60 seconds." Energy = financial product, not cost. Tariff intelligence no one else has.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== EL PEDIDO / USO DE FONDOS ===================== -->
+<section class="section" id="pedido">
+  <div class="wrap">
+    <p class="kicker">The ask · Use of funds and roadmap</p>
+    <h2 class="h-lg">Capital-light, return through software and origination.</h2>
+    <div class="section-rule"></div>
+    <p class="lead" style="max-width:62ch">Unlike a balance-sheet player (Energía Real raised US$700M to <em>own</em> the assets), the intelligence layer scales with little capital: the return is in the software, the tariff analytics and the PPA/BESS origination — not in the asset. An <strong>illustrative</strong> frame of a seed round that funds 18 months to the beachhead.</p>
+
+    <div class="split" style="margin-top:var(--s-48)">
+      <div>
+        <p class="muted" style="margin-bottom:var(--s-16)">Use of funds (illustrative allocation)</p>
+        <div class="chart">
+          <div class="bar-row"><span class="lbl">Product and engineering</span><div class="bar-track"><div class="bar-fill c-nm" data-w="40%"></div></div><span class="val">40%</span></div>
+          <div class="bar-row"><span class="lbl">Origination and sales</span><div class="bar-track"><div class="bar-fill c-nm" data-w="25%"></div></div><span class="val">25%</span></div>
+          <div class="bar-row"><span class="lbl">PPA/BESS pilot capital</span><div class="bar-track"><div class="bar-fill c-nm" data-w="20%"></div></div><span class="val">20%</span></div>
+          <div class="bar-row"><span class="lbl">Data, content and SEO</span><div class="bar-track"><div class="bar-fill c-nm" data-w="10%"></div></div><span class="val">10%</span></div>
+          <div class="bar-row"><span class="lbl">Operations and legal</span><div class="bar-track"><div class="bar-fill c-nm" data-w="5%"></div></div><span class="val">5%</span></div>
+        </div>
+      </div>
+      <div class="callout" style="margin-top:0">
+        <span class="k">The return logic</span>
+        <p>A seed round of <strong>~US$1.5–3 M</strong> covers 18 months to the SOM of ~$50 M/year. The margin is software-like (analytics + origination), not EPC. The moat —live tariff database + content + ungated calculator— deepens with every customer and lowers acquisition cost over time. <span class="conf">Illustrative figures; the actual amount is set by the company.</span></p>
+      </div>
+    </div>
+
+    <hr class="tl-rule">
+    <p class="muted" style="margin-bottom:var(--s-16)">18-month roadmap</p>
+    <div class="grid grid-3">
+      <article class="card card-top" data-reveal>
+        <span class="badge">Phase 1 · 0–6 months</span>
+        <h3 style="font-size:var(--text-subheading);margin-top:var(--s-16)">Validate</h3>
+        <p>Ungated calculator MVP + live tariff database. 10 C&I pilots. Prove the real savings with bills — the data that builds credibility.</p>
+      </article>
+      <article class="card card-top" data-reveal>
+        <span class="badge">Phase 2 · 6–12 months</span>
+        <h3 style="font-size:var(--text-subheading);margin-top:var(--s-16)">Originate</h3>
+        <p>50+ customers; first PPA/BESS originated. The first 10 SEO pages live. EN version for nearshoring procurement.</p>
+      </article>
+      <article class="card card-top" data-reveal>
+        <span class="badge">Phase 3 · 12–18 months</span>
+        <h3 style="font-size:var(--text-subheading);margin-top:var(--s-16)">Scale</h3>
+        <p>~150 sites (SOM beachhead). Monetized intelligence SaaS layer. Expansion to the Bajío/north corridors.</p>
+      </article>
+    </div>
+    <p class="src">Allocation, amount and targets are illustrative to show the mechanics of a capital-light model; they do not constitute an offer. Phase 3 targets map to the SOM (~$50 M/year) from the market section.</p>
+  </div>
+</section>
+
+<!-- ===================== METODOLOGÍA ===================== -->
+<section class="section panel" id="metodologia">
+  <div class="wrap" style="max-width:840px">
+    <p class="kicker">Methodology and confidence</p>
+    <h2 class="h-lg">How this was built.</h2>
+    <div class="section-rule"></div>
+
+    <div class="acc">
+      <div class="acc-item">
+        <button class="acc-head" aria-expanded="false">Sources and method<span class="pm">+</span></button>
+        <div class="acc-body"><p>Five parallel research fronts: (1) capacity verification against CRE/CNE/CENACE; (2) pricing and terms intelligence; (3) off-page SEO + paid media; (4) headcount + capital ecosystem; (5) regulatory exposure. Inputs: direct site audits, specialized press (Expansión, BNamericas, energy-storage.news, pv-magazine), SimilarWeb, LinkedIn/PitchBook, DOF and government portals. The energiareal.mx WAF was verified via the mac mini (filters by User-Agent).</p></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head" aria-expanded="false">What is hard data vs. inference<span class="pm">+</span></button>
+        <div class="acc-body"><p>HIGH confidence: DOF dates, the 0.7 MW threshold, the 8,647 MW BESS target, the AINDA US$50M round, Energía Real's published price (~$1.80 MXN/kWh), the Chedraui 13% case. MEDIUM / flagged: DR/DA and ad verdicts (inferred from SimilarWeb), opening counts, "net metering in medium voltage" (draft). Every capacity fleet figure is self-reported and not auditable at the company level due to the legal structure of DG in Mexico.</p></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head" aria-expanded="false">Pending primary verification<span class="pm">+</span></button>
+        <div class="acc-body"><p>Before treating as hard figures: Ahrefs/Moz for real DR, Google Ads Transparency and Meta Ad Library while logged in, firm $/kWh prices from Enlight/Niko/Quartux (all behind a quote), escalators and exit penalties (only Energía Real publishes an escalator), and the AINDA–Quartux deal structure.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FUENTES Y REFERENCIAS ===================== -->
+<section class="section" id="fuentes">
+  <div class="wrap" style="max-width:960px">
+    <p class="kicker">Appendix · Sources and references</p>
+    <h2 class="h-lg">26 sources, auditable.</h2>
+    <div class="section-rule"></div>
+    <p class="lead" style="max-width:62ch">Every claim in this document traces to a public source or a dated direct audit. The capacity fleet figures are self-reported (not auditable at the company level due to the legal structure of DG in Mexico); they are marked as such in the body.</p>
+
+    <div class="refs" style="margin-top:var(--s-48)">
+      <div class="refgroup">
+        <h4>Market and capacity</h4>
+        <div class="ref"><span class="n">1</span><div><a href="https://www.pv-magazine-latam.com/2025/02/04/la-capacidad-de-la-generacion-distribuida-en-mexico-crecio-en-2024-mas-de-un-35-y-alcanza-los-4-44792-mw/">pv magazine Latam — DG Mexico 4,447.92 MW (2024)</a><span class="what">Cumulative DG capacity, +35.3%, 518,019 interconnection contracts.</span></div></div>
+        <div class="ref"><span class="n">2</span><div><a href="https://www.review-energy.com/solar/mexico-anade-986-mw-de-generacion-distribuida-en-2025-y-alcanza-5437-mw-acumulados">review-energy — DG 5,437 MW (end of 2025)</a><span class="what">+986 MW in 2025; 99% photovoltaic.</span></div></div>
+        <div class="ref"><span class="n">3</span><div><a href="https://www.gob.mx/cne/articulos/generacion-distribuida-399260">CNE (gob.mx) — Distributed Generation</a><span class="what">The regulator's regulatory framework; threshold and aggregate statistics.</span></div></div>
+        <div class="ref"><span class="n">4</span><div><a href="https://en.wikipedia.org/wiki/Electricity_sector_in_Mexico">Electricity sector in Mexico (Wikipedia)</a> · <a href="https://www.trade.gov/country-commercial-guides/mexico-power-sector-electricity-infrastructure-and-smart-grid">Trade.gov</a><span class="what">Gross consumption ~359,807 GWh (2024); C&I = 72% of demand.</span></div></div>
+        <div class="ref"><span class="n">5</span><div><a href="https://insights.tetakawi.com/industrial-electricity-and-utility-rates-in-mexico">Tetakawi — industrial tariffs Mexico</a><span class="what">GDMTH tariff ~$0.119 USD/kWh; demand >100 kW.</span></div></div>
+        <div class="ref"><span class="n">6</span><div><a href="https://www.energiaadebate.com/generacion-distribuida-podria-alcanzar-5-5-gw-de-capacidad-al-final-del-ano/">Energía a Debate — DG projection ~5.5 GW</a><span class="what">Growth trajectory of the DG market.</span></div></div>
+      </div>
+
+      <div class="refgroup">
+        <h4>Pricing, tariffs and economics</h4>
+        <div class="ref"><span class="n">7</span><div><a href="https://www.energiareal.mx/casos-de-exito/chedraui">Energía Real — Chedraui case</a><span class="what">Documented real savings ~13% vs. the "up to 40%" headline.</span></div></div>
+        <div class="ref"><span class="n">8</span><div><a href="https://www.energiareal.mx/soluciones/ppa">Energía Real — PPA</a><span class="what">PPA price ~1.80 MXN/kWh + 5% escalator; min. 200,000 kWh/month.</span></div></div>
+        <div class="ref"><span class="n">9</span><div><a href="https://www.enlight.mx/calculadora">Enlight — calculator / solutions</a><span class="what">Segmented savings bands (PPA 30% · storage 15% · purchase 60%); min. 60,000 kWh/month.</span></div></div>
+        <div class="ref"><span class="n">10</span><div><a href="https://www.ecoportal.net/energia/tarifas-gmdto-y-gmdth-cfe-mexico/">ecoportal — GDMTH/GDMTO CFE tariffs</a><span class="what">Energy charges (base/intermediate/peak) and demand (~496 MXN/kW).</span></div></div>
+        <div class="ref"><span class="n">11</span><div><a href="https://mexicoenergyllc.com.mx/blogs/mexico-energy-insights/decoding-the-cfe-bill-a-guide-to-beating-gdmth-demand-charges">Mexico Energy — GDMTH demand charge</a><span class="what">The demand charge = 30–50% of the bill; the sun doesn't touch it.</span></div></div>
+      </div>
+
+      <div class="refgroup">
+        <h4>Capital, companies and headcount</h4>
+        <div class="ref"><span class="n">12</span><div><a href="https://finance.yahoo.com/news/energia-real-unveils-700-million-120000221.html">Yahoo Finance</a> · <a href="https://www.bnamericas.com/en/news/mexicos-energia-real-to-invest-us700mn-in-distributed-solar-power-and-private-grids">BNamericas</a> — Energía Real US$700M / Riverstone<span class="what">Investment plan; ~80 MW installed; 1 GW target.</span></div></div>
+        <div class="ref"><span class="n">13</span><div><a href="https://mexicobusiness.news/energy/news/ainda-invests-us50-million-quartux-battery-storage">Mexico Business News</a> · <a href="https://www.lavca.org/ainda-invests-in-quartux/">LAVCA</a> — AINDA US$50M in Quartux<span class="what">Dec-2025 round; BESS expansion, >1 GW target by 2026.</span></div></div>
+        <div class="ref"><span class="n">14</span><div><a href="https://techcrunch.com/2025/01/29/solar-startup-niko-is-building-mexicos-first-virtual-power-plant/">TechCrunch — Niko / virtual power plant</a><span class="what">Series A US$8M led by QED; VPP narrative.</span></div></div>
+        <div class="ref"><span class="n">15</span><div><a href="https://renewablesnow.com/news/mexican-solar-start-up-niko-energy-raises-usd-23m-in-fresh-funds-1270159/">Renewables Now — Niko ~US$23M</a><span class="what">$8M equity + $15M debt; ex-CloudKitchens founders.</span></div></div>
+        <div class="ref"><span class="n">16</span><div><a href="https://www.crunchbase.com/organization/enlight-mexico">Crunchbase — Enlight</a><span class="what">ALLVP + ENGIE; last round 2017 (frozen cap table).</span></div></div>
+        <div class="ref"><span class="n">17</span><div><a href="https://www.energy-storage.news/quartux-and-sungrow-complete-25mwh-bess-in-mexico/">energy-storage.news — Quartux + Sungrow 25 MWh Cancún</a><span class="what">Only project with third-party corroboration; Sungrow hardware (not Tesla).</span></div></div>
+      </div>
+
+      <div class="refgroup">
+        <h4>Electricity reform 2024–2026</h4>
+        <div class="ref"><span class="n">18</span><div><a href="https://www.projectfinance.law/publications/se-emiten-nuevas-leyes-para-el-sector-el%C3%A9ctrico-en-m%C3%A9xico">Norton Rose Fulbright — new electricity sector laws</a><span class="what">LSE repeals LIE; CFE "public company"; CRE→CNE; 54% floor.</span></div></div>
+        <div class="ref"><span class="n">19</span><div><a href="https://energiaslimpias.mx/blog-generacion-distribuida-mexico-nuevo-limite-07-mw/">ELM — new DG limit 0.7 MW</a><span class="what">Permit-free DG threshold 0.5→0.7 MW under the LSE (DOF 18 Mar 2025).</span></div></div>
+        <div class="ref"><span class="n">20</span><div><a href="https://www.gob.mx/cne/articulos/preguntas-frecuentes-sobre-generacion-distribuida-406238">CNE — DG FAQ</a><span class="what">Autoconsumo (≥0.7 MW), simplified permit 0.7–20 MW; end of "abasto aislado".</span></div></div>
+        <div class="ref"><span class="n">21</span><div><a href="https://strategicenergy.eu/mexico-enters-a-new-storage-phase-as-quartux-targets-over-1-gw-of-projects-by-2026/">Strategic Energy Europe — new storage phase</a><span class="what">BESS mandate; Mixed Development Schemes (25-year PPA, 7,411 MW awarded).</span></div></div>
+      </div>
+
+      <div class="refgroup">
+        <h4>Brand, SEO and method (direct audit)</h4>
+        <div class="ref"><span class="n">22</span><div>Direct site audit — energiareal.mx, enlight.mx, niko.mx, quartux.com<span class="what">Copy, structure, schema, robots.txt, sitemaps; full crawls (Jun 2026).</span></div></div>
+        <div class="ref"><span class="n">23</span><div>SimilarWeb — per-domain traffic panels<span class="what">Traffic estimates and channel mix (organic vs. paid).</span></div></div>
+        <div class="ref"><span class="n">24</span><div>Google Autocomplete suggest API (hl=es, gl=mx)<span class="what">568 real suggestions → universe of 185 keywords; Mexican search phrasing.</span></div></div>
+        <div class="ref"><span class="n">25</span><div>PageSpeed Insights / curl (TTFB, page weight)<span class="what">TTFB measured per site (Quartux 901 ms = server weakness).</span></div></div>
+        <div class="ref"><span class="n">26</span><div>WAF verification via the mac mini<span class="what">energiareal.mx filters by User-Agent: browser = 200, ClaudeBot = 403.</span></div></div>
+      </div>
+    </div>
+    <p class="src">Confidence levels per claim detailed in the Methodology section. Estimated figures (DR/DA, keyword volumes, SAM/SOM) flagged as such; to be replaced with primary data and paid tools in v1.1.</p>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="accent-bar"></div>
+    <div class="cols">
+      <div style="max-width:280px">
+        <div class="caps" style="font-size:14px;letter-spacing:.24em;margin-bottom:var(--s-12)">Newman Energy</div>
+        <p class="muted">Competitive intelligence on Mexico's C&I distributed energy sector. Internal research document.</p>
+      </div>
+      <div>
+        <a href="#tesis-inversion">Investment thesis</a>
+        <a href="#mercado">Market (TAM/SAM/SOM)</a>
+        <a href="#posicionamiento">Positioning</a>
+        <a href="#capacidad">Capacity</a>
+        <a href="#economia">Unit economics</a>
+      </div>
+      <div>
+        <a href="#seo">SEO</a>
+        <a href="#capital">Capital</a>
+        <a href="#reforma">Reform</a>
+        <a href="#newman">Conclusion</a>
+        <a href="#fuentes">Sources</a>
+        <a href="seo.html">SEO Plan →</a>
+      </div>
+    </div>
+    <div class="end">
+      <span>© 2026 Newman Energy · Energy Solutions</span>
+      <span>June 2026 · v1.0 · Public data, self-reported unless noted</span>
+    </div>
+  </div>
+</footer>
+
+<script src="newman.js"></script>
+</body>
+</html>
