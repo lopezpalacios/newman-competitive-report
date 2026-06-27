@@ -110,7 +110,8 @@
       </svg>
     </a>
     <div class="links">
-      <a href="#resumen">Resumen</a>
+      <a href="#tesis-inversion">Tesis</a>
+      <a href="#posicionamiento">Posición</a>
       <a href="#capacidad">Capacidad</a>
       <a href="#marca">Marca</a>
       <a href="#seo">SEO</a>
@@ -143,6 +144,28 @@
     </div>
   </div>
 </header>
+
+<!-- ===================== TESIS DE INVERSIÓN (BLUF) ===================== -->
+<section class="section" id="tesis-inversion">
+  <div class="wrap">
+    <p class="kicker">Tesis de inversión · Conclusión primero</p>
+    <h2 class="h-lg">Cuatro incumbentes compiten con balance o con producto.<br>Ninguno compite con <b style="color:var(--accent);font-weight:var(--w-semi)">inteligencia</b>.</h2>
+    <div class="section-rule"></div>
+    <div class="split">
+      <div>
+        <p class="lead">El mercado de energía distribuida comercial e industrial de México crece por dos fuerzas simultáneas —la reforma eléctrica de 2025 y el nearshoring— y se reparte entre cuatro jugadores que ganan con <strong>capital</strong> (Energía Real) o con <strong>producto</strong> (paneles, baterías). Hay un cuadrante vacío: nadie compite con la <strong>inteligencia de tarifas</strong>. Newman lo ocupa — leer el recibo y la tarifa de CFE mejor que cualquiera y <strong>probar el ahorro antes de que el cliente firme</strong>. Es una capa ligera en capital, defendible por datos y con el viento regulatorio a favor.</p>
+        <p class="muted" style="margin-top:var(--s-24)">Dimensionamiento de mercado (TAM/SAM/SOM) con cifras públicas auditadas: en preparación para la v1.1 de este documento.</p>
+      </div>
+      <div>
+        <div class="principles" style="margin-top:0;border-top:0">
+          <div class="principle" style="padding-top:0"><div class="idx">01</div><div><h3>Los titulares no resisten escrutinio</h3><p>Energía Real anuncia 250 MW; su propio comunicado dice ~80 MW instalados. Quien llegue con números auditables gana la credibilidad que el sector perdió.</p></div></div>
+          <div class="principle"><div class="idx">02</div><div><h3>La honestidad es el hueco</h3><p>"Hasta 40%" anunciado vs. 13% real (caso Chedraui del propio líder). La inteligencia de tarifas convierte esa brecha en el diferenciador de Newman.</p></div></div>
+          <div class="principle"><div class="idx">03</div><div><h3>El timing regulatorio favorece el ancla</h3><p>La reforma premia almacenamiento + DG ≤0.7 MW: exactamente el modelo de menor exposición. El reloj juega para un entrante con esta postura.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ===================== STAT BAND ===================== -->
 <section class="section panel">
@@ -190,6 +213,56 @@
         <div style="margin-top:var(--s-16)"><span class="badge">Almacenamiento</span></div>
       </article>
     </div>
+  </div>
+</section>
+
+<!-- ===================== POSICIONAMIENTO 2x2 ===================== -->
+<section class="section" id="posicionamiento">
+  <div class="wrap">
+    <p class="kicker">Mapa estratégico · El cuadrante vacío</p>
+    <h2 class="h-lg">Capital vs. inteligencia: dónde juega cada quien.</h2>
+    <div class="section-rule"></div>
+    <p class="lead" style="max-width:62ch">Dos ejes deciden este mercado: la <strong>profundidad de capital</strong> (poder de balance para financiar PPAs) y el <strong>foso de inteligencia</strong> (software propietario, datos de tarifas, despacho). Los cuatro incumbentes se agrupan abajo y a la derecha. El cuadrante superior-izquierdo —ganar con inteligencia, no con balance— está <strong>vacío</strong>. Ahí entra Newman.</p>
+
+    <div class="netwrap" data-reveal>
+      <svg class="netgraph" viewBox="0 0 640 470" role="img" aria-label="Mapa de posicionamiento: profundidad de capital vs foso de inteligencia">
+        <!-- whitespace quadrant tint (top-left) -->
+        <rect x="80" y="40" width="260" height="153" fill="#F1E9F4"/>
+        <!-- quadrant divider crosshair -->
+        <line x1="340" y1="40" x2="340" y2="380" stroke="#E4DEF1" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <line x1="80" y1="193" x2="600" y2="193" stroke="#E4DEF1" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <!-- axes -->
+        <line x1="80" y1="380" x2="600" y2="380" stroke="#221A33" stroke-width="1.5"/>
+        <line x1="80" y1="380" x2="80" y2="40" stroke="#221A33" stroke-width="1.5"/>
+        <polygon points="600,380 590,375 590,385" fill="#221A33"/>
+        <polygon points="80,40 75,50 85,50" fill="#221A33"/>
+        <!-- axis labels -->
+        <text x="340" y="410" text-anchor="middle" fill="#221A33" font-weight="600">Profundidad de capital →</text>
+        <text x="40" y="210" text-anchor="middle" fill="#221A33" font-weight="600" transform="rotate(-90 40 210)">Foso de inteligencia →</text>
+        <!-- quadrant labels -->
+        <text class="sm" x="210" y="62" text-anchor="middle" fill="#8A0A4B" font-weight="600">INTELIGENCIA SIN BALANCE</text>
+        <text class="sm" x="470" y="62" text-anchor="middle">Plataforma dominante</text>
+        <text class="sm" x="210" y="372" text-anchor="middle">Instalador commodity</text>
+        <text class="sm" x="470" y="372" text-anchor="middle">Escala por capital</text>
+        <!-- players: cx,cy from (capital, intelligence) on 0-100 grid -->
+        <!-- Quartux 55,78 -->
+        <g><circle cx="366" cy="115" r="8" fill="#191B4D"/><text x="378" y="119" fill="#221A33">Quartux</text></g>
+        <!-- Niko 40,65 -->
+        <g><circle cx="288" cy="159" r="8" fill="#191B4D"/><text x="300" y="163" fill="#221A33">Niko</text></g>
+        <!-- Energía Real 95,45 -->
+        <g><circle cx="574" cy="227" r="8" fill="#191B4D"/><text x="528" y="246" fill="#221A33">Energía Real</text></g>
+        <!-- Enlight 45,30 -->
+        <g><circle cx="314" cy="278" r="8" fill="#191B4D"/><text x="326" y="282" fill="#221A33">Enlight</text></g>
+        <!-- Newman 15,88 — highlighted -->
+        <g><circle cx="158" cy="81" r="12" fill="#621558"/><text x="176" y="85" fill="#621558" font-weight="600">Newman</text></g>
+      </svg>
+    </div>
+    <div class="legend">
+      <span><i style="background:#191B4D"></i>Incumbente</span>
+      <span><i style="background:#621558"></i>Newman</span>
+      <span><i style="background:#F1E9F4"></i>Cuadrante sin ocupar</span>
+    </div>
+    <p class="src">Ejes cualitativos basados en la evidencia de los seis frentes (capital anunciado, profundidad de software/datos, despacho propietario). Quartux lidera en inteligencia entre los incumbentes (despacho con IA); Energía Real domina en capital. El cuadrante "inteligencia sin balance" no tiene ocupante — la postura de capital ligero + datos de tarifa de Newman.</p>
   </div>
 </section>
 
