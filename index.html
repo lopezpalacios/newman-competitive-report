@@ -99,6 +99,20 @@
   .ref .n{font-family:var(--display);color:var(--accent);font-weight:var(--w-semi)}
   .ref a{color:var(--accent);word-break:break-word}
   .ref .what{display:block;color:var(--muted);margin-top:3px;font-size:12.5px}
+  /* porter five forces — plus layout */
+  .forces{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-16);margin-top:var(--s-36)}
+  .forces .f-top{grid-column:2;grid-row:1}
+  .forces .f-left{grid-column:1;grid-row:2}
+  .forces .f-mid{grid-column:2;grid-row:2}
+  .forces .f-right{grid-column:3;grid-row:2}
+  .forces .f-bot{grid-column:2;grid-row:3}
+  .force{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);padding:var(--s-24)}
+  .force.mid{background:var(--navy);border-color:var(--navy)}
+  .force h4{font-family:var(--display);font-size:16px;font-weight:var(--w-med);color:var(--navy);display:flex;justify-content:space-between;align-items:center;gap:var(--s-8)}
+  .force.mid h4{color:#fff}
+  .force p{font-size:13px;color:var(--muted);margin-top:10px;max-width:none}
+  .force.mid p{color:var(--on-dark)}
+  @media (max-width:860px){.forces{grid-template-columns:1fr}.forces>*{grid-column:1!important;grid-row:auto!important}}
 </style>
 </head>
 <body>
@@ -595,6 +609,67 @@
       <p>Innowwat (BCS) se vende como "autoconsumo aislado, figura autorizada por el Gobierno". Esa figura <strong>ya no existe</strong> bajo la LSE: el off-grid real sobrevive, pero el discurso de "abasto aislado" es de 2014. Su sitio está legalmente desactualizado.</p>
     </div>
     <p class="src">Fuentes: DOF (reforma constitucional 31 oct 2024; LSE 18 mar 2025; Reglamento 3 oct 2025); diputados.gob.mx; ventanilla.energia.gob.mx (Esquemas de Desarrollo Mixto); SENER Plan 2025–2039. Análisis: Norton Rose Fulbright, Garrigues, Holland &amp; Knight. Confianza alta en fechas DOF, umbral 0.7 MW y meta de BESS; el "net metering en media tensión" es borrador, no ley.</p>
+  </div>
+</section>
+
+<!-- ===================== CINCO FUERZAS ===================== -->
+<section class="section" id="fuerzas">
+  <div class="wrap">
+    <p class="kicker">Estructura del mercado · Cinco fuerzas de Porter</p>
+    <h2 class="h-lg">La estructura favorece a un entrante ligero en capital.</h2>
+    <div class="section-rule"></div>
+    <p class="lead" style="max-width:62ch">La rivalidad se libra sobre solar commoditizado; los proveedores de hardware no tienen poder; el único nodo de poder real es CFE (regulatorio); y los compradores premian la transparencia. Ninguna fuerza castiga a quien entra por la <strong>inteligencia</strong> en vez del balance.</p>
+
+    <div class="forces" data-reveal>
+      <div class="force f-top">
+        <h4>Nuevos entrantes <span class="risk med">Media-Alta</span></h4>
+        <p>Barrera baja para la capa de software/inteligencia; alta para el PPA de balance. La reforma 2025 sube la complejidad regulatoria como nuevo filtro.</p>
+      </div>
+      <div class="force f-left">
+        <h4>Proveedores <span class="risk med">Media</span></h4>
+        <p>Panel/inversor/batería commoditizados, muchos OEMs (Jinko, Sungrow, Huawei, CATL/BYD) → poder bajo. La excepción: CFE como red y offtaker = poder alto.</p>
+      </div>
+      <div class="force f-mid mid">
+        <h4>Rivalidad interna <span class="risk high">Media-Alta</span></h4>
+        <p>4 incumbentes financiados + decenas de instaladores. Commoditizada en solar, diferenciada en capital y storage. <strong style="color:#fff">El cuadrante de inteligencia está vacío.</strong></p>
+      </div>
+      <div class="force f-right">
+        <h4>Compradores <span class="risk med">Media</span></h4>
+        <p>Industriales grandes multi-cotizan. Pero el PPA de 15–25 años genera lock-in. La transparencia mueve poder al comprador — exactamente la cuña de Newman.</p>
+      </div>
+      <div class="force f-bot">
+        <h4>Sustitutos <span class="risk low">Media ↓</span></h4>
+        <p>Quedarse en CFE, diésel, o solo-eficiencia. La reforma encarece a CFE y exige storage → los sustitutos se debilitan con el tiempo.</p>
+      </div>
+    </div>
+    <p class="src">Evaluación de intensidad basada en los seis frentes de investigación. El poder concentrado en CFE (interconexión, tarifa, offtake) es el factor estructural dominante; favorece modelos detrás del medidor que lo esquivan.</p>
+  </div>
+</section>
+
+<!-- ===================== RIESGOS ===================== -->
+<section class="section panel" id="riesgos">
+  <div class="wrap">
+    <p class="kicker">Diligencia · Registro de riesgos</p>
+    <h2 class="h-lg">Lo que podría salir mal — y cómo se mitiga.</h2>
+    <div class="section-rule"></div>
+    <p class="lead" style="max-width:62ch">Una tesis creíble nombra su propio downside. Estos son los ocho riesgos materiales para un entrante con la postura de Newman, con probabilidad, impacto y mitigación.</p>
+
+    <div class="tablewrap" style="overflow-x:auto">
+    <table class="dtable" data-reveal style="min-width:720px">
+      <thead><tr><th>Riesgo</th><th>Prob.</th><th>Impacto</th><th>Mitigación</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Reversión de net metering en media tensión</strong> (borrador, no ley)</td><td><span class="risk med">Media</span></td><td><span class="risk high">Alto</span></td><td>Anclar en autoconsumo + storage (menos dependiente de medición neta); monitoreo del DOF.</td></tr>
+        <tr><td><strong>Saturación de interconexión CFE</strong> (cola &gt;15 GW, 18–30 meses)</td><td><span class="risk high">Alta</span></td><td><span class="risk med">Media</span></td><td>DG ≤0.7 MW detrás del medidor esquiva la cola; priorizar sitios con capacidad.</td></tr>
+        <tr><td><strong>Capital incumbente</strong> (Energía Real US$700M) aplasta por precio</td><td><span class="risk med">Media</span></td><td><span class="risk high">Alto</span></td><td>No competir por balance; ganar por inteligencia, honestidad de números y nicho.</td></tr>
+        <tr><td><strong>Precio/suministro de hardware</strong> (aranceles a China, FX)</td><td><span class="risk med">Media</span></td><td><span class="risk med">Media</span></td><td>Agnóstico de hardware; abastecimiento multi-OEM; contratos con cobertura.</td></tr>
+        <tr><td><strong>Costo de adquisición de cliente</strong> demasiado alto</td><td><span class="risk med">Media</span></td><td><span class="risk med">Media</span></td><td>Calculadora sin candado precalifica el lead; foso de contenido/SEO baja el CAC.</td></tr>
+        <tr><td><strong>Error en la analítica de tarifa</strong> (número de ahorro incorrecto)</td><td><span class="risk low">Baja</span></td><td><span class="risk high">Alto</span></td><td>Verificación por modelo frontier antes de llegar al cliente; modelado conservador.</td></tr>
+        <tr><td><strong>Escasez de talento</strong> (ingeniería de storage / trading)</td><td><span class="risk med">Media</span></td><td><span class="risk med">Media</span></td><td>Modelo liderado por software; alianzas con EPCs en lugar de construir todo in-house.</td></tr>
+        <tr><td><strong>Discrecionalidad regulatoria</strong> (CNE bajo SENER, menos autónoma)</td><td><span class="risk med">Media</span></td><td><span class="risk med">Media</span></td><td>Postura conservadora de permisos; asesoría legal; diversificar por figura regulatoria.</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="src">Probabilidad/impacto son juicios sobre la evidencia de los seis frentes. El riesgo regulatorio (net metering, discrecionalidad CNE) y el de capital incumbente son los de mayor impacto; ambos se mitigan con la postura de capital ligero + detrás del medidor + storage.</p>
   </div>
 </section>
 
