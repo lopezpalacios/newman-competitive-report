@@ -91,6 +91,14 @@
   .assume .t{font-family:var(--display);font-weight:var(--w-med);color:var(--navy);white-space:nowrap}
   .assume .d{color:var(--muted)}
   @media (max-width:860px){.bar-row{grid-template-columns:104px 1fr auto}.frow.sam,.frow.som{width:100%}.assume{grid-template-columns:1fr}.assume .t{margin-top:var(--s-8)}}
+  /* references appendix */
+  .refgroup{margin-bottom:var(--s-36)}
+  .refgroup h4{font-family:var(--display);font-weight:var(--w-med);font-size:var(--text-label);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:var(--s-12);display:flex;align-items:center;gap:var(--s-8)}
+  .refgroup h4::before{content:"";width:6px;height:6px;background:var(--magenta);flex:none}
+  .ref{display:grid;grid-template-columns:30px 1fr;gap:var(--s-12);padding:10px 0;border-bottom:1px solid var(--line);font-size:var(--text-body-sm)}
+  .ref .n{font-family:var(--display);color:var(--accent);font-weight:var(--w-semi)}
+  .ref a{color:var(--accent);word-break:break-word}
+  .ref .what{display:block;color:var(--muted);margin-top:3px;font-size:12.5px}
 </style>
 </head>
 <body>
@@ -656,6 +664,65 @@
   </div>
 </section>
 
+<!-- ===================== FUENTES Y REFERENCIAS ===================== -->
+<section class="section" id="fuentes">
+  <div class="wrap" style="max-width:960px">
+    <p class="kicker">Apéndice · Fuentes y referencias</p>
+    <h2 class="h-lg">26 fuentes, auditables.</h2>
+    <div class="section-rule"></div>
+    <p class="lead" style="max-width:62ch">Toda afirmación de este documento traza a una fuente pública o a una auditoría directa fechada. Las cifras de flota de capacidad son auto-reportadas (no auditables a nivel de empresa por la estructura legal de la GD en México); se marcan como tales en el cuerpo.</p>
+
+    <div class="refs" style="margin-top:var(--s-48)">
+      <div class="refgroup">
+        <h4>Mercado y capacidad</h4>
+        <div class="ref"><span class="n">1</span><div><a href="https://www.pv-magazine-latam.com/2025/02/04/la-capacidad-de-la-generacion-distribuida-en-mexico-crecio-en-2024-mas-de-un-35-y-alcanza-los-4-44792-mw/">pv magazine Latam — GD México 4,447.92 MW (2024)</a><span class="what">Capacidad GD acumulada, +35.3%, 518,019 contratos de interconexión.</span></div></div>
+        <div class="ref"><span class="n">2</span><div><a href="https://www.review-energy.com/solar/mexico-anade-986-mw-de-generacion-distribuida-en-2025-y-alcanza-5437-mw-acumulados">review-energy — GD 5,437 MW (cierre 2025)</a><span class="what">+986 MW en 2025; 99% fotovoltaica.</span></div></div>
+        <div class="ref"><span class="n">3</span><div><a href="https://www.gob.mx/cne/articulos/generacion-distribuida-399260">CNE (gob.mx) — Generación Distribuida</a><span class="what">Marco regulatorio del regulador; umbral y estadística agregada.</span></div></div>
+        <div class="ref"><span class="n">4</span><div><a href="https://en.wikipedia.org/wiki/Electricity_sector_in_Mexico">Electricity sector in Mexico (Wikipedia) · <a href="https://www.trade.gov/country-commercial-guides/mexico-power-sector-electricity-infrastructure-and-smart-grid">Trade.gov</a></a><span class="what">Consumo bruto ~359,807 GWh (2024); C&I = 72% de la demanda.</span></div></div>
+        <div class="ref"><span class="n">5</span><div><a href="https://insights.tetakawi.com/industrial-electricity-and-utility-rates-in-mexico">Tetakawi — tarifas industriales México</a><span class="what">Tarifa GDMTH ~$0.119 USD/kWh; demanda >100 kW.</span></div></div>
+        <div class="ref"><span class="n">6</span><div><a href="https://www.energiaadebate.com/generacion-distribuida-podria-alcanzar-5-5-gw-de-capacidad-al-final-del-ano/">Energía a Debate — proyección GD ~5.5 GW</a><span class="what">Trayectoria de crecimiento del mercado de GD.</span></div></div>
+      </div>
+
+      <div class="refgroup">
+        <h4>Precios, tarifas y economía</h4>
+        <div class="ref"><span class="n">7</span><div><a href="https://www.energiareal.mx/casos-de-exito/chedraui">Energía Real — caso Chedraui</a><span class="what">Ahorro real documentado ~13% vs. "hasta 40%" del titular.</span></div></div>
+        <div class="ref"><span class="n">8</span><div><a href="https://www.energiareal.mx/soluciones/ppa">Energía Real — PPA</a><span class="what">Precio PPA ~1.80 MXN/kWh + escalador 5%; mín. 200,000 kWh/mes.</span></div></div>
+        <div class="ref"><span class="n">9</span><div><a href="https://www.enlight.mx/calculadora">Enlight — calculadora / soluciones</a><span class="what">Bandas de ahorro segmentadas (PPA 30% · storage 15% · compra 60%); mín. 60,000 kWh/mes.</span></div></div>
+        <div class="ref"><span class="n">10</span><div><a href="https://www.ecoportal.net/energia/tarifas-gmdto-y-gmdth-cfe-mexico/">ecoportal — tarifas GDMTH/GDMTO CFE</a><span class="what">Cargos energía (base/intermedia/punta) y demanda (~496 MXN/kW).</span></div></div>
+        <div class="ref"><span class="n">11</span><div><a href="https://mexicoenergyllc.com.mx/blogs/mexico-energy-insights/decoding-the-cfe-bill-a-guide-to-beating-gdmth-demand-charges">Mexico Energy — cargo por demanda GDMTH</a><span class="what">El cargo por demanda = 30–50% del recibo; el sol no lo toca.</span></div></div>
+      </div>
+
+      <div class="refgroup">
+        <h4>Capital, empresas y plantilla</h4>
+        <div class="ref"><span class="n">12</span><div><a href="https://finance.yahoo.com/news/energia-real-unveils-700-million-120000221.html">Yahoo Finance / <a href="https://www.bnamericas.com/en/news/mexicos-energia-real-to-invest-us700mn-in-distributed-solar-power-and-private-grids">BNamericas</a> — Energía Real US$700M / Riverstone</a><span class="what">Plan de inversión; ~80 MW instalados; objetivo 1 GW.</span></div></div>
+        <div class="ref"><span class="n">13</span><div><a href="https://mexicobusiness.news/energy/news/ainda-invests-us50-million-quartux-battery-storage">Mexico Business News / <a href="https://www.lavca.org/ainda-invests-in-quartux/">LAVCA</a> — AINDA US$50M en Quartux</a><span class="what">Ronda dic-2025; expansión BESS, objetivo >1 GW 2026.</span></div></div>
+        <div class="ref"><span class="n">14</span><div><a href="https://techcrunch.com/2025/01/29/solar-startup-niko-is-building-mexicos-first-virtual-power-plant/">TechCrunch — Niko / planta virtual</a><span class="what">Serie A US$8M liderada por QED; narrativa VPP.</span></div></div>
+        <div class="ref"><span class="n">15</span><div><a href="https://renewablesnow.com/news/mexican-solar-start-up-niko-energy-raises-usd-23m-in-fresh-funds-1270159/">Renewables Now — Niko ~US$23M</a><span class="what">$8M equity + $15M deuda; fundadores ex-CloudKitchens.</span></div></div>
+        <div class="ref"><span class="n">16</span><div><a href="https://www.crunchbase.com/organization/enlight-mexico">Crunchbase — Enlight</a><span class="what">ALLVP + ENGIE; última ronda 2017 (cap table congelado).</span></div></div>
+        <div class="ref"><span class="n">17</span><div><a href="https://www.energy-storage.news/quartux-and-sungrow-complete-25mwh-bess-in-mexico/">energy-storage.news — Quartux + Sungrow 25 MWh Cancún</a><span class="what">Único proyecto con corroboración de tercero; hardware Sungrow (no Tesla).</span></div></div>
+      </div>
+
+      <div class="refgroup">
+        <h4>Reforma eléctrica 2024–2026</h4>
+        <div class="ref"><span class="n">18</span><div><a href="https://www.projectfinance.law/publications/se-emiten-nuevas-leyes-para-el-sector-el%C3%A9ctrico-en-m%C3%A9xico">Norton Rose Fulbright — nuevas leyes del sector eléctrico</a><span class="what">LSE deroga LIE; CFE "empresa pública"; CRE→CNE; piso 54%.</span></div></div>
+        <div class="ref"><span class="n">19</span><div><a href="https://energiaslimpias.mx/blog-generacion-distribuida-mexico-nuevo-limite-07-mw/">ELM — nuevo límite GD 0.7 MW</a><span class="what">Umbral GD sin permiso 0.5→0.7 MW bajo la LSE (DOF 18 mar 2025).</span></div></div>
+        <div class="ref"><span class="n">20</span><div><a href="https://www.gob.mx/cne/articulos/preguntas-frecuentes-sobre-generacion-distribuida-406238">CNE — preguntas frecuentes GD</a><span class="what">Autoconsumo (≥0.7 MW), permiso simplificado 0.7–20 MW; fin del "abasto aislado".</span></div></div>
+        <div class="ref"><span class="n">21</span><div><a href="https://strategicenergy.eu/mexico-enters-a-new-storage-phase-as-quartux-targets-over-1-gw-of-projects-by-2026/">Strategic Energy Europe — nueva fase del storage</a><span class="what">Mandato BESS; Esquemas de Desarrollo Mixto (PPA 25 años, 7,411 MW adjudicados).</span></div></div>
+      </div>
+
+      <div class="refgroup">
+        <h4>Marca, SEO y método (auditoría directa)</h4>
+        <div class="ref"><span class="n">22</span><div>Auditoría directa de sitios — energiareal.mx, enlight.mx, niko.mx, quartux.com<span class="what">Copy, estructura, schema, robots.txt, sitemaps; crawls completos (jun 2026).</span></div></div>
+        <div class="ref"><span class="n">23</span><div>SimilarWeb — paneles de tráfico por dominio<span class="what">Estimados de tráfico y mezcla de canales (orgánico vs. pagado).</span></div></div>
+        <div class="ref"><span class="n">24</span><div>Google Autocomplete suggest API (hl=es, gl=mx)<span class="what">568 sugerencias reales → universo de 185 keywords; fraseo de búsqueda mexicano.</span></div></div>
+        <div class="ref"><span class="n">25</span><div>PageSpeed Insights / curl (TTFB, peso de página)<span class="what">TTFB medido por sitio (Quartux 901 ms = debilidad de servidor).</span></div></div>
+        <div class="ref"><span class="n">26</span><div>Verificación WAF vía mac mini<span class="what">energiareal.mx filtra por User-Agent: navegador = 200, ClaudeBot = 403.</span></div></div>
+      </div>
+    </div>
+    <p class="src">Niveles de confianza por afirmación detallados en la sección Metodología. Cifras estimadas (DR/DA, volúmenes de keyword, SAM/SOM) marcadas como tales; se reemplazan con datos primarios y herramientas de pago en la v1.1.</p>
+  </div>
+</section>
+
 </main>
 
 <!-- ===================== FOOTER ===================== -->
@@ -668,16 +735,19 @@
         <p class="muted">Inteligencia competitiva del sector de energía distribuida C&I en México. Documento interno de investigación.</p>
       </div>
       <div>
+        <a href="#tesis-inversion">Tesis de inversión</a>
+        <a href="#mercado">Mercado (TAM/SAM/SOM)</a>
+        <a href="#posicionamiento">Posicionamiento</a>
         <a href="#capacidad">Capacidad</a>
-        <a href="#marca">Marca</a>
-        <a href="#seo">SEO</a>
-        <a href="#precios">Precios</a>
+        <a href="#economia">Economía unitaria</a>
       </div>
       <div>
+        <a href="#seo">SEO</a>
         <a href="#capital">Capital</a>
         <a href="#reforma">Reforma</a>
         <a href="#newman">Conclusión</a>
-        <a href="seo.html">Plan SEO</a>
+        <a href="#fuentes">Fuentes</a>
+        <a href="seo.html">Plan SEO →</a>
       </div>
     </div>
     <div class="end">
