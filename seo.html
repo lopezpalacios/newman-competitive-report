@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan de Batalla SEO · Energía C&I México 2026 | Newman Energy</title>
+<meta name="description" content="Plan de batalla SEO para Newman Energy: mapa de fuerza por competidor, espacios en blanco, backlog priorizado con ICE y las primeras 10 páginas a construir.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="newman.css">
+<style>
+  .eyebrow-meta{display:flex;gap:var(--s-16);flex-wrap:wrap;font-family:var(--display);font-size:var(--text-label);letter-spacing:.14em;text-transform:uppercase;color:var(--cloud);margin-top:var(--s-36)}
+  .eyebrow-meta span{display:inline-flex;align-items:center;gap:var(--s-8)}
+  .eyebrow-meta span::before{content:"";width:5px;height:5px;background:#ff5fa2}
+
+  .dtable{width:100%;border-collapse:collapse;margin-top:var(--s-24);font-size:var(--text-body-sm)}
+  .dtable th{font-family:var(--display);font-weight:var(--w-reg);font-size:var(--text-label);letter-spacing:.07em;text-transform:uppercase;color:var(--grey);text-align:left;padding:11px 12px;border-bottom:2px solid var(--line);position:sticky;top:0;background:var(--paper)}
+  .dtable td{padding:12px 12px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--graphite)}
+  .dtable tr:hover td{background:#fafafa}
+  .dtable td strong{color:var(--ink);font-weight:var(--w-semi)}
+  .num-cell{font-family:var(--display);font-weight:var(--w-med);text-align:center}
+  .ice{font-family:var(--display);font-weight:var(--w-semi);color:#fff;border-radius:var(--r-pill);padding:3px 11px;display:inline-block;font-size:13px}
+
+  /* strength matrix */
+  .smatrix{width:100%;border-collapse:separate;border-spacing:5px;margin-top:var(--s-24);font-size:var(--text-body-sm)}
+  .smatrix th{font-family:var(--display);font-weight:var(--w-reg);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--grey);padding:6px;text-align:center}
+  .smatrix th.row{text-align:left;min-width:170px}
+  .smatrix td{padding:9px 6px;border-radius:6px;text-align:center;font-family:var(--display);font-size:11px;font-weight:500;letter-spacing:.03em;text-transform:uppercase}
+  .s-strong{background:#191B4D;color:#fff}
+  .s-some{background:#e7e1ee;color:#3A1852}
+  .s-none{background:#fbe6ef;color:#8A0A4B}
+  .s-gap{background:#e3f3ec;color:#0d7a52;font-weight:600}
+  .smatrix td.lbl{background:none;text-align:left;font-family:var(--body);font-weight:400;color:var(--ink);text-transform:none;letter-spacing:0;font-size:var(--text-body-sm)}
+
+  .chip{display:inline-block;font-family:var(--display);font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;padding:3px 9px;border-radius:var(--r-pill);font-weight:500}
+  .chip.qw{background:#e3f3ec;color:#0d7a52}
+  .chip.com{background:#fbe6ef;color:#8A0A4B}
+  .chip.info{background:#eef0f5;color:#3A3A42}
+  .chip.pil{background:#191B4D;color:#fff}
+
+  .callout{border-left:3px solid var(--magenta);background:#fff;border-radius:0 var(--r-sm) var(--r-sm) 0;padding:var(--s-24) var(--s-24) var(--s-24) var(--s-36);margin-top:var(--s-24)}
+  .callout .k{font-family:var(--display);font-size:var(--text-label);letter-spacing:.12em;text-transform:uppercase;color:var(--magenta-ink);display:block;margin-bottom:var(--s-8)}
+  .dark .callout{background:#15151c;border-left-color:#ff5fa2}.dark .callout p{color:var(--cloud)}
+
+  .step{display:flex;gap:var(--s-24);padding:var(--s-24) 0;border-bottom:1px solid var(--line)}
+  .step .n{flex:none;width:44px;height:44px;border-radius:var(--r-pill);background:var(--grad);color:#fff;font-family:var(--display);font-weight:var(--w-semi);display:flex;align-items:center;justify-content:center;font-size:18px}
+  .step h4{font-family:var(--display);font-weight:var(--w-med);font-size:var(--text-subheading);margin-bottom:4px}
+  .step .meta{font-size:13px;color:var(--grey);font-family:var(--display);letter-spacing:.04em;text-transform:uppercase}
+
+  .src{font-size:12px;color:var(--grey);margin-top:var(--s-16)}
+  .conf{font-size:12px;color:var(--grey);font-style:italic;margin-top:var(--s-8)}
+  .legend{display:flex;gap:var(--s-16);flex-wrap:wrap;margin-top:var(--s-16);font-size:11px;color:var(--grey);font-family:var(--display);letter-spacing:.04em;text-transform:uppercase}
+  .legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:middle}
+  @media (max-width:860px){.tablewrap{overflow-x:auto}.dtable{min-width:760px}.smatrix{min-width:620px}}
+  .tablewrap{overflow-x:auto}
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Saltar al contenido</a>
+
+<nav class="nav" aria-label="Principal">
+  <div class="row">
+    <a href="index.html" class="brand" aria-label="Newman Energy">
+      <svg viewBox="0 0 266.95 185.03" height="22" role="img" aria-label="Newman">
+        <defs><linearGradient id="nm" x1="65.13" y1="98.26" x2="220.81" y2="-6.74" gradientUnits="userSpaceOnUse">
+          <stop offset=".15" stop-color="#191b4d"/><stop offset="1" stop-color="#b80e65"/></linearGradient></defs>
+        <g fill="url(#nm)">
+          <polygon points="2.47 3.06 0 0 85.76 0 86.47 1.3 168.41 152.36 147.28 185.03 2.47 3.06"/>
+          <polygon points="95.54 3.04 93.17 0 151.49 0 152.2 1.33 204.39 96.74 188.98 120.56 95.54 3.04"/>
+          <polygon points="161.87 3.07 159.39 0 197.72 0 198.42 1.33 229.39 58.08 218.74 74.54 161.87 3.07"/>
+          <polygon points="205.52 0 228.73 0 246.42 31.75 239.32 42.72 205.52 0"/>
+          <polygon points="236.11 0 266.95 0 253.06 21.48 236.11 0"/>
+        </g>
+      </svg>
+      <span class="caps" style="font-size:13px;letter-spacing:.2em;color:#fff">Newman</span>
+    </a>
+    <div class="links">
+      <a href="#tesis">Tesis</a>
+      <a href="#mapa">Mapa</a>
+      <a href="#huecos">Huecos</a>
+      <a href="#backlog">Backlog</a>
+      <a href="#primeras10">Primeras 10</a>
+      <a href="#tecnico">Técnico</a>
+      <a href="#medicion">Medición</a>
+      <a href="index.html">← Reporte</a>
+    </div>
+    <button class="burger" aria-label="Menú" aria-expanded="false">☰</button>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <p class="kicker" style="color:#ff5fa2">Documento operativo · Equipo SEO</p>
+    <h1>Plan de batalla <b class="grad-text">SEO</b>.<br>Qué construir, en qué orden, y por qué.</h1>
+    <p class="lead">No es estrategia abstracta: es un backlog priorizado. 185 keywords reales, mapa de fuerza de los 4 competidores, y las primeras 10 páginas a publicar — con su justificación. Terminas de leer y sabes exactamente qué tocar el lunes.</p>
+    <div class="cta">
+      <a href="#primeras10" class="btn">Ver las primeras 10 páginas</a>
+      <a href="#backlog" class="btn-outline">Ir al backlog</a>
+    </div>
+    <div class="eyebrow-meta">
+      <span>Junio 2026 · v1.0</span>
+      <span>Datos: proxy gratuito (autocomplete + SERP en vivo)</span>
+      <span>Pendiente: validar en Semrush</span>
+    </div>
+  </div>
+</header>
+
+<!-- TESIS -->
+<section class="section" id="tesis">
+  <div class="wrap">
+    <p class="kicker">La tesis · una sola idea</p>
+    <h2 class="h-lg">No pelees donde ya construyeron. Entra por el hueco que todos ignoraron.</h2>
+    <div class="section-rule"></div>
+    <p class="lead" style="max-width:64ch">Los cuatro competidores ya blindaron los términos obvios (<em>PPA solar, qué es BESS, peak shaving, autoconsumo 101</em>). Pelear ahí de frente = años y presupuesto. El dato dice otra cosa: <strong>hay tres territorios con demanda comercial real y SERPs fragmentados (consultoras y gobierno, ningún brand de energía) donde Newman puede ser la autoridad en meses.</strong></p>
+
+    <div class="grid grid-3" style="margin-top:var(--s-48)">
+      <article class="card card-grad" data-reveal>
+        <h3>1 · Cumplimiento y mecánica del recibo CFE</h3>
+        <p>Factor de potencia, Código de Red 2.0, cargo por demanda, cómo leer el recibo GDMTH/GDMTO, deducción fiscal (LISR Art. 34). <strong>Ninguno de los 4 lo posee.</strong> Intent de CFO/gerente de planta. Alto valor.</p>
+      </article>
+      <article class="card card-grad" data-reveal>
+        <h3>2 · La reforma 2025 y su resaca</h3>
+        <p>GD 0.7 MW, net billing vs net metering, PPA virtual vs físico, migración a usuario calificado. <strong>Las reglas cambiaron</strong> → el contenido viejo de los incumbentes quedó obsoleto. Quien explique primero, re-rankea.</p>
+      </article>
+      <article class="card card-grad" data-reveal>
+        <h3>3 · Glosario estructurado (MEM)</h3>
+        <p>Niko tiene un glosario de ~120 términos pero residencial y con blog caído. Newman lo iguala y lo extiende a la capa mayorista (PML, MDA/MTR, usuario calificado, CELs) que Niko ignora. Cola larga barata y durable.</p>
+      </article>
+    </div>
+    <div class="callout" data-reveal>
+      <span class="k">El foso de contenido (verificado en todos los SERPs)</span>
+      <p style="color:var(--ink)">La diferencia que nadie entrega: <strong>la matemática del "cuánto cuesta / cuánto ahorra" en pesos, atada al cargo por demanda GDMTH.</strong> Los incumbentes responden con una anécdota; nunca con una fórmula reproducible. La base de datos de tarifas viva + la calculadora de Newman es justo ese diferenciador — y mapea directo a 5 de las primeras páginas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MAPA DE FUERZA -->
+<section class="section" id="mapa" style="background:var(--white)">
+  <div class="wrap">
+    <p class="kicker">Frente 01 · Mapa de fuerza por competidor</p>
+    <h2 class="h-lg">Quién posee qué (y dónde no hay nadie).</h2>
+    <div class="section-rule"></div>
+    <p class="lead" style="max-width:62ch">Basado en crawls completos de sus sitios (ER 135 URLs, Quartux ~126, Niko ~221, Enlight ~47). <span class="s-gap" style="padding:2px 8px;border-radius:4px">Verde</span> = hueco abierto = oportunidad Newman.</p>
+
+    <div class="tablewrap">
+    <table class="smatrix" data-reveal>
+      <thead><tr><th class="row">Cluster</th><th>Energía&nbsp;Real</th><th>Enlight</th><th>Niko</th><th>Quartux</th><th>Newman</th></tr></thead>
+      <tbody>
+        <tr><td class="lbl">Tarifas CFE (GDMTH/DAC)</td><td class="s-some">algo</td><td class="s-none">nada</td><td class="s-some">algo</td><td class="s-strong">fuerte</td><td class="s-gap">entrar</td></tr>
+        <tr><td class="lbl">PPA</td><td class="s-strong">fuerte</td><td class="s-strong">fuerte</td><td class="s-some">algo</td><td class="s-none">nada</td><td class="s-some">flanquear</td></tr>
+        <tr><td class="lbl">BESS / almacenamiento</td><td class="s-strong">fuerte</td><td class="s-strong">fuerte</td><td class="s-strong">fuerte</td><td class="s-strong">fuerte</td><td class="s-some">sub-intent</td></tr>
+        <tr><td class="lbl">MEM / usuario calificado</td><td class="s-strong">fuerte</td><td class="s-some">algo</td><td class="s-none">nada</td><td class="s-some">algo</td><td class="s-gap">entrar</td></tr>
+        <tr><td class="lbl">Cumplimiento CFE / factor de potencia</td><td class="s-some">algo</td><td class="s-some">algo</td><td class="s-some">algo</td><td class="s-some">algo</td><td class="s-gap">GANAR</td></tr>
+        <tr><td class="lbl">Código de Red 2.0</td><td class="s-none">nada</td><td class="s-none">nada</td><td class="s-none">nada</td><td class="s-some">algo</td><td class="s-gap">GANAR</td></tr>
+        <tr><td class="lbl">Reforma 2025 (GD 0.7 MW, net billing)</td><td class="s-none">nada</td><td class="s-some">algo</td><td class="s-some">algo</td><td class="s-none">nada</td><td class="s-gap">GANAR</td></tr>
+        <tr><td class="lbl">Nearshoring energía</td><td class="s-none">nada</td><td class="s-none">nada</td><td class="s-none">nada</td><td class="s-some">algo</td><td class="s-gap">entrar</td></tr>
+        <tr><td class="lbl">CELs / I-RECs (instrumento)</td><td class="s-strong">fuerte</td><td class="s-none">nada</td><td class="s-none">nada</td><td class="s-none">nada</td><td class="s-some">flanquear</td></tr>
+        <tr><td class="lbl">Glosario estructurado</td><td class="s-none">nada</td><td class="s-none">nada</td><td class="s-strong">fuerte</td><td class="s-some">algo</td><td class="s-gap">igualar+MEM</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="legend">
+      <span><i class="s-strong" style="background:#191B4D"></i>Fuerte (pilar + cluster)</span>
+      <span><i style="background:#e7e1ee"></i>Algo (1-2 páginas)</span>
+      <span><i style="background:#fbe6ef"></i>Nada</span>
+      <span><i style="background:#e3f3ec"></i>Hueco / objetivo Newman</span>
+    </div>
+    <p class="src">Confianza ALTA (crawls directos). ER = la operación SEO más sofisticada (pilar /playbook/ + cluster /blog/). Quartux = máquina de blog BESS/GDMTH. Niko = glosario, pero <strong>blog caído (404)</strong>. Enlight = marca fuerte, contenido delgado, sitemap rezagado.</p>
+  </div>
+</section>
+
+<!-- BACKLOG -->
+<section class="section" id="backlog">
+  <div class="wrap">
+    <p class="kicker">Frente 02 · Backlog priorizado (ICE)</p>
+    <h2 class="h-lg">20 objetivos, ordenados por ICE.</h2>
+    <div class="section-rule"></div>
+    <p class="lead" style="max-width:64ch"><strong>ICE = Impacto × Confianza × Facilidad</strong> (cada uno 1–10; score = producto, máx 1000). Impacto = volumen × intent comercial. Confianza = qué tan segura es la oportunidad (hueco verificado). Facilidad = displaceability del SERP + esfuerzo de la página. Volúmenes y dificultad son <em>estimados</em> (proxy gratuito) — validar en Semrush.</p>
+
+    <div class="tablewrap">
+    <table class="dtable" data-reveal>
+      <thead><tr><th>#</th><th>Keyword objetivo</th><th>Tipo</th><th>Vol [est]</th><th>I</th><th>C</th><th>F</th><th>ICE</th><th>Por qué</th></tr></thead>
+      <tbody>
+        <tr><td class="num-cell">1</td><td><strong>factor de potencia multa CFE</strong></td><td><span class="chip qw">Quick win</span></td><td>100–500</td><td class="num-cell">7</td><td class="num-cell">9</td><td class="num-cell">8</td><td class="num-cell"><span class="ice" style="background:#0d7a52">504</span></td><td>Ningún competidor rankea. Dolor agudo → venta de banco de capacitores. Regla 0.97 en 2026 = gancho fresco.</td></tr>
+        <tr><td class="num-cell">2</td><td><strong>deducción fiscal LISR Art. 34 (solar/BESS)</strong></td><td><span class="chip qw">Quick win</span></td><td>&lt;100</td><td class="num-cell">7</td><td class="num-cell">8</td><td class="num-cell">8</td><td class="num-cell"><span class="ice" style="background:#0d7a52">448</span></td><td>Intent de CFO, casi sin contenido C&I, alta conversión.</td></tr>
+        <tr><td class="num-cell">3</td><td><strong>cargo por demanda CFE cómo reducir</strong></td><td><span class="chip qw">Quick win</span></td><td>100–500</td><td class="num-cell">7</td><td class="num-cell">8</td><td class="num-cell">8</td><td class="num-cell"><span class="ice" style="background:#0d7a52">448</span></td><td>SERP fragmentado, dolor alto, empata con pitch de BESS/peak shaving.</td></tr>
+        <tr><td class="num-cell">4</td><td><strong>cuánto cuesta paneles solares industria</strong></td><td><span class="chip com">Comercial</span></td><td>100–500</td><td class="num-cell">9</td><td class="num-cell">7</td><td class="num-cell">7</td><td class="num-cell"><span class="ice" style="background:#0d7a52">441</span></td><td>Volumen alto, incumbentes débiles, intent de precio. Necesita profundidad (2.5–3.5k palabras).</td></tr>
+        <tr><td class="num-cell">5</td><td><strong>cómo leer recibo CFE GDMTH</strong></td><td><span class="chip qw">Quick win</span></td><td>&lt;100</td><td class="num-cell">6</td><td class="num-cell">8</td><td class="num-cell">9</td><td class="num-cell"><span class="ice" style="background:#0d7a52">432</span></td><td>How-to puro, nadie lo posee, fácil ganar con tablas crawleables.</td></tr>
+        <tr><td class="num-cell">6</td><td><strong>net billing vs net metering 2025</strong></td><td><span class="chip info">Reforma</span></td><td>100–500</td><td class="num-cell">6</td><td class="num-cell">8</td><td class="num-cell">7</td><td class="num-cell"><span class="ice" style="background:#0d7a52">336</span></td><td>Reglas cambiaron → contenido viejo obsoleto. Re-rankeable.</td></tr>
+        <tr><td class="num-cell">7</td><td><strong>tarifa GDMTH explicada</strong></td><td><span class="chip pil">Pilar</span></td><td>500–2k</td><td class="num-cell">8</td><td class="num-cell">7</td><td class="num-cell">6</td><td class="num-cell"><span class="ice" style="background:#b9770f">336</span></td><td>Pilar de cluster. Quartux presente pero batible con mejor explicador + datos vivos.</td></tr>
+        <tr><td class="num-cell">8</td><td><strong>cómo reducir recibo CFE empresa</strong></td><td><span class="chip pil">Pilar HUB</span></td><td>500–2k</td><td class="num-cell">9</td><td class="num-cell">6</td><td class="num-cell">6</td><td class="num-cell"><span class="ice" style="background:#b9770f">324</span></td><td>El hub de autoridad: enlaza a todo. Niko ~3.8k palabras es el benchmark. Construir temprano.</td></tr>
+        <tr><td class="num-cell">9</td><td><strong>generación distribuida 0.7 MW (reforma)</strong></td><td><span class="chip info">Reforma</span></td><td>100–500</td><td class="num-cell">6</td><td class="num-cell">8</td><td class="num-cell">6</td><td class="num-cell"><span class="ice" style="background:#b9770f">288</span></td><td>Slot de explicador regulatorio vacío; compite con gobierno pero el ángulo fresco gana.</td></tr>
+        <tr><td class="num-cell">10</td><td><strong>paneles solares para empresas</strong></td><td><span class="chip com">Comercial</span></td><td>500–2k</td><td class="num-cell">9</td><td class="num-cell">6</td><td class="num-cell">5</td><td class="num-cell"><span class="ice" style="background:#b9770f">270</span></td><td>Término dinero core, B2B no saturado (todos van a "para casa"). Necesita autoridad de dominio.</td></tr>
+        <tr><td class="num-cell">11</td><td>PPA solar vs CAPEX</td><td><span class="chip com">Comercial</span></td><td>100–500</td><td class="num-cell">8</td><td class="num-cell">6</td><td class="num-cell">5</td><td class="num-cell"><span class="ice" style="background:#b9770f">240</span></td><td>ER posee PPA; flanquear con la matemática de TCO/LCOE en pesos + lado fiscal.</td></tr>
+        <tr><td class="num-cell">12</td><td>código de red obligaciones / multa</td><td><span class="chip info">Reforma</span></td><td>&lt;100</td><td class="num-cell">5</td><td class="num-cell">8</td><td class="num-cell">7</td><td class="num-cell"><span class="ice" style="background:#b9770f">280</span></td><td>Sin brand de energía dominante; intent de miedo-cumplimiento.</td></tr>
+        <tr><td class="num-cell">13</td><td>usuario calificado MEM registro</td><td><span class="chip com">Comercial</span></td><td>&lt;100</td><td class="num-cell">7</td><td class="num-cell">6</td><td class="num-cell">6</td><td class="num-cell"><span class="ice" style="background:#b9770f">252</span></td><td>Lead de alto valor (≥1 MW). ER compite pero un how-to con checklist gana slots.</td></tr>
+        <tr><td class="num-cell">14</td><td>peak shaving cuánto ahorra</td><td><span class="chip info">Flanqueo</span></td><td>&lt;100</td><td class="num-cell">6</td><td class="num-cell">6</td><td class="num-cell">5</td><td class="num-cell"><span class="ice" style="background:#b9770f">180</span></td><td>Quartux posee "peak shaving"; flanquear el sub-intent "cuánto ahorra" con fórmula.</td></tr>
+        <tr><td class="num-cell">15</td><td>bess vs generador diésel</td><td><span class="chip com">Comercial</span></td><td>100–500</td><td class="num-cell">7</td><td class="num-cell">6</td><td class="num-cell">5</td><td class="num-cell"><span class="ice" style="background:#b9770f">210</span></td><td>ER #1 pero reciente; batible con tabla TCO + esquema híbrido.</td></tr>
+        <tr><td class="num-cell">16</td><td>PPA virtual vs físico México</td><td><span class="chip info">Reforma</span></td><td>&lt;100</td><td class="num-cell">5</td><td class="num-cell">8</td><td class="num-cell">7</td><td class="num-cell"><span class="ice" style="background:#b9770f">280</span></td><td>Cero contenido MX-específico (solo blogs de España + bufetes). Apertura limpia.</td></tr>
+        <tr><td class="num-cell">17</td><td>energía para nearshoring</td><td><span class="chip com">Comercial</span></td><td>&lt;100</td><td class="num-cell">6</td><td class="num-cell">7</td><td class="num-cell">7</td><td class="num-cell"><span class="ice" style="background:#b9770f">294</span></td><td>Tema de PR/noticias sin página vendedora optimizada. Pilar con datos = activo enlazable.</td></tr>
+        <tr><td class="num-cell">18</td><td>paneles solares industriales monterrey</td><td><span class="chip com">Geo</span></td><td>100–500</td><td class="num-cell">6</td><td class="num-cell">7</td><td class="num-cell">7</td><td class="num-cell"><span class="ice" style="background:#b9770f">294</span></td><td>Hub industrial, baja competencia geo. Plantilla programática para 15+ ciudades.</td></tr>
+        <tr><td class="num-cell">19</td><td>CELs qué son / obligaciones</td><td><span class="chip info">Info</span></td><td>100–500</td><td class="num-cell">5</td><td class="num-cell">7</td><td class="num-cell">7</td><td class="num-cell"><span class="ice" style="background:#b9770f">245</span></td><td>ER tiene contenido pero NO rankea top (ONGs/consultoras) → batible.</td></tr>
+        <tr><td class="num-cell">20</td><td>glosario MEM (PML, MDA/MTR, etc.)</td><td><span class="chip pil">Programático</span></td><td>varios</td><td class="num-cell">5</td><td class="num-cell">8</td><td class="num-cell">9</td><td class="num-cell"><span class="ice" style="background:#0d7a52">360</span></td><td>Iguala el foso de Niko y lo extiende al mercado mayorista que Niko ignora. Cola larga barata.</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="conf">I/C/F son juicios SEO sobre datos proxy. El ICE ordena, pero no es ley: los pilares (#7, #8) se construyen temprano por su rol de enlazado interno aunque su ICE sea medio.</p>
+  </div>
+</section>
+
+<!-- PRIMERAS 10 -->
+<section class="section" id="primeras10" style="background:var(--ink);color:#fff">
+  <div class="wrap">
+    <p class="kicker" style="color:#ff5fa2">La orden de marcha</p>
+    <h2 class="h-lg" style="color:#fff">Las primeras 10 páginas, en orden.</h2>
+    <div class="section-rule"></div>
+    <p class="lead" style="max-width:62ch;color:#cfcfe0">Secuencia que mezcla ICE + lógica de cluster: primero los dos pilares-hub (todo enlaza a ellos), luego los quick wins de mayor ICE, luego el contenido fresco de reforma. Cada página enlaza hacia arriba al hub y a la calculadora.</p>
+
+    <div style="margin-top:var(--s-36)">
+      <div class="step" data-reveal><div class="n">1</div><div><h4>Tarifa GDMTH explicada (PILAR)</h4><p style="color:#cfcfe0">El ancla del cluster de tarifas. Tabla de horarios crawleable + ejemplo en pesos + datos vivos 2026. Todo el cluster de cumplimiento enlaza aquí.</p><span class="meta">Pilar · ~2,200 palabras · FAQ+Article schema</span></div></div>
+      <div class="step" data-reveal><div class="n">2</div><div><h4>Cómo reducir el recibo de CFE de tu empresa (PILAR HUB)</h4><p style="color:#cfcfe0">El hub de autoridad temática. Conecta las 3 palancas que nadie une: factura + factor de potencia + mecánica GDMTH. Calculadora "sube tu recibo".</p><span class="meta">Pilar hub · ~3,800 palabras</span></div></div>
+      <div class="step" data-reveal><div class="n">3</div><div><h4>Factor de potencia: multa CFE y cómo evitarla</h4><p style="color:#cfcfe0">ICE más alto (504). Cero competidores rankean. Tabla de umbrales + ROI del banco de capacitores. El quick win más limpio.</p><span class="meta">Quick win · ~1,400 palabras</span></div></div>
+      <div class="step" data-reveal><div class="n">4</div><div><h4>Cargo por demanda CFE: cómo reducirlo</h4><p style="color:#cfcfe0">SERP fragmentado, dolor alto, empata con BESS. Fórmula del cargo + cómo el almacenamiento lo recorta.</p><span class="meta">Quick win · ~1,600 palabras</span></div></div>
+      <div class="step" data-reveal><div class="n">5</div><div><h4>Deducción fiscal LISR Art. 34 (solar/BESS)</h4><p style="color:#cfcfe0">Intent de CFO, casi sin contenido C&I. Depreciación acelerada 100% año 1. Alta conversión, baja competencia.</p><span class="meta">Quick win · ~1,400 palabras</span></div></div>
+      <div class="step" data-reveal><div class="n">6</div><div><h4>Cuánto cuesta instalar paneles solares (industria)</h4><p style="color:#cfcfe0">Volumen alto, intent de precio. Bandas $ por kWp segmentadas por tarifa + la opción PPA sin inversión que los incumbentes ignoran.</p><span class="meta">Comercial · ~3,000 palabras</span></div></div>
+      <div class="step" data-reveal><div class="n">7</div><div><h4>Cómo leer tu recibo CFE GDMTH</h4><p style="color:#cfcfe0">How-to puro que nadie posee. Anatomía del recibo + tablas crawleables. Imán de tope de embudo que alimenta la calculadora.</p><span class="meta">Quick win · ~1,800 palabras</span></div></div>
+      <div class="step" data-reveal><div class="n">8</div><div><h4>Net billing vs net metering post-reforma 2025</h4><p style="color:#cfcfe0">Las reglas cambiaron → el contenido viejo es obsoleto. Primer movedor re-rankea. Ángulo fresco y enlazable.</p><span class="meta">Reforma · ~1,800 palabras</span></div></div>
+      <div class="step" data-reveal><div class="n">9</div><div><h4>Generación distribuida 0.7 MW (qué cambió en 2025)</h4><p style="color:#cfcfe0">Explicador regulatorio del nuevo umbral LSE. Slot vacío; compite con DOF/CRE pero el formato claro gana al ciudadano.</p><span class="meta">Reforma · ~1,600 palabras</span></div></div>
+      <div class="step" data-reveal><div class="n">10</div><div><h4>Glosario MEM estructurado (lanzamiento)</h4><p style="color:#cfcfe0">Primeros 20–30 términos de la capa mayorista (PML, MDA/MTR, usuario calificado, CELs) que Niko ignora. Programático, cola larga, durable.</p><span class="meta">Programático · plantilla repetible</span></div></div>
+    </div>
+    <p class="src" style="color:#9a9ab0;border-top:0">Después de las 10: expandir el cluster de cumplimiento (Código de Red, PPA virtual vs físico), las páginas geo programáticas (Monterrey, Querétaro, Bajío) y el pilar de nearshoring.</p>
+  </div>
+</section>
+
+<!-- TÉCNICO -->
+<section class="section" id="tecnico" style="background:var(--white)">
+  <div class="wrap">
+    <p class="kicker">Frente 03 · SEO técnico — quick wins</p>
+    <h2 class="h-lg">Dos victorias gratis que ningún competidor tomó.</h2>
+    <div class="section-rule"></div>
+
+    <div class="grid grid-2">
+      <div class="card" data-reveal>
+        <h3>1 · Schema en todo (FAQPage + Article)</h3>
+        <p><strong>Ausente en los 4 competidores.</strong> Verificado en cada SERP. Capturar rich results + People Also Ask está sin disputar. Cada página de Newman lo lleva desde el día 1.</p>
+      </div>
+      <div class="card" data-reveal>
+        <h3>2 · Tablas comparativas en HTML</h3>
+        <p>Raras en el sector (varios atrapan fórmulas en imágenes). Tablas crawleables de horarios, precios, "vs" = ganan featured snippets y son extraíbles por la IA.</p>
+      </div>
+    </div>
+
+    <div class="callout" data-reveal>
+      <span class="k">Higiene técnica — no repetir los errores de los rivales</span>
+      <p style="color:var(--ink)"><strong>Quartux: TTFB 901 ms</strong> (5–24× más lento que sus pares — medido) → su servidor lastra ranking y rastreo; ventaja de velocidad fácil. <strong>Energía Real bloquea bots de IA</strong> (ClaudeBot/GPTBot) por User-Agent → invisible en respuestas de IA; Newman permite todos. Además: og:image en todas (ER y Niko sin él), canonical en todas (Niko sin él en home), schema correcto Organization+LocalBusiness (Niko usa Product, mal), un solo número de ahorro consistente, alt text completo (ER solo 16%).</p>
+    </div>
+    <p class="conf">Core Web Vitals completos (LCP/CLS/INP) requieren una API key gratuita de PageSpeed Insights — la cuota anónima está agotada. El equipo SEO la obtiene en 2 min en Google Cloud y mide las 5 propiedades.</p>
+  </div>
+</section>
+
+<!-- MEDICIÓN -->
+<section class="section" id="medicion">
+  <div class="wrap">
+    <p class="kicker">Frente 04 · Medición</p>
+    <h2 class="h-lg">Qué medir desde el día 0.</h2>
+    <div class="section-rule"></div>
+    <div class="grid grid-3">
+      <div class="card" data-reveal><div class="ico"></div><h3 style="font-size:var(--text-subheading)">Línea base</h3><p>Antes de publicar: páginas indexadas (<code>site:</code>), keywords en top 20, tráfico orgánico, inicios de calculadora. Sin baseline no hay historia de ROI.</p></div>
+      <div class="card" data-reveal><div class="ico"></div><h3 style="font-size:var(--text-subheading)">Herramientas</h3><p>Search Console (gratis, obligatorio) + Semrush/Ahrefs para rank tracking de las 25 prioritarias + GA4 para conversión calculadora. PSI API key para CWV.</p></div>
+      <div class="card" data-reveal><div class="ico"></div><h3 style="font-size:var(--text-subheading)">Tablero mensual</h3><p>Indexadas (meta 120+), keywords top-20 (meta 50+), inicios de calculadora desde orgánico (conversión #1), citas en respuestas de IA (sondeo manual).</p></div>
+    </div>
+
+    <div class="callout" data-reveal>
+      <span class="k">Lo primero que debe hacer el equipo con Semrush</span>
+      <p style="color:var(--ink)">Reemplazar todo número <em>[estimado]</em> de este plan con volumen + KD reales, correr "Content Gap" contra los 4 dominios, y obtener su lista real de backlinks (qué enlaces son replicables). Eso convierte este backlog en cifras duras. Hasta entonces: las <strong>oportunidades</strong> (los huecos, los gaps de schema/tabla) son verificadas; los <strong>volúmenes</strong> son direccionales.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="grad-bar"></div>
+    <div class="cols">
+      <div style="max-width:300px">
+        <div class="caps" style="font-size:14px;letter-spacing:.24em;color:#fff;margin-bottom:var(--s-12)">Newman Energy</div>
+        <p style="color:#9a9ab0;font-size:var(--text-body-sm)">Plan de batalla SEO · documento operativo interno para el equipo de búsqueda.</p>
+      </div>
+      <div>
+        <a href="#tesis">Tesis</a><a href="#mapa">Mapa de fuerza</a><a href="#huecos">Huecos</a><a href="#backlog">Backlog ICE</a>
+      </div>
+      <div>
+        <a href="#primeras10">Primeras 10</a><a href="#tecnico">Técnico</a><a href="#medicion">Medición</a><a href="index.html">← Reporte completo</a>
+      </div>
+    </div>
+    <div class="end">
+      <span>© 2026 Newman Energy · Soluciones en Energía</span>
+      <span>Junio 2026 · v1.0 · Datos proxy gratuito; validar en Semrush</span>
+    </div>
+  </div>
+</footer>
+
+<script src="newman.js"></script>
+</body>
+</html>
