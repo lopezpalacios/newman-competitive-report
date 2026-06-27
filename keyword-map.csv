@@ -1,0 +1,144 @@
+cluster,keyword,intent,vol_est,diff_est,quick_win,target_url,ice_impact,ice_confidence,ice_ease,ice_score,priority_rank,notes
+Cumplimiento CFE,factor de potencia multa cfe,Commercial,100-500,Low,yes,/factor-de-potencia-multa-cfe,7,9,8,504,1,Ningun competidor rankea. Regla 0.97 en 2026 = gancho fresco. Quick win mas limpio.
+Ahorro,deduccion fiscal lisr art 34 solar bess,Commercial,<100,Low,yes,/deduccion-fiscal-paneles-bess,7,8,8,448,2,Intent CFO. Depreciacion acelerada 100% ano 1. Casi sin contenido C&I.
+Cargos CFE,cargo por demanda cfe como reducir,Commercial,100-500,Low,yes,/cargo-por-demanda-cfe,7,8,8,448,3,SERP fragmentado. Empata con pitch BESS/peak shaving.
+Solar industrial,cuanto cuesta instalar paneles solares industria,Commercial,100-500,Low,yes,/cuanto-cuesta-paneles-solares-industria,9,7,7,441,4,Volumen alto intent precio. Necesita profundidad 2.5-3.5k palabras + opcion PPA.
+Tarifas CFE,como leer recibo cfe gdmth,Informational,<100,Low,yes,/como-leer-recibo-cfe-gdmth,6,8,9,432,5,How-to puro nadie lo posee. Tablas crawleables. Iman tope de embudo.
+Glosario,glosario mem pml mda mtr usuario calificado,Informational,varios,Low,yes,/glosario,5,8,9,360,6,Iguala foso de Niko y lo extiende al mercado mayorista que Niko ignora. Programatico.
+Reforma,net billing vs net metering 2025,Informational,100-500,Med,no,/net-billing-vs-net-metering,6,8,7,336,7,Reglas cambiaron contenido viejo obsoleto. Re-rankeable primer movedor.
+Tarifas CFE,tarifa gdmth explicada,Informational,500-2k,Med,no,/tarifa-gdmth,8,7,6,336,8,PILAR del cluster de tarifas. Construir temprano por enlazado interno.
+Ahorro,energia para nearshoring,Commercial,<100,Low,yes,/energia-nearshoring,6,7,7,294,9,Tema PR/noticias sin pagina vendedora optimizada. Pilar enlazable.
+Geo,paneles solares industriales monterrey,Commercial,100-500,Low,yes,/paneles-solares-industriales/monterrey,6,7,7,294,10,Hub industrial baja competencia geo. Plantilla programatica 15+ ciudades.
+Reforma,generacion distribuida 0.7 mw reforma,Informational,100-500,Low,no,/generacion-distribuida-0-7-mw,6,8,6,288,11,Explicador regulatorio nuevo umbral LSE 2025. Slot vacio compite con gobierno.
+Reforma,ppa virtual vs fisico mexico,Informational,<100,Low,no,/ppa-virtual-vs-fisico,5,8,7,280,12,Cero contenido MX-especifico (solo Espana + bufetes). Apertura limpia.
+Reforma,codigo de red obligaciones multa,Informational,<100,Low,no,/codigo-de-red-obligaciones,5,8,7,280,13,Sin brand de energia dominante. Intent miedo-cumplimiento.
+Ahorro,como reducir recibo cfe empresa,Commercial,500-2k,Med,no,/reducir-recibo-cfe-empresa,9,6,6,324,14,PILAR HUB de autoridad. Conecta 3 palancas. Niko ~3.8k palabras benchmark.
+MEM,usuario calificado mem registro,Commercial,<100,Low,yes,/usuario-calificado-mem-registro,7,6,6,252,15,Lead alto valor >=1 MW. ER compite pero how-to con checklist gana slots.
+Solar industrial,paneles solares para empresas,Commercial,500-2k,Med,no,/paneles-solares-para-empresas,9,6,5,270,16,Termino dinero core. B2B no saturado (todos van a para casa). Necesita autoridad.
+ESG,cels que son obligaciones,Informational,100-500,Med,no,/cels-que-son,5,7,7,245,17,ER tiene contenido pero NO rankea top (ONGs/consultoras). Batible.
+PPA,ppa solar vs capex,Commercial,100-500,Med,no,/ppa-solar-vs-capex,8,6,5,240,18,ER posee PPA. Flanquear con matematica TCO/LCOE en pesos + lado fiscal.
+BESS,bess vs generador diesel,Commercial,100-500,Med,no,/bess-vs-generador-diesel,7,6,5,210,19,ER #1 pero reciente. Batible con tabla TCO + esquema hibrido.
+BESS,peak shaving cuanto ahorra,Informational,<100,Low,no,/peak-shaving-cuanto-ahorra,6,6,5,180,20,Quartux posee peak shaving. Flanquear sub-intent cuanto ahorra con formula.
+Solar industrial,paneles solares industriales,Commercial,500-2k,Med,yes,,,,,,,Core B2B no saturado
+Solar industrial,paneles solares industriales en mexico,Commercial,100-500,Low,yes,,,,,,,Exact ICP thin competition
+Solar industrial,paneles solares para empresas industriales,Commercial,100-500,Low,yes,,,,,,,
+Solar industrial,costo de paneles solares para empresas,Commercial,100-500,Low,yes,,,,,,,Price intent B2B
+Solar industrial,instalacion de paneles solares para empresas,Commercial,100-500,Low,yes,,,,,,,
+Solar industrial,sistema fotovoltaico industrial,Commercial,100-500,Low,yes,,,,,,,
+Solar industrial,paneles solares nave industrial,Commercial,100-500,Low,yes,,,,,,,Exact use-case match
+Solar industrial,paneles solares industriales precios,Commercial,100-500,Low,yes,,,,,,,
+Solar industrial,energia solar para empresas,Commercial,500-2k,Med,yes,,,,,,,
+Solar industrial,energia solar industrial mexico,Commercial,100-500,Low,yes,,,,,,,
+Solar industrial,celdas solares para empresas,Commercial,<100,Low,yes,,,,,,,
+Solar industrial,techo solar industrial,Commercial,<100,Low,yes,,,,,,,
+Solar industrial,mejor empresa de paneles solares en mexico,Commercial,100-500,Med,yes,,,,,,,Comparison stage brandable
+Solar industrial,paneles solares,Informational,2k+,High,no,,,,,,,Saturado evitar head-on
+Solar industrial,precio paneles solares mexico,Commercial,500-2k,High,no,,,,,,,
+Tarifas CFE,tarifa gdmth,Informational,500-2k,Med,no,,,,,,,
+Tarifas CFE,tarifa gdmth cfe,Informational,500-2k,Med,no,,,,,,,
+Tarifas CFE,que es tarifa gdmth,Informational,100-500,Low,no,,,,,,,
+Tarifas CFE,que significa gdmth en cfe,Informational,100-500,Low,no,,,,,,,
+Tarifas CFE,tarifa gdmth precio,Commercial,100-500,Low,yes,,,,,,,
+Tarifas CFE,tarifa gdmth horarios,Informational,100-500,Low,no,,,,,,,
+Tarifas CFE,tarifa gdmth paneles solares,Commercial,100-500,Low,yes,,,,,,,Buyer signal
+Tarifas CFE,tarifa cfe,Informational,2k+,High,no,,,,,,,
+Tarifas CFE,tarifa dac,Informational,2k+,High,no,,,,,,,
+Tarifas CFE,tarifa dac precio,Commercial,500-2k,Med,no,,,,,,,
+Tarifas CFE,tarifa pdbt,Informational,100-500,Low,no,,,,,,,
+Tarifas CFE,tarifa gdbt cfe,Informational,100-500,Low,no,,,,,,,
+Tarifas CFE,tarifa horaria cfe,Informational,100-500,Low,no,,,,,,,
+Tarifas CFE,precio kwh cfe industrial,Commercial,100-500,Low,yes,,,,,,,Buyer signal sales-ready
+Tarifas CFE,horario base intermedio punta cfe,Informational,100-500,Low,no,,,,,,,
+Tarifas CFE,tarifa cfe comercial,Informational,500-2k,Med,no,,,,,,,
+Tarifas CFE,tarifa gdmto,Commercial,100-500,Med,no,,,,,,,Under-served vs GDMTH
+Ahorro,como bajar recibo cfe,Commercial,500-2k,Med,yes,,,,,,,Top-of-pain huge volume
+Ahorro,recibo cfe muy alto,Informational,500-2k,Med,yes,,,,,,,
+Ahorro,ahorro recibo cfe,Commercial,100-500,Low,yes,,,,,,,
+Ahorro,cuanto ahorro con paneles solares,Commercial,500-2k,Med,yes,,,,,,,Calculator hook
+Ahorro,ahorro con paneles solares,Commercial,500-2k,Med,yes,,,,,,,
+Ahorro,reducir costo de energia empresa,Commercial,<100,Low,yes,,,,,,,
+Ahorro,retorno de inversion paneles solares,Commercial,100-500,Low,yes,,,,,,,
+Ahorro,calcular retorno de inversion paneles solares,Commercial,<100,Low,yes,,,,,,,
+Ahorro,payback paneles solares,Commercial,<100,Low,yes,,,,,,,
+Ahorro,paneles solares sin inversion inicial,Commercial,100-500,Low,yes,,,,,,,Strong PPA/lease intent
+Ahorro,arrendamiento paneles solares,Commercial,<100,Low,yes,,,,,,,
+Ahorro,financiamiento paneles solares empresa,Commercial,<100,Low,yes,,,,,,,
+Ahorro,eficiencia energetica industrial,Informational,100-500,Med,no,,,,,,,
+PPA,ppa solar,Commercial,100-500,Med,no,,,,,,,Contested ER+Enlight+Niko
+PPA,ppa energia mexico,Commercial,100-500,Low,yes,,,,,,,
+PPA,ppa energia solar,Commercial,100-500,Low,yes,,,,,,,
+PPA,ppa energia renovable,Commercial,<100,Low,yes,,,,,,,
+PPA,contrato ppa mexico,Commercial,<100,Low,yes,,,,,,,
+PPA,contrato ppa solar,Commercial,<100,Low,yes,,,,,,,Bottom-funnel near-zero comp
+PPA,que es un ppa en energia,Informational,100-500,Low,no,,,,,,,
+PPA,power purchase agreement mexico,Commercial,<100,Low,yes,,,,,,,
+PPA,energia renovable para empresas,Commercial,100-500,Med,yes,,,,,,,
+PPA,comprar energia renovable empresa,Commercial,<100,Low,yes,,,,,,,
+PPA,cel certificado de energia limpia,Informational,100-500,Med,no,,,,,,,
+BESS,almacenamiento de energia,Informational,2k+,High,no,,,,,,,
+BESS,almacenamiento de energia bess,Informational,100-500,Med,no,,,,,,,
+BESS,almacenamiento de energia industrial,Commercial,100-500,Low,yes,,,,,,,Differentiator low comp
+BESS,sistema bess,Informational,100-500,Med,no,,,,,,,
+BESS,sistema bess precio,Commercial,100-500,Low,yes,,,,,,,Buyer signal few MX pages
+BESS,sistema bess fotovoltaico,Commercial,<100,Low,yes,,,,,,,
+BESS,baterias para empresas,Commercial,100-500,Med,yes,,,,,,,
+BESS,baterias de respaldo para empresas,Commercial,<100,Low,yes,,,,,,,
+BESS,baterias solares para empresas,Commercial,<100,Low,yes,,,,,,,
+BESS,baterias almacenamiento energia solar,Commercial,100-500,Med,yes,,,,,,,
+BESS,baterias litio industriales,Commercial,<100,Low,yes,,,,,,,
+BESS,sistema de almacenamiento de energia para empresa,Commercial,<100,Low,yes,,,,,,,
+BESS,peak shaving bess,Informational,<100,Low,yes,,,,,,,
+BESS,recorte de demanda cfe,Commercial,<100,Low,yes,,,,,,,
+Autoconsumo,autoconsumo electrico mexico,Informational,100-500,Low,no,,,,,,,
+Autoconsumo,autoconsumo fotovoltaico,Informational,500-2k,Med,no,,,,,,,
+Autoconsumo,autoconsumo solar,Commercial,500-2k,Med,no,,,,,,,
+Autoconsumo,autoconsumo remoto,Informational,100-500,Low,yes,,,,,,,
+Autoconsumo,generacion distribuida cfe,Informational,100-500,Low,no,,,,,,,
+Autoconsumo,generacion distribuida cre,Informational,100-500,Low,no,,,,,,,
+Autoconsumo,interconexion cfe,Informational,100-500,Med,no,,,,,,,
+Autoconsumo,contrato interconexion cfe,Informational,100-500,Low,yes,,,,,,,
+Autoconsumo,interconexion cfe panel solar,Commercial,100-500,Low,yes,,,,,,,Process query = buyer
+Autoconsumo,solicitud interconexion cfe,Transactional,<100,Low,yes,,,,,,,
+Autoconsumo,medicion neta cfe,Informational,100-500,Low,no,,,,,,,
+Autoconsumo,net metering mexico,Informational,<100,Low,no,,,,,,,
+MEM,usuario calificado,Informational,100-500,Med,no,,,,,,,
+MEM,usuario calificado cre,Informational,100-500,Low,no,,,,,,,
+MEM,usuario calificado cfe,Informational,100-500,Low,no,,,,,,,
+MEM,registro usuario calificado cre,Transactional,<100,Low,yes,,,,,,,
+MEM,requisitos para ser usuario calificado,Informational,<100,Low,yes,,,,,,,
+MEM,migrar a usuario calificado,Commercial,<100,Low,yes,,,,,,,
+MEM,suministro calificado,Informational,100-500,Low,no,,,,,,,
+MEM,suministrador calificado mexico,Commercial,<100,Low,yes,,,,,,,
+MEM,mercado electrico mayorista,Informational,100-500,Med,no,,,,,,,
+MEM,cenace que es,Informational,100-500,Med,no,,,,,,,
+MEM,pml precio marginal local,Informational,<100,Med,no,,,,,,,Solo ER cubre demanda usuarios calificados
+Cargos CFE,factor de potencia,Informational,2k+,High,no,,,,,,,
+Cargos CFE,factor de potencia cfe,Informational,500-2k,Med,no,,,,,,,
+Cargos CFE,multas por bajo factor de potencia cfe,Commercial,100-500,Low,yes,,,,,,,
+Cargos CFE,penalizacion factor de potencia,Commercial,100-500,Low,yes,,,,,,,
+Cargos CFE,corrector de factor de potencia,Commercial,100-500,Med,yes,,,,,,,Product sale
+Cargos CFE,banco de capacitores cfe,Commercial,<100,Low,yes,,,,,,,
+Cargos CFE,demanda contratada cfe,Informational,100-500,Low,no,,,,,,,
+Cargos CFE,cargo por capacidad cfe,Informational,<100,Low,no,,,,,,,
+Cargos CFE,cargo de distribucion cfe,Informational,<100,Low,no,,,,,,,
+Cargos CFE,peak shaving,Informational,100-500,Med,no,,,,,,,Quartux home turf
+Geo,paneles solares monterrey,Commercial,500-2k,High,no,,,,,,,
+Geo,paneles solares guadalajara,Commercial,500-2k,High,no,,,,,,,
+Geo,paneles solares cdmx,Commercial,500-2k,High,no,,,,,,,
+Geo,empresas paneles solares cdmx,Commercial,100-500,Med,yes,,,,,,,
+Geo,paneles solares queretaro,Commercial,100-500,Med,yes,,,,,,,Bajio nearshoring hotspot
+Geo,paneles solares industriales queretaro,Commercial,<100,Low,yes,,,,,,,
+Geo,paneles solares cancun,Commercial,100-500,Med,yes,,,,,,,
+Geo,paneles solares tijuana,Commercial,100-500,Med,yes,,,,,,,
+Geo,paneles solares saltillo,Commercial,100-500,Low,yes,,,,,,,
+Geo,paneles solares merida,Commercial,100-500,Med,yes,,,,,,,
+Geo,paneles solares puebla,Commercial,100-500,Med,yes,,,,,,,
+Geo,paneles solares san luis potosi,Commercial,100-500,Low,yes,,,,,,,
+Geo,paneles solares leon,Commercial,100-500,Med,yes,,,,,,,
+Geo,paneles solares aguascalientes,Commercial,100-500,Low,yes,,,,,,,
+Geo,paneles solares hermosillo,Commercial,100-500,Med,yes,,,,,,,
+Nearshoring,nearshoring mexico,Informational,2k+,High,no,,,,,,,
+Nearshoring,nearshoring mexico empresas,Informational,100-500,Med,no,,,,,,,
+Nearshoring,energia limpia nearshoring,Informational,<100,Low,yes,,,,,,,
+Nearshoring,capacidad electrica nearshoring,Informational,<100,Low,no,,,,,,,
+Nearshoring,parques industriales nearshoring,Informational,100-500,Med,no,,,,,,,
