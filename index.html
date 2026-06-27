@@ -79,7 +79,18 @@
   .src{font-size:12px;color:var(--muted);margin-top:var(--s-16)}
   .src a{color:var(--accent)}
   .tl-rule{height:1px;background:var(--line);margin:var(--s-48) 0;border:0}
-  @media (max-width:860px){.bar-row{grid-template-columns:104px 1fr auto}}
+  /* TAM/SAM/SOM funnel */
+  .funnel{margin-top:var(--s-36);display:flex;flex-direction:column;gap:10px;align-items:center}
+  .frow{position:relative;color:#fff;border-radius:var(--r-input);padding:22px 28px;text-align:center;transition:width .9s cubic-bezier(.22,1,.36,1)}
+  .frow .v{font-family:var(--display);font-weight:var(--w-light);font-size:clamp(28px,4vw,44px);line-height:1}
+  .frow .l{font-family:var(--display);font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin-top:6px;opacity:.92}
+  .frow.tam{width:100%;background:#191B4D}
+  .frow.sam{width:64%;background:#3A1852}
+  .frow.som{width:34%;background:#621558}
+  .assume{display:grid;grid-template-columns:auto 1fr;gap:var(--s-12) var(--s-16);margin-top:var(--s-36);font-size:var(--text-body-sm)}
+  .assume .t{font-family:var(--display);font-weight:var(--w-med);color:var(--navy);white-space:nowrap}
+  .assume .d{color:var(--muted)}
+  @media (max-width:860px){.bar-row{grid-template-columns:104px 1fr auto}.frow.sam,.frow.som{width:100%}.assume{grid-template-columns:1fr}.assume .t{margin-top:var(--s-8)}}
 </style>
 </head>
 <body>
@@ -111,13 +122,11 @@
     </a>
     <div class="links">
       <a href="#tesis-inversion">Tesis</a>
+      <a href="#mercado">Mercado</a>
       <a href="#posicionamiento">Posición</a>
-      <a href="#capacidad">Capacidad</a>
-      <a href="#marca">Marca</a>
       <a href="#seo">SEO</a>
-      <a href="#precios">Precios</a>
-      <a href="#capital">Capital</a>
       <a href="#reforma">Reforma</a>
+      <a href="#newman">Newman</a>
       <a href="seo.html" class="btn">Plan SEO →</a>
     </div>
     <button class="burger" aria-label="Menú" aria-expanded="false">☰</button>
@@ -154,7 +163,7 @@
     <div class="split">
       <div>
         <p class="lead">El mercado de energía distribuida comercial e industrial de México crece por dos fuerzas simultáneas —la reforma eléctrica de 2025 y el nearshoring— y se reparte entre cuatro jugadores que ganan con <strong>capital</strong> (Energía Real) o con <strong>producto</strong> (paneles, baterías). Hay un cuadrante vacío: nadie compite con la <strong>inteligencia de tarifas</strong>. Newman lo ocupa — leer el recibo y la tarifa de CFE mejor que cualquiera y <strong>probar el ahorro antes de que el cliente firme</strong>. Es una capa ligera en capital, defendible por datos y con el viento regulatorio a favor.</p>
-        <p class="muted" style="margin-top:var(--s-24)">Dimensionamiento de mercado (TAM/SAM/SOM) con cifras públicas auditadas: en preparación para la v1.1 de este documento.</p>
+        <p class="muted" style="margin-top:var(--s-24)">Un pozo de gasto eléctrico C&I de <strong style="color:var(--text)">~$28.5 mil millones/año</strong> con crecimiento de doble dígito. <a href="#mercado" style="color:var(--accent)">Ver dimensionamiento TAM/SAM/SOM →</a></p>
       </div>
       <div>
         <div class="principles" style="margin-top:0;border-top:0">
@@ -183,8 +192,41 @@
   </div>
 </section>
 
+<!-- ===================== TAMAÑO DE MERCADO ===================== -->
+<section class="section" id="mercado">
+  <div class="wrap">
+    <p class="kicker">Tamaño de mercado · TAM / SAM / SOM</p>
+    <h2 class="h-lg">$28.5 mil millones al año pasan por el recibo de luz industrial.</h2>
+    <div class="section-rule"></div>
+    <p class="lead" style="max-width:62ch">El comercio y la industria consumen el <strong>72%</strong> de la electricidad de México (~360 TWh en 2024). A precio CFE de media tensión, eso es un pozo de gasto eléctrico de <strong>~$28.5 mil millones de USD al año</strong> — el dinero sobre la mesa que Newman ayuda a optimizar. La generación distribuida crece sobre él a doble dígito (<strong>+35% en 2024</strong>).</p>
+
+    <div class="funnel" data-reveal>
+      <div class="frow tam"><div class="v">$28.5 B</div><div class="l">TAM · Gasto eléctrico C&I anual en México</div></div>
+      <div class="frow sam"><div class="v">~$3.5 B</div><div class="l">SAM · Servicios de energía distribuida direccionables a C&I</div></div>
+      <div class="frow som"><div class="v">~$50 M</div><div class="l">SOM · Objetivo Newman a 3 años (cabeza de playa)</div></div>
+    </div>
+
+    <div class="assume">
+      <div class="t">TAM — $28.5 B/año</div>
+      <div class="d">359,807 GWh de consumo bruto 2024 × 72% participación C&I × ~$0.11 USD/kWh (tarifa GDMTH media tensión). <span class="conf">Ancla en datos públicos.</span></div>
+      <div class="t">SAM — ~$3.5 B/año</div>
+      <div class="d">~12% del TAM convertible a servicios de energía distribuida (solar + BESS + software) en sitios C&I con tarifa y techo/demanda viables. Cruce: ~1 GW/año de nueva GD ≈ $1B+ de capex/año + valor de PPA + O&M. <span class="conf">Supuesto explícito, direccional.</span></div>
+      <div class="t">SOM — ~$50 M/año</div>
+      <div class="d">~1.4% del SAM: captura realista a 3 años en un segmento foco (corredor Bajío/nearshoring + verticales priorizados), entrando por la capa de inteligencia (analítica de ahorro + originación de PPA/BESS). <span class="conf">Objetivo, pendiente de validación primaria.</span></div>
+    </div>
+
+    <hr class="tl-rule">
+    <div class="grid grid-3" data-reveal>
+      <div class="card"><h3 style="font-size:var(--text-subheading)">Motor 1 · Reforma 2025</h3><p>Mandato vinculante de 8,647 MW de BESS + umbral GD a 0.7 MW. La regulación empuja justo el producto de menor riesgo de Newman.</p></div>
+      <div class="card"><h3 style="font-size:var(--text-subheading)">Motor 2 · Nearshoring</h3><p>Nuevas plantas industriales con demanda creciente y metas ESG, en corredores (Bajío, norte) donde el costo y la confiabilidad de CFE aprietan.</p></div>
+      <div class="card"><h3 style="font-size:var(--text-subheading)">Motor 3 · Curva de adopción</h3><p>5,437 MW de GD acumulada (cierre 2025), 99% solar, +630 mil solicitudes de interconexión. El mercado ya validó la demanda; falta inteligencia.</p></div>
+    </div>
+    <p class="src">Fuentes: CNE / pv-magazine-latam (GD 4,447.92 MW en 2024 a 518,019 contratos; +35.3%; 5,437 MW a cierre 2025); consumo bruto 2024 ~359,807 GWh y 72% C&I (Wikipedia/Trade.gov sector eléctrico); tarifa GDMTH ~$0.119 USD/kWh (tetakawi/evoluo). TAM ancla en cifras públicas; SAM y SOM son supuestos explícitos marcados — <em>no precisión falsa</em>; se reemplazan con datos primarios en la v1.1.</p>
+  </div>
+</section>
+
 <!-- ===================== RESUMEN EJECUTIVO ===================== -->
-<section class="section" id="resumen">
+<section class="section panel" id="resumen">
   <div class="wrap">
     <p class="kicker">Resumen ejecutivo</p>
     <h2 class="h-lg">Cuatro modelos, una misma promesa.</h2>
