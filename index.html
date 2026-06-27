@@ -13,75 +13,73 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="newman.css">
 <style>
-  /* ---- report-specific data-viz layer (on top of Newman kit) ---- */
-  .eyebrow-meta{display:flex;gap:var(--s-16);flex-wrap:wrap;font-family:var(--display);font-size:var(--text-label);letter-spacing:.14em;text-transform:uppercase;color:var(--cloud);margin-top:var(--s-36)}
+  /* ---- report-specific data-viz layer · v3 palette (solid accent, no gradient) ---- */
+  .eyebrow-meta{display:flex;gap:var(--s-16);flex-wrap:wrap;font-family:var(--display);font-size:var(--text-label);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:var(--s-36)}
   .eyebrow-meta span{display:inline-flex;align-items:center;gap:var(--s-8)}
-  .eyebrow-meta span::before{content:"";width:5px;height:5px;background:#ff5fa2}
+  .eyebrow-meta span::before{content:"";width:5px;height:5px;background:var(--magenta)}
+
+  /* card with thin accent top edge (replaces old gradient card) */
+  .card-top{position:relative;overflow:hidden}
+  .card-top::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:var(--accent)}
 
   /* horizontal bar chart */
   .chart{margin-top:var(--s-36)}
-  .bar-row{display:grid;grid-template-columns:130px 1fr auto;align-items:center;gap:var(--s-16);margin-bottom:var(--s-16)}
-  .bar-row .lbl{font-family:var(--display);font-size:var(--text-body-sm);font-weight:var(--w-med)}
-  .bar-track{position:relative;height:14px;background:#e9e9ee;border-radius:var(--r-pill);overflow:hidden}
-  .dark .bar-track{background:#23232b}
+  .bar-row{display:grid;grid-template-columns:140px 1fr auto;align-items:center;gap:var(--s-16);margin-bottom:var(--s-16)}
+  .bar-row .lbl{font-family:var(--display);font-size:var(--text-body-sm);font-weight:var(--w-med);color:var(--text)}
+  .bar-track{position:relative;height:14px;background:#e1d8ef;border-radius:var(--r-pill);overflow:hidden}
   .bar-fill{position:absolute;inset:0 auto 0 0;width:0;border-radius:var(--r-pill);transition:width .9s cubic-bezier(.22,1,.36,1)}
-  .bar-row .val{font-family:var(--display);font-size:var(--text-body-sm);font-weight:var(--w-light);color:var(--grey);min-width:64px;text-align:right}
-  .dark .bar-row .val{color:var(--cloud)}
-  /* paired bar (claim vs verified) */
-  .bar-track.dual .bar-fill.claim{background:repeating-linear-gradient(45deg,#c9c9d2,#c9c9d2 6px,#d9d9e0 6px,#d9d9e0 12px);z-index:1}
-  .bar-track.dual .bar-fill.real{background:var(--grad);z-index:2;height:14px}
-  /* company accents */
-  .c-er{background:#621558}.c-en{background:#981060}.c-ni{background:#B80E65}.c-qx{background:#211A4E}.c-nm{background:var(--grad)}
+  .bar-row .val{font-family:var(--display);font-size:var(--text-body-sm);font-weight:var(--w-light);color:var(--muted);min-width:64px;text-align:right}
+  .bar-track.dual .bar-fill.claim{background:repeating-linear-gradient(45deg,#c9bedd,#c9bedd 6px,#d8cfe6 6px,#d8cfe6 12px);z-index:1}
+  .bar-track.dual .bar-fill.real{background:var(--accent);z-index:2}
+  .c-er{background:#621558}.c-en{background:#981060}.c-ni{background:#B80E65}.c-qx{background:#191B4D}.c-nm{background:#621558}.c-grey{background:#8E86A0}
 
-  /* reform / exposure heatmap matrix */
+  /* exposure heatmap matrix */
   .matrix{width:100%;border-collapse:separate;border-spacing:6px;margin-top:var(--s-24)}
-  .matrix th{font-family:var(--display);font-weight:var(--w-reg);font-size:var(--text-label);letter-spacing:.1em;text-transform:uppercase;color:var(--grey);text-align:left;padding:8px}
-  .matrix td{padding:14px 16px;border-radius:var(--r-sm);font-size:var(--text-body-sm);vertical-align:top}
+  .matrix th{font-family:var(--display);font-weight:var(--w-reg);font-size:var(--text-label);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:left;padding:8px}
+  .matrix td{padding:14px 16px;border-radius:var(--r-sm);font-size:var(--text-body-sm);vertical-align:top;color:var(--muted)}
   .matrix td.co{font-family:var(--display);font-weight:var(--w-med);color:#fff;min-width:120px}
   .risk{font-family:var(--display);font-weight:var(--w-med);font-size:var(--text-label);letter-spacing:.06em;text-transform:uppercase;color:#fff;padding:6px 12px;border-radius:var(--r-pill);display:inline-block;white-space:nowrap}
-  .risk.low{background:#1f9d6b}.risk.med{background:#b9770f}.risk.high{background:#c0392b}
-  .risk.adv{background:#0d7a52}
+  .risk.low{background:#1f7a57}.risk.med{background:#9a6510}.risk.high{background:#b3382c}.risk.adv{background:#0d6347}
 
   /* persuasion score dots */
   .score{display:inline-flex;gap:4px;vertical-align:middle}
-  .score i{width:11px;height:11px;border-radius:50%;background:#e1e1e8;display:inline-block}
-  .score i.on{background:var(--grad-flat)}
-  .dark .score i{background:#2c2c35}.dark .score i.on{background:#ff5fa2}
+  .score i{width:11px;height:11px;border-radius:50%;background:#ded5ea;display:inline-block}
+  .score i.on{background:var(--accent)}
 
   /* data table */
   .dtable{width:100%;border-collapse:collapse;margin-top:var(--s-24);font-size:var(--text-body-sm)}
-  .dtable th{font-family:var(--display);font-weight:var(--w-reg);font-size:var(--text-label);letter-spacing:.08em;text-transform:uppercase;color:var(--grey);text-align:left;padding:12px 14px;border-bottom:2px solid var(--line)}
-  .dtable td{padding:14px 14px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--graphite)}
-  .dtable tr:hover td{background:#fafafa}
-  .dtable td strong{color:var(--ink);font-weight:var(--w-semi)}
+  .dtable th{font-family:var(--display);font-weight:var(--w-reg);font-size:var(--text-label);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:left;padding:12px 14px;border-bottom:2px solid var(--line)}
+  .dtable td{padding:14px 14px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--muted)}
+  .dtable tr:hover td{background:var(--accent-tint)}
+  .dtable td strong{color:var(--text);font-weight:var(--w-semi)}
   .chip{display:inline-block;font-family:var(--display);font-size:11px;letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:var(--r-pill);font-weight:500}
-  .chip.buy{background:#fbe6ef;color:#8A0A4B}.chip.earn{background:#e3f3ec;color:#0d7a52}
-  .chip.up{background:#e3f3ec;color:#0d7a52}.chip.flat{background:#fdf0dc;color:#8a5a06}
+  .chip.buy{background:var(--accent-tint);color:var(--accent)}.chip.earn{background:#e2f1ea;color:#0d6347}
+  .chip.up{background:#e2f1ea;color:#0d6347}.chip.flat{background:#f6ece0;color:#8a5a06}
 
   /* callout */
-  .callout{border-left:3px solid var(--magenta);background:#fff;border-radius:0 var(--r-sm) var(--r-sm) 0;padding:var(--s-24) var(--s-24) var(--s-24) var(--s-36);margin-top:var(--s-24)}
-  .callout .k{font-family:var(--display);font-size:var(--text-label);letter-spacing:.12em;text-transform:uppercase;color:var(--magenta-ink);display:block;margin-bottom:var(--s-8)}
-  .dark .callout{background:#15151c;border-left-color:#ff5fa2}
-  .dark .callout p{color:var(--cloud)}
+  .callout{border-left:3px solid var(--accent);background:var(--surface);border:1px solid var(--line);border-left-width:3px;border-radius:0 var(--r-sm) var(--r-sm) 0;padding:var(--s-24) var(--s-24) var(--s-24) var(--s-36);margin-top:var(--s-24)}
+  .callout .k{font-family:var(--display);font-size:var(--text-label);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:var(--s-8)}
+  .callout p{color:var(--text)}
 
   /* network graph */
   .netwrap{margin-top:var(--s-36);overflow-x:auto}
   .netgraph{min-width:680px;width:100%;height:auto}
-  .netgraph .edge{stroke:#c9c9d2;stroke-width:1.5}
-  .netgraph .edge.dim{stroke-dasharray:4 4;stroke:#d9d9e0}
+  .netgraph .edge{stroke:#cabfdd;stroke-width:1.5}
+  .netgraph .edge.dim{stroke-dasharray:4 4;stroke:#d8cfe6}
   .netgraph .node-co{fill:#191B4D}
-  .netgraph .node-inv{fill:#fff;stroke:#c9c9d2;stroke-width:1.5}
-  .netgraph .node-hw{fill:#fbe6ef;stroke:#B80E65;stroke-width:1.5}
-  .netgraph text{font-family:var(--display);font-size:12px;fill:#0A0A0C}
+  .netgraph .node-inv{fill:#fff;stroke:#cabfdd;stroke-width:1.5}
+  .netgraph .node-hw{fill:#F1E9F4;stroke:#621558;stroke-width:1.5}
+  .netgraph text{font-family:var(--display);font-size:12px;fill:#221A33}
   .netgraph text.co{fill:#fff;font-weight:600}
-  .netgraph text.sm{font-size:10px;fill:#74747F}
+  .netgraph text.sm{font-size:10px;fill:#5F5870}
 
-  .legend{display:flex;gap:var(--s-24);flex-wrap:wrap;margin-top:var(--s-16);font-size:var(--text-label);color:var(--grey);font-family:var(--display);letter-spacing:.04em;text-transform:uppercase}
+  .legend{display:flex;gap:var(--s-24);flex-wrap:wrap;margin-top:var(--s-16);font-size:var(--text-label);color:var(--muted);font-family:var(--display);letter-spacing:.04em;text-transform:uppercase}
   .legend i{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:6px;vertical-align:middle}
-  .conf{font-size:11px;color:var(--grey);font-style:italic}
-  .src{font-size:12px;color:var(--grey);margin-top:var(--s-16)}
-  .src a{color:var(--magenta-ink)}
+  .conf{font-size:11px;color:var(--muted);font-style:italic}
+  .src{font-size:12px;color:var(--muted);margin-top:var(--s-16)}
+  .src a{color:var(--accent)}
   .tl-rule{height:1px;background:var(--line);margin:var(--s-48) 0;border:0}
+  @media (max-width:860px){.bar-row{grid-template-columns:104px 1fr auto}}
 </style>
 </head>
 <body>
@@ -91,9 +89,17 @@
 <nav class="nav" aria-label="Principal">
   <div class="row">
     <a href="#top" class="brand" aria-label="Newman Energy — inicio">
-      <svg viewBox="0 0 266.95 185.03" height="22" role="img" aria-label="Newman">
+      <svg viewBox="0 0 1865.2 185.03" height="20" role="img" aria-label="Newman">
         <defs><linearGradient id="nm" x1="65.13" y1="98.26" x2="220.81" y2="-6.74" gradientUnits="userSpaceOnUse">
           <stop offset=".15" stop-color="#191b4d"/><stop offset="1" stop-color="#b80e65"/></linearGradient></defs>
+        <g class="word" fill="#fff">
+          <path d="M329.74,6.8h41.71l111.77,119.15V6.8h38.95v165.93h-42.87l-110.39-119.15v119.15h-39.18V6.8Z"/>
+          <path d="M607.21,37.45v36.41h113.62v28.12h-113.62v40.1h119.38v30.65h-161.32V6.8h161.32v30.65h-119.38Z"/>
+          <path d="M1057.29,6.8l-64.3,165.93h-49.09l-38.03-111.77-2.77-8.99-2.54,8.99-38.03,111.77h-49.09L749.16,6.8h43.56l45.63,133.44,44.25-129.06h41.25l41.25,120.07,3,8.99,3.22-9.22,42.41-124.22h43.56Z"/>
+          <path d="M1086.78,6.8h52.08l57.85,99.1,4.15,6.68,61.76-105.78h51.86v165.93h-37.57V47.13l-5.07,8.76-54.62,90.8h-32.96l-59.69-99.56v125.6h-37.79V6.8Z"/>
+          <path d="M1489.85,136.78h-91.49l-16.36,35.95h-42.87L1419.79,6.8h48.17l80.89,165.93h-42.63l-16.36-35.95ZM1476.72,107.97l-32.5-71.44-32.73,71.44h65.22Z"/>
+          <path d="M1573.27,6.8h41.71l111.77,119.15V6.8h38.95v165.93h-42.87l-110.39-119.15v119.15h-39.18V6.8Z"/>
+        </g>
         <g fill="url(#nm)">
           <polygon points="2.47 3.06 0 0 85.76 0 86.47 1.3 168.41 152.36 147.28 185.03 2.47 3.06"/>
           <polygon points="95.54 3.04 93.17 0 151.49 0 152.2 1.33 204.39 96.74 188.98 120.56 95.54 3.04"/>
@@ -102,7 +108,6 @@
           <polygon points="236.11 0 266.95 0 253.06 21.48 236.11 0"/>
         </g>
       </svg>
-      <span class="caps" style="font-size:13px;letter-spacing:.2em;color:#fff">Newman</span>
     </a>
     <div class="links">
       <a href="#resumen">Resumen</a>
@@ -112,8 +117,7 @@
       <a href="#precios">Precios</a>
       <a href="#capital">Capital</a>
       <a href="#reforma">Reforma</a>
-      <a href="#newman">Newman</a>
-      <a href="seo.html">Plan SEO →</a>
+      <a href="seo.html" class="btn">Plan SEO →</a>
     </div>
     <button class="burger" aria-label="Menú" aria-expanded="false">☰</button>
   </div>
@@ -125,8 +129,8 @@
 <!-- ===================== HERO ===================== -->
 <header class="hero">
   <div class="wrap">
-    <p class="kicker" style="color:#ff5fa2">Inteligencia Competitiva · Sector C&I</p>
-    <h1>El tablero de la energía<br><b class="grad-text">distribuida</b> en México.</h1>
+    <p class="kicker">Inteligencia Competitiva · Sector C&I</p>
+    <h1>El tablero de la energía<br><b>distribuida</b> en México.</h1>
     <p class="lead">Cuatro jugadores se disputan el mercado comercial e industrial: Energía Real, Enlight, Niko y Quartux. Desmontamos sus afirmaciones de capacidad, su marca, su SEO, sus precios, su capital y su exposición a la reforma eléctrica de 2025 — y dónde queda el espacio en blanco.</p>
     <div class="cta">
       <a href="#resumen" class="btn">Leer el análisis</a>
@@ -141,7 +145,7 @@
 </header>
 
 <!-- ===================== STAT BAND ===================== -->
-<section class="section dark" style="background:var(--ink);color:#fff">
+<section class="section panel">
   <div class="wrap">
     <div class="stats" data-reveal>
       <div class="stat"><div class="num" data-to="4">0</div><small>Competidores directos analizados a fondo</small></div>
@@ -165,22 +169,22 @@
     <p class="lead" style="max-width:60ch">Los cuatro venden lo mismo en el discurso —"baja tu recibo de CFE, sin inversión"—. La diferencia real está en el modelo, el capital y la honestidad de sus números. En una mirada:</p>
 
     <div class="grid grid-2" style="margin-top:var(--s-48)">
-      <article class="card card-grad" data-reveal>
+      <article class="card card-top" data-reveal>
         <h3>Energía Real</h3>
         <p><strong>El peso pesado.</strong> PPA solar + BESS + redes privadas + MEM para industria y real estate. Respaldado por Riverstone, plan de US$700M. El único que publica precio (~$1.80 MXN/kWh). ~80 MW instalados reales vs. 250 MW de titular.</p>
         <div style="margin-top:var(--s-16)"><span class="badge">Escala &amp; capital</span></div>
       </article>
-      <article class="card card-grad" data-reveal>
+      <article class="card card-top" data-reveal>
         <h3>Enlight</h3>
         <p><strong>El incumbente.</strong> Solar C&I + almacenamiento, "One Stop Energy Shop". Cartera de logos azules (FEMSA, Bayer, Liverpool) y ENGIE detrás. Pero el cap table lleva congelado desde 2017 y un cofundador ya salió.</p>
         <div style="margin-top:var(--s-16)"><span class="badge">Marca &amp; clientes</span></div>
       </article>
-      <article class="card card-grad" data-reveal>
+      <article class="card card-top" data-reveal>
         <h3>Niko</h3>
         <p><strong>El disruptor.</strong> Solar residencial + C&I + planta virtual (VPP), tono fintech. ~US$23M de QED y otros en menos de 12 meses. La mejor voz de marca del grupo… pero su blog está caído y la historia de la VPP no aparece en su sitio.</p>
         <div style="margin-top:var(--s-16)"><span class="badge">Velocidad &amp; capital</span></div>
       </article>
-      <article class="card card-grad" data-reveal>
+      <article class="card card-top" data-reveal>
         <h3>Quartux</h3>
         <p><strong>El especialista.</strong> Almacenamiento C&I (BESS) + software de despacho con IA. US$50M de AINDA, crecimiento ~10× en plantilla. No compite con los solares: captura el 30–50% del recibo que el sol no puede tocar. El más resiliente a la reforma.</p>
         <div style="margin-top:var(--s-16)"><span class="badge">Almacenamiento</span></div>
@@ -190,7 +194,7 @@
 </section>
 
 <!-- ===================== CAPACIDAD ===================== -->
-<section class="section" id="capacidad">
+<section class="section panel" id="capacidad">
   <div class="wrap">
     <p class="kicker">Frente 01 · Capacidad declarada vs. verificable</p>
     <h2 class="h-lg">Los megawatts de titular casi nunca son los instalados.</h2>
@@ -233,7 +237,7 @@
 </section>
 
 <!-- ===================== MARCA / PERSUASIÓN ===================== -->
-<section class="section" id="marca" style="background:var(--white)">
+<section class="section" id="marca">
   <div class="wrap">
     <p class="kicker">Frente 02 · Marca y persuasión</p>
     <h2 class="h-lg">Todos lideran con el "%", que es justo lo que no diferencia.</h2>
@@ -250,11 +254,11 @@
     <div class="grid grid-2" style="margin-top:var(--s-48)">
       <div class="callout" data-reveal>
         <span class="k">La mejor línea del sector (desperdiciada)</span>
-        <p style="color:var(--ink)">Niko, en su página "Nosotros": <em>"comprar un sistema solar era como adquirir un carro con un vendedor de autos usados"</em>. Villano claro, reencuadre hacia confianza y simpleza. Puro Sutherland — y no aparece en su home, que abre con un genérico "eficiencia energética para tu empresa".</p>
+        <p>Niko, en su página "Nosotros": <em>"comprar un sistema solar era como adquirir un carro con un vendedor de autos usados"</em>. Villano claro, reencuadre hacia confianza y simpleza. Puro Sutherland — y no aparece en su home, que abre con un genérico "eficiencia energética para tu empresa".</p>
       </div>
       <div class="callout" data-reveal>
         <span class="k">La mejor reversión de riesgo</span>
-        <p style="color:var(--ink)">Quartux: <em>"si no hay ahorros, no hay pagos."</em> Elimina el riesgo de la decisión. Señal costosa de confianza. Pero esconde sus mejores pruebas (Cancún, 85% de mercado, US$50M) en notas de prensa, no en el sitio.</p>
+        <p>Quartux: <em>"si no hay ahorros, no hay pagos."</em> Elimina el riesgo de la decisión. Señal costosa de confianza. Pero esconde sus mejores pruebas (Cancún, 85% de mercado, US$50M) en notas de prensa, no en el sitio.</p>
       </div>
     </div>
     <p class="src">Fuente: auditoría directa de homepages y subpáginas (jun 2026). Marco: Sutherland (valor psicológico), Schwartz (etapas de conciencia), Dunford (posicionamiento), Cialdini (gatillos).</p>
@@ -262,7 +266,7 @@
 </section>
 
 <!-- ===================== SEO ===================== -->
-<section class="section" id="seo">
+<section class="section panel" id="seo">
   <div class="wrap">
     <p class="kicker">Frente 03 · Campo de batalla SEO</p>
     <h2 class="h-lg">Dos compran tráfico; dos lo ganan. El líder se autoexcluyó de la IA.</h2>
@@ -280,48 +284,49 @@
     <p class="conf" style="margin-top:var(--s-16)">DR/DA y verdict de anuncios son inferencias (SimilarWeb + señales); requieren verificación en Ahrefs/Meta Ad Library/Google Ads Transparency con sesión iniciada antes de publicar como cifras duras.</p>
 
     <div class="grid grid-3" style="margin-top:var(--s-48)">
-      <div class="card card-dark" data-reveal>
-        <h3 style="font-size:var(--text-subheading);color:#fff">Más fácil de superar</h3>
-        <p><strong style="color:#fff">Quartux</strong> — menor autoridad, ~7K visitas, parte informacionales mal clasificadas. <em>Pero</em> el round de AINDA está inyectando enlaces de prensa rápido.</p>
+      <div class="card card-top" data-reveal>
+        <h3 style="font-size:var(--text-subheading)">Más fácil de superar</h3>
+        <p><strong>Quartux</strong> — menor autoridad, ~7K visitas, parte informacionales mal clasificadas. <em>Pero</em> el round de AINDA está inyectando enlaces de prensa rápido.</p>
       </div>
-      <div class="card card-dark" data-reveal>
-        <h3 style="font-size:var(--text-subheading);color:#fff">Más difícil</h3>
-        <p><strong style="color:#fff">Enlight</strong> — 10 años de dominio, prensa Tier-1 (Forbes, Expansión), ENGIE, clusters por industria. Solo batible en cola larga + PR sostenido.</p>
+      <div class="card card-top" data-reveal>
+        <h3 style="font-size:var(--text-subheading)">Más difícil</h3>
+        <p><strong>Enlight</strong> — 10 años de dominio, prensa Tier-1 (Forbes, Expansión), ENGIE, clusters por industria. Solo batible en cola larga + PR sostenido.</p>
       </div>
-      <div class="card card-dark" data-reveal>
-        <h3 style="font-size:var(--text-subheading);color:#fff">El hueco estructural</h3>
-        <p><strong style="color:#fff">Energía Real bloquea a los bots de IA</strong> (ClaudeBot, GPTBot, Google-Extended) por User-Agent. El líder es invisible en respuestas de ChatGPT/Claude/Perplexity. Puerta abierta.</p>
+      <div class="card card-top" data-reveal>
+        <h3 style="font-size:var(--text-subheading)">El hueco estructural</h3>
+        <p><strong>Energía Real bloquea a los bots de IA</strong> (ClaudeBot, GPTBot, Google-Extended) por User-Agent. El líder es invisible en respuestas de ChatGPT/Claude/Perplexity. Puerta abierta.</p>
       </div>
     </div>
     <p class="src">Fuentes: SimilarWeb (paneles por dominio), perfiles LinkedIn/IG, prensa especializada. robots.txt de energiareal.mx verificado vía mac mini (User-Agent navegador = 200, ClaudeBot = 403).</p>
+    <div style="margin-top:var(--s-36)"><a href="seo.html" class="btn">Ver el plan de batalla SEO completo →</a></div>
   </div>
 </section>
 
 <!-- ===================== PRECIOS ===================== -->
-<section class="section" id="precios" style="background:var(--ink);color:#fff">
+<section class="section" id="precios">
   <div class="wrap">
-    <p class="kicker" style="color:#ff5fa2">Frente 04 · Precios y términos</p>
-    <h2 class="h-lg" style="color:#fff">La guerra de precios es invisible <span class="grad-text">por diseño</span>.</h2>
+    <p class="kicker">Frente 04 · Precios y términos</p>
+    <h2 class="h-lg">La guerra de precios es invisible <b style="color:var(--accent);font-weight:var(--w-semi)">por diseño</b>.</h2>
     <div class="section-rule"></div>
-    <p class="lead" style="max-width:62ch;color:#cfcfe0">Solo Energía Real publica un número (~$1.80 MXN/kWh + escalador 5%/año). Los otros tres esconden todo tras "solicita cotización". El arma competitiva no es el precio: es el <strong style="color:#fff">porcentaje de ahorro</strong> — y ahí la física manda.</p>
+    <p class="lead" style="max-width:62ch">Solo Energía Real publica un número (~$1.80 MXN/kWh + escalador 5%/año). Los otros tres esconden todo tras "solicita cotización". El arma competitiva no es el precio: es el <strong>porcentaje de ahorro</strong> — y ahí la física manda.</p>
 
     <div class="chart" data-reveal style="max-width:820px;margin-top:var(--s-48)">
-      <p class="muted" style="color:#cfcfe0;margin-bottom:var(--s-16)">Techo honesto de ahorro sobre un recibo GDMTH (referencia CFE ≈ 2.5–3.5 MXN/kWh)</p>
-      <div class="bar-row"><span class="lbl" style="color:#fff">Solo solar</span><div class="bar-track"><div class="bar-fill c-en" data-w="38%"></div></div><span class="val" style="color:#cfcfe0">30–40%</span></div>
-      <div class="bar-row"><span class="lbl" style="color:#fff">Solar + BESS</span><div class="bar-track"><div class="bar-fill c-nm" data-w="80%"></div></div><span class="val" style="color:#cfcfe0">65–90%</span></div>
-      <div class="bar-row"><span class="lbl" style="color:#fff">Cargo por demanda</span><div class="bar-track"><div class="bar-fill" data-w="45%" style="background:#5a5a66"></div></div><span class="val" style="color:#cfcfe0">30–50% intocable por solar</span></div>
+      <p class="muted" style="margin-bottom:var(--s-16)">Techo honesto de ahorro sobre un recibo GDMTH (referencia CFE ≈ 2.5–3.5 MXN/kWh)</p>
+      <div class="bar-row"><span class="lbl">Solo solar</span><div class="bar-track"><div class="bar-fill c-en" data-w="38%"></div></div><span class="val">30–40%</span></div>
+      <div class="bar-row"><span class="lbl">Solar + BESS</span><div class="bar-track"><div class="bar-fill c-nm" data-w="80%"></div></div><span class="val">65–90%</span></div>
+      <div class="bar-row"><span class="lbl">Cargo por demanda</span><div class="bar-track"><div class="bar-fill c-grey" data-w="45%"></div></div><span class="val">30–50% intocable por solar</span></div>
     </div>
 
     <div class="callout" data-reveal style="margin-top:var(--s-48)">
       <span class="k">La brecha marketing vs. realidad mejor documentada</span>
-      <p style="color:#fff">Energía Real anuncia <strong>"hasta 40%"</strong>. Su propio caso Chedraui, publicado por ellos, muestra un ahorro real de <strong>13%/año</strong>. El número de física para solar-solo (30–40%) coincide con la honestidad de Enlight, que separa: PPA "hasta 30%", almacenamiento "hasta 15%", compra directa "hasta 60%".</p>
+      <p>Energía Real anuncia <strong>"hasta 40%"</strong>. Su propio caso Chedraui, publicado por ellos, muestra un ahorro real de <strong>13%/año</strong>. El número de física para solar-solo (30–40%) coincide con la honestidad de Enlight, que separa: PPA "hasta 30%", almacenamiento "hasta 15%", compra directa "hasta 60%".</p>
     </div>
-    <p class="src" style="color:#9a9ab0">Fuentes: energiareal.mx (PPA, caso Chedraui); enlight.mx/calculadora; quartux.com/financing; CFE GDMTH (tarifas ene-2025). El cargo por demanda es 30–50% del recibo y el sol está apagado en la punta vespertina → el almacenamiento es obligatorio para los números altos.</p>
+    <p class="src">Fuentes: energiareal.mx (PPA, caso Chedraui); enlight.mx/calculadora; quartux.com/financing; CFE GDMTH (tarifas ene-2025). El cargo por demanda es 30–50% del recibo y el sol está apagado en la punta vespertina → el almacenamiento es obligatorio para los números altos.</p>
   </div>
 </section>
 
 <!-- ===================== CAPITAL / ECOSISTEMA ===================== -->
-<section class="section" id="capital">
+<section class="section panel" id="capital">
   <div class="wrap">
     <p class="kicker">Frente 05 · Capital y alianzas</p>
     <h2 class="h-lg">Cuatro cap tables disjuntos. Ningún inversionista cruza dos empresas.</h2>
@@ -330,42 +335,34 @@
 
     <div class="netwrap" data-reveal>
       <svg class="netgraph" viewBox="0 0 700 360" role="img" aria-label="Mapa de inversionistas y socios por empresa">
-        <!-- edges -->
         <line class="edge" x1="120" y1="70" x2="120" y2="150"/>
-        <line class="edge" x1="120" y1="70" x2="60" y2="150"/>
         <line class="edge" x1="290" y1="70" x2="290" y2="150"/>
-        <line class="edge" x1="360" y1="70" x2="290" y2="150"/>
-        <line class="edge" x1="500" y1="70" x2="500" y2="150"/>
-        <line class="edge" x1="430" y1="70" x2="500" y2="150"/>
-        <line class="edge" x1="570" y1="70" x2="500" y2="150"/>
+        <line class="edge" x1="380" y1="70" x2="290" y2="150"/>
+        <line class="edge" x1="470" y1="70" x2="500" y2="150"/>
+        <line class="edge" x1="540" y1="70" x2="500" y2="150"/>
         <line class="edge" x1="650" y1="70" x2="650" y2="150"/>
-        <!-- Sungrow shared (hardware) -->
         <line class="edge dim" x1="360" y1="300" x2="290" y2="200"/>
         <line class="edge dim" x1="360" y1="300" x2="650" y2="200"/>
 
-        <!-- investor nodes (top) -->
         <g><circle class="node-inv" cx="120" cy="55" r="22"/><text class="sm" x="120" y="30" text-anchor="middle">Riverstone</text></g>
-        <g><circle class="node-inv" cx="60" cy="135" r="0"/></g>
-        <g><circle class="node-inv" cx="290" cy="55" r="22"/><text class="sm" x="290" y="30" text-anchor="middle">ALLVP</text></g>
+        <g><circle class="node-inv" cx="290" cy="55" r="22"/><text class="sm" x="285" y="30" text-anchor="middle">ALLVP</text></g>
         <g><circle class="node-inv" cx="380" cy="55" r="22"/><text class="sm" x="392" y="30" text-anchor="middle">ENGIE</text></g>
-        <g><circle class="node-inv" cx="470" cy="55" r="22"/><text class="sm" x="455" y="30" text-anchor="middle">QED</text></g>
-        <g><circle class="node-inv" cx="540" cy="55" r="22"/><text class="sm" x="540" y="30" text-anchor="middle">Picus/468</text></g>
+        <g><circle class="node-inv" cx="470" cy="55" r="22"/><text class="sm" x="458" y="30" text-anchor="middle">QED</text></g>
+        <g><circle class="node-inv" cx="540" cy="55" r="22"/><text class="sm" x="548" y="30" text-anchor="middle">Picus/468</text></g>
         <g><circle class="node-inv" cx="650" cy="55" r="22"/><text class="sm" x="650" y="30" text-anchor="middle">AINDA</text></g>
 
-        <!-- company nodes (middle) -->
         <g><rect class="node-co" x="60" y="150" width="120" height="50" rx="12"/><text class="co" x="120" y="180" text-anchor="middle">Energía Real</text></g>
         <g><rect class="node-co" x="235" y="150" width="110" height="50" rx="12"/><text class="co" x="290" y="180" text-anchor="middle">Enlight</text></g>
         <g><rect class="node-co" x="445" y="150" width="110" height="50" rx="12"/><text class="co" x="500" y="180" text-anchor="middle">Niko</text></g>
         <g><rect class="node-co" x="595" y="150" width="110" height="50" rx="12"/><text class="co" x="650" y="180" text-anchor="middle">Quartux</text></g>
 
-        <!-- shared hardware node (bottom) -->
         <g><circle class="node-hw" cx="360" cy="315" r="26"/><text x="360" y="319" text-anchor="middle">Sungrow</text><text class="sm" x="360" y="352" text-anchor="middle">único nodo cruzado (hardware)</text></g>
       </svg>
     </div>
     <div class="legend">
       <span><i style="background:#191B4D"></i>Empresa</span>
-      <span><i style="background:#fff;border:1.5px solid #c9c9d2"></i>Inversionista</span>
-      <span><i style="background:#fbe6ef;border:1.5px solid #B80E65"></i>Hardware compartido</span>
+      <span><i style="background:#fff;border:1.5px solid #cabfdd"></i>Inversionista</span>
+      <span><i style="background:#F1E9F4;border:1.5px solid #621558"></i>Hardware compartido</span>
       <span>— — línea punteada = vínculo de hardware</span>
     </div>
     <p class="src">Capital anunciado: Energía Real plan US$700M (Riverstone) + crédito verde Bancomext/Multiva MX$2.13B; Enlight ALLVP+ENGIE (última ronda 2017); Niko ~US$23M (QED lead, ene-2025); Quartux US$50M (AINDA, dic-2025). Correcciones: Tesla→Quartux <em>no verificado</em>; Huemul→Niko <em>no verificable</em>.</p>
@@ -373,7 +370,7 @@
 </section>
 
 <!-- ===================== MOMENTUM ===================== -->
-<section class="section" id="momentum" style="background:var(--white)">
+<section class="section" id="momentum">
   <div class="wrap">
     <p class="kicker">Frente 05b · Momentum (plantilla)</p>
     <h2 class="h-lg">Quartux y Niko aceleran; Enlight opera sobre un cap table congelado.</h2>
@@ -388,14 +385,14 @@
 
     <div class="callout" data-reveal style="margin-top:var(--s-36)">
       <span class="k">Señal de contratación = estrategia</span>
-      <p style="color:var(--ink)">Las vacantes de Niko son 100% finanzas/operaciones (Tesorería, Cost Controller) — cero ingeniería de BESS o "VPP", pese a venderse como "la primera planta virtual de México". <strong>La historia de almacenamiento se comunica antes de contratarse.</strong> Enlight: mayor plantilla pero salida del cofundador/COO (hoy en Metrobús CDMX) y reseñas de "cambios estructurales constantes".</p>
+      <p>Las vacantes de Niko son 100% finanzas/operaciones (Tesorería, Cost Controller) — cero ingeniería de BESS o "VPP", pese a venderse como "la primera planta virtual de México". <strong>La historia de almacenamiento se comunica antes de contratarse.</strong> Enlight: mayor plantilla pero salida del cofundador/COO (hoy en Metrobús CDMX) y reseñas de "cambios estructurales constantes".</p>
     </div>
     <p class="src">Fuente: conteos de "miembros asociados" en LinkedIn (jun 2026) + PitchBook; tendencias de confianza media (sin serie mensual limpia). Conteos de vacantes exactos requieren sesión iniciada en LinkedIn.</p>
   </div>
 </section>
 
 <!-- ===================== REFORMA ===================== -->
-<section class="section" id="reforma">
+<section class="section panel" id="reforma">
   <div class="wrap">
     <p class="kicker">Frente 06 · Exposición a la reforma 2024–2026</p>
     <h2 class="h-lg">La reforma de Sheinbaum recentra al Estado — y premia al almacenamiento.</h2>
@@ -406,22 +403,22 @@
       <thead><tr><th>Empresa / modelo</th><th>Exposición</th><th>Por qué</th></tr></thead>
       <tbody>
         <tr>
-          <td class="co" style="background:#621558">Energía Real<br><span style="font-weight:300;font-size:11px;opacity:.8">PPA grande + redes privadas</span></td>
+          <td class="co" style="background:#621558">Energía Real<br><span style="font-weight:300;font-size:11px;opacity:.85">PPA grande + redes privadas</span></td>
           <td><span class="risk high">Media–Alta</span></td>
           <td>Depende de estructuras de autoconsumo y red privada hoy reguladas (permiso 0.7–20 MW); economía de cable privado expuesta a cargos de <em>porteo</em>. Mitigante: capital profundo (Riverstone) y entrada temprana.</td>
         </tr>
         <tr>
-          <td class="co" style="background:#981060">Enlight<br><span style="font-weight:300;font-size:11px;opacity:.8">Solar C&I + microred</span></td>
+          <td class="co" style="background:#981060">Enlight<br><span style="font-weight:300;font-size:11px;opacity:.85">Solar C&I + microred</span></td>
           <td><span class="risk med">Media</span></td>
           <td>Expuesta al régimen de permiso de autoconsumo 0.7–20 MW que ahora promueve abiertamente; la microred off-grid sobrevive. Matriz ENGIE diversifica el riesgo.</td>
         </tr>
         <tr>
-          <td class="co" style="background:#B80E65">Niko<br><span style="font-weight:300;font-size:11px;opacity:.8">Residencial/PYME + VPP</span></td>
+          <td class="co" style="background:#B80E65">Niko<br><span style="font-weight:300;font-size:11px;opacity:.85">Residencial/PYME + VPP</span></td>
           <td><span class="risk low">Baja</span></td>
           <td>Opera en el refugio ≤0.7 MW sin permiso + almacenamiento. A vigilar: borrador que contempla eliminar el <em>net metering</em> en media tensión — única amenaza real al modelo.</td>
         </tr>
         <tr>
-          <td class="co" style="background:#211A4E">Quartux<br><span style="font-weight:300;font-size:11px;opacity:.8">BESS puro C&I</span></td>
+          <td class="co" style="background:#191B4D">Quartux<br><span style="font-weight:300;font-size:11px;opacity:.85">BESS puro C&I</span></td>
           <td><span class="risk adv">Baja · Favorecida</span></td>
           <td>El menos atado a cualquier "figura". <strong>Beneficiario directo</strong> de la meta de 8,647 MW de BESS, los mandatos de storage (30% / 25% en licitación) y el permiso acelerado. El almacenamiento es el foso.</td>
         </tr>
@@ -430,56 +427,56 @@
 
     <div class="callout" data-reveal>
       <span class="k">Nota: el modelo de Innowwat quedó legalmente caduco</span>
-      <p style="color:var(--ink)">Innowwat (BCS) se vende como "autoconsumo aislado, figura autorizada por el Gobierno". Esa figura <strong>ya no existe</strong> bajo la LSE: el off-grid real sobrevive, pero el discurso de "abasto aislado" es de 2014. Su sitio está legalmente desactualizado.</p>
+      <p>Innowwat (BCS) se vende como "autoconsumo aislado, figura autorizada por el Gobierno". Esa figura <strong>ya no existe</strong> bajo la LSE: el off-grid real sobrevive, pero el discurso de "abasto aislado" es de 2014. Su sitio está legalmente desactualizado.</p>
     </div>
     <p class="src">Fuentes: DOF (reforma constitucional 31 oct 2024; LSE 18 mar 2025; Reglamento 3 oct 2025); diputados.gob.mx; ventanilla.energia.gob.mx (Esquemas de Desarrollo Mixto); SENER Plan 2025–2039. Análisis: Norton Rose Fulbright, Garrigues, Holland &amp; Knight. Confianza alta en fechas DOF, umbral 0.7 MW y meta de BESS; el "net metering en media tensión" es borrador, no ley.</p>
   </div>
 </section>
 
 <!-- ===================== NEWMAN: WHITESPACE ===================== -->
-<section class="section" id="newman" style="background:var(--ink);color:#fff">
+<section class="section" id="newman">
   <div class="wrap">
-    <p class="kicker" style="color:#ff5fa2">Conclusión · El espacio en blanco</p>
-    <h2 class="h-lg" style="color:#fff">Newman no es otro instalador. Es la <span class="grad-text">capa de inteligencia</span>.</h2>
+    <p class="kicker">Conclusión · El espacio en blanco</p>
+    <h2 class="h-lg">Newman no es otro instalador. Es la <b style="color:var(--accent);font-weight:var(--w-semi)">capa de inteligencia</b>.</h2>
     <div class="section-rule"></div>
-    <p class="lead" style="max-width:62ch;color:#cfcfe0">Los cuatro se posicionan como "instalador que baja tu recibo". El activo injusto de Newman es leer la tarifa y el recibo de CFE mejor que nadie, y probar el ahorro <strong style="color:#fff">antes</strong> de que el cliente firme. Eso lo saca de la guerra de precios y lo mete en una categoría propia: certeza e inteligencia.</p>
+    <p class="lead" style="max-width:62ch">Los cuatro se posicionan como "instalador que baja tu recibo". El activo injusto de Newman es leer la tarifa y el recibo de CFE mejor que nadie, y probar el ahorro <strong>antes</strong> de que el cliente firme. Eso lo saca de la guerra de precios y lo mete en una categoría propia: certeza e inteligencia.</p>
 
     <div class="grid grid-3" style="margin-top:var(--s-48)">
-      <article class="card card-dark" data-reveal>
+      <article class="card card-top" data-reveal>
         <div class="ico" aria-hidden="true"></div>
-        <h3 style="color:#fff">1 · Calculadora sin candado</h3>
+        <h3>1 · Calculadora sin candado</h3>
         <p>Sube tu recibo → número al instante, sin correo. Niko escribió el frame ("vendedor de autos usados") pero no lo construyó. Newman lo entrega como home, no como promesa.</p>
       </article>
-      <article class="card card-dark" data-reveal>
+      <article class="card card-top" data-reveal>
         <div class="ico" aria-hidden="true"></div>
-        <h3 style="color:#fff">2 · Ser la respuesta de la IA</h3>
+        <h3>2 · Ser la respuesta de la IA</h3>
         <p>Energía Real se autoexcluyó de los bots de IA. Newman permite todos, estructura el contenido para extracción y se vuelve la fuente citada en ChatGPT/Claude. Canal abandonado por el líder.</p>
       </article>
-      <article class="card card-dark" data-reveal>
+      <article class="card card-top" data-reveal>
         <div class="ico" aria-hidden="true"></div>
-        <h3 style="color:#fff">3 · El almacenamiento es el foso</h3>
+        <h3>3 · El almacenamiento es el foso</h3>
         <p>La reforma premia al BESS y la física obliga: el sol no toca el 30–50% del recibo. Newman ancla en DG ≤0.7 MW + BESS — exposición mínima, categoría favorecida.</p>
       </article>
-      <article class="card card-dark" data-reveal>
+      <article class="card card-top" data-reveal>
         <div class="ico" aria-hidden="true"></div>
-        <h3 style="color:#fff">4 · Contenido de tarifa vivo</h3>
+        <h3>4 · Contenido de tarifa vivo</h3>
         <p>Páginas por tarifa CFE actualizadas mensualmente desde la fuente — algo que ningún competidor tiene. El foso de SEO que solo Newman puede cavar.</p>
       </article>
-      <article class="card card-dark" data-reveal>
+      <article class="card card-top" data-reveal>
         <div class="ico" aria-hidden="true"></div>
-        <h3 style="color:#fff">5 · Bilingüe para nearshoring</h3>
+        <h3>5 · Bilingüe para nearshoring</h3>
         <p>Todos son solo-español o con hreflang roto. Las plantas que llegan por nearshoring compran en inglés. EN/ES bien hecho = tráfico B2B sin disputar.</p>
       </article>
-      <article class="card card-grad" data-reveal style="background:var(--grad);border:0">
+      <article class="card" data-reveal style="background:var(--navy);border-color:var(--navy)">
         <h3 style="color:#fff">El reencuadre</h3>
-        <p style="color:#fff">"Sabemos cuánto pagas de más a CFE. Te lo probamos en 60 segundos." Energía = producto financiero, no costo. Inteligencia de tarifas que nadie más tiene.</p>
+        <p style="color:var(--on-dark)">"Sabemos cuánto pagas de más a CFE. Te lo probamos en 60 segundos." Energía = producto financiero, no costo. Inteligencia de tarifas que nadie más tiene.</p>
       </article>
     </div>
   </div>
 </section>
 
 <!-- ===================== METODOLOGÍA ===================== -->
-<section class="section" id="metodologia">
+<section class="section panel" id="metodologia">
   <div class="wrap" style="max-width:840px">
     <p class="kicker">Metodología y confianza</p>
     <h2 class="h-lg">Cómo se construyó esto.</h2>
@@ -507,11 +504,11 @@
 <!-- ===================== FOOTER ===================== -->
 <footer class="footer">
   <div class="wrap">
-    <div class="grad-bar"></div>
+    <div class="accent-bar"></div>
     <div class="cols">
       <div style="max-width:280px">
-        <div class="caps" style="font-size:14px;letter-spacing:.24em;color:#fff;margin-bottom:var(--s-12)">Newman Energy</div>
-        <p style="color:#9a9ab0;font-size:var(--text-body-sm)">Inteligencia competitiva del sector de energía distribuida C&I en México. Documento interno de investigación.</p>
+        <div class="caps" style="font-size:14px;letter-spacing:.24em;margin-bottom:var(--s-12)">Newman Energy</div>
+        <p class="muted">Inteligencia competitiva del sector de energía distribuida C&I en México. Documento interno de investigación.</p>
       </div>
       <div>
         <a href="#capacidad">Capacidad</a>
@@ -523,7 +520,7 @@
         <a href="#capital">Capital</a>
         <a href="#reforma">Reforma</a>
         <a href="#newman">Conclusión</a>
-        <a href="#metodologia">Metodología</a>
+        <a href="seo.html">Plan SEO</a>
       </div>
     </div>
     <div class="end">

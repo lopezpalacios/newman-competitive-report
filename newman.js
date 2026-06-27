@@ -1,5 +1,6 @@
 /* ============================================================
-   Newman Energy — UI Kit JS  ·  vanilla, zero deps
+   Newman Energy — UI Kit JS  ·  v3 · vanilla, zero deps
+   + report extra: initBars (animated data-viz bars)
    ============================================================ */
 (() => {
   'use strict';
@@ -119,12 +120,11 @@
     els.forEach(el => io.observe(el));
   }
 
-  /* ---- animated bars: fill width from data-w when scrolled into view ---- */
+  /* ---- report extra: animated bars (fill width from data-w on scroll) ---- */
   function initBars(){
     const bars = document.querySelectorAll('.bar-fill[data-w]');
-    const set = el => { el.style.width = RM ? el.dataset.w : ''; requestAnimationFrame(()=>{ el.style.width = el.dataset.w; }); };
     if(RM || !('IntersectionObserver' in window)){ bars.forEach(b=>b.style.width=b.dataset.w); return; }
-    const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ set(e.target); io.unobserve(e.target); } }), {threshold:.4});
+    const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.style.width = e.target.dataset.w; io.unobserve(e.target); } }), {threshold:.4});
     bars.forEach(b => io.observe(b));
   }
 
