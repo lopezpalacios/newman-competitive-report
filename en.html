@@ -107,20 +107,6 @@
   .ref .n{font-family:var(--display);color:var(--accent);font-weight:var(--w-semi)}
   .ref a{color:var(--accent);word-break:break-word}
   .ref .what{display:block;color:var(--muted);margin-top:3px;font-size:12.5px}
-  /* porter five forces — plus layout */
-  .forces{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-16);margin-top:var(--s-36)}
-  .forces .f-top{grid-column:2;grid-row:1}
-  .forces .f-left{grid-column:1;grid-row:2}
-  .forces .f-mid{grid-column:2;grid-row:2}
-  .forces .f-right{grid-column:3;grid-row:2}
-  .forces .f-bot{grid-column:2;grid-row:3}
-  .force{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);padding:var(--s-24)}
-  .force.mid{background:var(--navy);border-color:var(--navy)}
-  .force h4{font-family:var(--display);font-size:16px;font-weight:var(--w-med);color:var(--navy);display:flex;justify-content:space-between;align-items:center;gap:var(--s-8)}
-  .force.mid h4{color:#fff}
-  .force p{font-size:13px;color:var(--muted);margin-top:10px;max-width:none}
-  .force.mid p{color:var(--on-dark)}
-  @media (max-width:860px){.forces{grid-template-columns:1fr}.forces>*{grid-column:1!important;grid-row:auto!important}}
   /* investment memo card */
   .memo{border:1px solid var(--line);border-radius:var(--r-card);overflow:hidden;background:var(--surface);margin-top:var(--s-36)}
   .memo .head{background:var(--navy);color:#fff;padding:18px 28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--s-8)}
@@ -141,7 +127,7 @@
     .hero .wrap{padding-block:24px!important}
     h1{font-size:34px!important}
     .h-lg{font-size:26px!important}
-    .card,.callout,.dtable,.memo,.forces,.funnel,.netgraph,.stats,.principle,.assume{break-inside:avoid}
+    .card,.callout,.dtable,.memo,.funnel,.netgraph,.stats,.principle,.assume{break-inside:avoid}
     h2,h3,h4,.kicker{break-after:avoid}
     .footer{background:#fff!important}
     .footer a,.footer .muted,.footer .caps,.footer .end{color:#333!important}
