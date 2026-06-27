@@ -300,9 +300,9 @@
     <div class="grid grid-3" data-reveal>
       <div class="card"><h3 style="font-size:var(--text-subheading)">Motor 1 · Reforma 2025</h3><p>Mandato vinculante de 8,647 MW de BESS + umbral GD a 0.7 MW. La regulación empuja justo el producto de menor riesgo de Newman.</p></div>
       <div class="card"><h3 style="font-size:var(--text-subheading)">Motor 2 · Nearshoring</h3><p>Nuevas plantas industriales con demanda creciente y metas ESG, en corredores (Bajío, norte) donde el costo y la confiabilidad de CFE aprietan.</p></div>
-      <div class="card"><h3 style="font-size:var(--text-subheading)">Motor 3 · Curva de adopción</h3><p>5,437 MW de GD acumulada (cierre 2025), 99% solar, +630 mil solicitudes de interconexión. El mercado ya validó la demanda; falta inteligencia.</p></div>
+      <div class="card"><h3 style="font-size:var(--text-subheading)">Motor 3 · Curva de adopción</h3><p>5,437 MW de GD acumulada (cierre 2025), 99% solar; +630 mil <em>solicitudes</em> registradas desde 2007 (vs. 518 mil contratos ya ejecutados a 2024). El mercado ya validó la demanda; falta inteligencia.</p></div>
     </div>
-    <p class="src">Fuentes: CNE / pv-magazine-latam (GD 4,447.92 MW en 2024 a 518,019 contratos; +35.3%; 5,437 MW a cierre 2025); consumo bruto 2024 ~359,807 GWh y 72% C&I (Wikipedia/Trade.gov sector eléctrico); tarifa GDMTH ~$0.119 USD/kWh (tetakawi/evoluo). TAM ancla en cifras públicas; SAM y SOM son supuestos explícitos marcados — <em>no precisión falsa</em>; se reemplazan con datos primarios en la v1.1.</p>
+    <p class="src">Fuentes: CNE / pv-magazine-latam (GD 4,447.92 MW en 2024 a 518,019 contratos; +35.3%; 5,437 MW a cierre 2025); consumo bruto 2024 ~359,807 GWh y 72% C&I (SENER Balance Nacional de Energía; Trade.gov); tarifa GDMTH ~$0.119 USD/kWh (tetakawi/evoluo). TAM ancla en cifras públicas; SAM y SOM son supuestos explícitos marcados — <em>no precisión falsa</em>; se reemplazan con datos primarios en la v1.1.</p>
   </div>
 </section>
 
@@ -512,6 +512,18 @@
       <div class="bar-row"><span class="lbl">Solar + BESS</span><div class="bar-track"><div class="bar-fill c-nm" data-w="80%"></div></div><span class="val">65–90%</span></div>
       <div class="bar-row"><span class="lbl">Cargo por demanda</span><div class="bar-track"><div class="bar-fill c-grey" data-w="45%"></div></div><span class="val">30–50% intocable por solar</span></div>
     </div>
+
+    <div class="tablewrap" style="overflow-x:auto;margin-top:var(--s-36)">
+    <table class="dtable" data-reveal style="min-width:560px">
+      <thead><tr><th>Tecnología</th><th>Claim de marketing</th><th>Techo físico</th><th>Modelo conservador Newman</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Solar PPA</strong></td><td>hasta 30–60%</td><td>30–40%</td><td>~18%</td></tr>
+        <tr><td><strong>Solar + BESS</strong></td><td>hasta 40–60%</td><td>65–90%</td><td>~30%</td></tr>
+        <tr><td><strong>BESS / peak shaving</strong></td><td>20–40%</td><td>30–50% del cargo de demanda</td><td>~15–25%</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="conf">Tres números por tecnología: lo que anuncia el sector, el techo físico, y lo que Newman modela (conservador, para no decepcionar). El ahorro real depende del perfil de carga del sitio.</p>
 
     <div class="callout" data-reveal style="margin-top:var(--s-48)">
       <span class="k">La brecha marketing vs. realidad mejor documentada</span>
@@ -751,7 +763,7 @@
       <article class="card card-top" data-reveal>
         <div class="ico" aria-hidden="true"></div>
         <h3>2 · Ser la respuesta de la IA</h3>
-        <p>Energía Real se autoexcluyó de los bots de IA. Newman permite todos, estructura el contenido para extracción y se vuelve la fuente citada en ChatGPT/Claude. Canal abandonado por el líder.</p>
+        <p>Energía Real se autoexcluyó de los bots de IA. Newman permite todos y estructura el contenido para extracción — <strong>hipótesis a validar</strong>: que compradores B2B de PPAs lleguen vía citas en ChatGPT/Claude. Canal barato que el líder abandonó.</p>
       </article>
       <article class="card card-top" data-reveal>
         <div class="ico" aria-hidden="true"></div>
@@ -820,7 +832,7 @@
         <p>~150 sitios (cabeza de playa SOM). Capa SaaS de inteligencia monetizada. Expansión a corredores Bajío/norte.</p>
       </article>
     </div>
-    <p class="src">Asignación, monto y metas son ilustrativos para mostrar la mecánica de un modelo de capital ligero; no constituyen una oferta. Las metas de la Fase 3 mapean al GMV SOM (~$50 M/año); el ingreso de Newman es el take-rate sobre ese GMV.</p>
+    <p class="src">Asignación, monto y metas son ilustrativos para mostrar la mecánica de un modelo de capital ligero; no constituyen una oferta. Las metas de la Fase 3 mapean al GMV SOM (~$50 M/año); el ingreso de Newman es el take-rate sobre ese GMV. <strong>Alcance de este documento:</strong> es la tesis de <em>mercado</em>; la diligencia de equipo, tracción (pilotos/LOIs) y respuesta competitiva son los siguientes pasos, no cubiertos aquí.</p>
   </div>
 </section>
 
@@ -852,9 +864,9 @@
 <section class="section" id="fuentes">
   <div class="wrap" style="max-width:960px">
     <p class="kicker">Apéndice · Fuentes y referencias</p>
-    <h2 class="h-lg">26 fuentes, auditables.</h2>
+    <h2 class="h-lg">21 fuentes externas + 5 métodos propios.</h2>
     <div class="section-rule"></div>
-    <p class="lead" style="max-width:62ch">Toda afirmación de este documento traza a una fuente pública o a una auditoría directa fechada. Las cifras de flota de capacidad son auto-reportadas (no auditables a nivel de empresa por la estructura legal de la GD en México); se marcan como tales en el cuerpo.</p>
+    <p class="lead" style="max-width:62ch">Las afirmaciones de mercado trazan a 21 fuentes externas (refs 1–21); las de marca/SEO a 5 métodos de auditoría e instrumentación propios (refs 22–26), señalados como tales. Las cifras de flota de capacidad son auto-reportadas (no auditables a nivel de empresa por la estructura legal de la GD en México); se marcan como tales en el cuerpo.</p>
 
     <div class="refs" style="margin-top:var(--s-48)">
       <div class="refgroup">
@@ -862,7 +874,7 @@
         <div class="ref"><span class="n">1</span><div><a href="https://www.pv-magazine-latam.com/2025/02/04/la-capacidad-de-la-generacion-distribuida-en-mexico-crecio-en-2024-mas-de-un-35-y-alcanza-los-4-44792-mw/">pv magazine Latam — GD México 4,447.92 MW (2024)</a><span class="what">Capacidad GD acumulada, +35.3%, 518,019 contratos de interconexión.</span></div></div>
         <div class="ref"><span class="n">2</span><div><a href="https://www.review-energy.com/solar/mexico-anade-986-mw-de-generacion-distribuida-en-2025-y-alcanza-5437-mw-acumulados">review-energy — GD 5,437 MW (cierre 2025)</a><span class="what">+986 MW en 2025; 99% fotovoltaica.</span></div></div>
         <div class="ref"><span class="n">3</span><div><a href="https://www.gob.mx/cne/articulos/generacion-distribuida-399260">CNE (gob.mx) — Generación Distribuida</a><span class="what">Marco regulatorio del regulador; umbral y estadística agregada.</span></div></div>
-        <div class="ref"><span class="n">4</span><div><a href="https://en.wikipedia.org/wiki/Electricity_sector_in_Mexico">Electricity sector in Mexico (Wikipedia)</a> · <a href="https://www.trade.gov/country-commercial-guides/mexico-power-sector-electricity-infrastructure-and-smart-grid">Trade.gov</a><span class="what">Consumo bruto ~359,807 GWh (2024); C&I = 72% de la demanda.</span></div></div>
+        <div class="ref"><span class="n">4</span><div><a href="https://www.gob.mx/sener/documentos/balance-nacional-de-energia">SENER — Balance Nacional de Energía</a> · <a href="https://www.cenace.gob.mx/Paginas/SIM/Reportes/EnergiaGeneradaTipoTec.aspx">CENACE</a> · <a href="https://www.trade.gov/country-commercial-guides/mexico-power-sector-electricity-infrastructure-and-smart-grid">Trade.gov</a><span class="what">Consumo bruto ~359,807 GWh (2024); C&I ≈ 72% de la demanda. Fuentes primarias del gobierno.</span></div></div>
         <div class="ref"><span class="n">5</span><div><a href="https://insights.tetakawi.com/industrial-electricity-and-utility-rates-in-mexico">Tetakawi — tarifas industriales México</a><span class="what">Tarifa GDMTH ~$0.119 USD/kWh; demanda >100 kW.</span></div></div>
         <div class="ref"><span class="n">6</span><div><a href="https://www.energiaadebate.com/generacion-distribuida-podria-alcanzar-5-5-gw-de-capacidad-al-final-del-ano/">Energía a Debate — proyección GD ~5.5 GW</a><span class="what">Trayectoria de crecimiento del mercado de GD.</span></div></div>
       </div>
