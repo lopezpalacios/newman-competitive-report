@@ -113,6 +113,33 @@
   .force p{font-size:13px;color:var(--muted);margin-top:10px;max-width:none}
   .force.mid p{color:var(--on-dark)}
   @media (max-width:860px){.forces{grid-template-columns:1fr}.forces>*{grid-column:1!important;grid-row:auto!important}}
+  /* investment memo card */
+  .memo{border:1px solid var(--line);border-radius:var(--r-card);overflow:hidden;background:var(--surface);margin-top:var(--s-36)}
+  .memo .head{background:var(--navy);color:#fff;padding:18px 28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--s-8)}
+  .memo .head .t{font-family:var(--display);font-weight:var(--w-med);letter-spacing:.03em;font-size:18px;color:#fff}
+  .memo .head .tag{font-family:var(--display);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-muted)}
+  .memo .row{display:grid;grid-template-columns:180px 1fr;gap:var(--s-24);padding:16px 28px;border-top:1px solid var(--line)}
+  .memo .row .k{font-family:var(--display);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);display:flex;align-items:flex-start;gap:var(--s-8)}
+  .memo .row .k::before{content:"";width:6px;height:6px;background:var(--magenta);flex:none;margin-top:5px}
+  .memo .row .v{color:var(--text);font-size:15px;line-height:1.5}
+  @media (max-width:860px){.memo .row{grid-template-columns:1fr;gap:6px}}
+  /* print / PDF — clean export for the deal room */
+  @media print{
+    .nav,.toasts,.skip,.cta,.hero .eyebrow-meta{display:none!important}
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    body{background:#fff}
+    .section{padding-block:22px!important}
+    .hero,.panel{background:#fff!important}
+    .hero .wrap{padding-block:24px!important}
+    h1{font-size:34px!important}
+    .h-lg{font-size:26px!important}
+    .card,.callout,.dtable,.memo,.forces,.funnel,.netgraph,.stats,.principle,.assume{break-inside:avoid}
+    h2,h3,h4,.kicker{break-after:avoid}
+    .footer{background:#fff!important}
+    .footer a,.footer .muted,.footer .caps,.footer .end{color:#333!important}
+    a{text-decoration:none}
+    #fuentes{break-before:page}
+  }
 </style>
 </head>
 <body>
@@ -143,7 +170,7 @@
       </svg>
     </a>
     <div class="links">
-      <a href="#tesis-inversion">Tesis</a>
+      <a href="#memo-inversion">Memo</a>
       <a href="#mercado">Mercado</a>
       <a href="#posicionamiento">Posición</a>
       <a href="#seo">SEO</a>
@@ -175,6 +202,29 @@
     </div>
   </div>
 </header>
+
+<!-- ===================== MEMO DE INVERSIÓN (30 SEG) ===================== -->
+<section class="section" id="memo-inversion">
+  <div class="wrap">
+    <p class="kicker">Memo de inversión · Lectura de 30 segundos</p>
+    <h2 class="h-lg">Todo el caso, en una pantalla.</h2>
+    <div class="section-rule"></div>
+    <div class="memo" data-reveal>
+      <div class="head"><span class="t">Newman Energy — Capa de inteligencia para energía C&I</span><span class="tag">Confidencial · Jun 2026</span></div>
+      <div class="row"><div class="k">Oportunidad</div><div class="v">Ser la capa de <strong>inteligencia de tarifas</strong> de la energía distribuida comercial e industrial en México — el cuadrante que ningún incumbente ocupa.</div></div>
+      <div class="row"><div class="k">Mercado</div><div class="v"><strong>~$28.5 mil M USD/año</strong> de gasto eléctrico C&I; generación distribuida creciendo <strong>+35%/año</strong>; viento de cola por la reforma 2025 + nearshoring.</div></div>
+      <div class="row"><div class="k">Tesis</div><div class="v">Cuatro rivales compiten por <strong>capital</strong> o por <strong>producto</strong>; ninguno por inteligencia. Newman lee la tarifa CFE mejor que nadie y <strong>prueba el ahorro antes de firmar</strong>. Ligero en capital, defendible por datos.</div></div>
+      <div class="row"><div class="k">Por qué ahora</div><div class="v">La reforma premia storage + DG ≤0.7 MW (el ancla de menor riesgo); CFE encarece; y los números inflados del sector (40% anunciado vs. <strong>13% real</strong>) abren un hueco de credibilidad.</div></div>
+      <div class="row"><div class="k">Competencia</div><div class="v">Energía Real (capital, US$700M) · Quartux (storage/IA, US$50M) · Niko (VC/VPP, US$23M) · Enlight (marca, cap table congelado desde 2017).</div></div>
+      <div class="row"><div class="k">Modelo</div><div class="v">PPA / BESS sin capex + SaaS de inteligencia. Ahorro <strong>honesto 18–30%</strong>, ingreso recurrente con margen tipo software; la calculadora sin candado baja el costo de adquisición.</div></div>
+      <div class="row"><div class="k">Riesgo clave</div><div class="v">Reversión regulatoria (net metering en MT) + capital incumbente — mitigado con postura detrás del medidor + storage + nicho. <a href="#riesgos" style="color:var(--accent)">Registro completo →</a></div></div>
+    </div>
+    <div style="margin-top:var(--s-24);display:flex;gap:var(--s-16);align-items:center;flex-wrap:wrap">
+      <button class="btn" onclick="window.print()">⬇ Descargar como PDF</button>
+      <span class="muted">Optimizado para impresión / sala de datos</span>
+    </div>
+  </div>
+</section>
 
 <!-- ===================== TESIS DE INVERSIÓN (BLUF) ===================== -->
 <section class="section" id="tesis-inversion">
